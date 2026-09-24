@@ -1,0 +1,14 @@
+# VAYU-NET Backend Dependencies (Render & Production Deployment)
+fastapi>=0.109.0,<1.0.0
+uvicorn[standard]>=0.27.0,<1.0.0
+pydantic>=2.5.0,<3.0.0
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=2.1.0,<3.0.0
+pandas>=2.1.0,<3.0.0
+pillow>=10.0.0
+matplotlib>=3.8.0
+python-multipart>=0.0.6
+requests>=2.31.0
+httpx>=0.26.0
+python-dotenv>=1.0.0
