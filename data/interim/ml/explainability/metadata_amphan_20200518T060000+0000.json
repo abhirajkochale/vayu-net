@@ -1,0 +1,35 @@
+{
+  "sample_id": "NIO_2020_AMPHAN_20200518_0600Z",
+  "storm_id": "NIO_2020_AMPHAN",
+  "storm_name": "AMPHAN",
+  "t0": "2020-05-18T06:00:00+00:00",
+  "source": "GridSat-B1 IRWIN CDR",
+  "split": "VALIDATION",
+  "frame_index": 5,
+  "ground_truth_category": "SuCS",
+  "ground_truth_wind_kt": 120.0,
+  "predicted_class": "VSCS",
+  "predicted_class_idx": 4,
+  "confidence": 0.27506524324417114,
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "image_height": 572,
+  "image_width": 929,
+  "max_activation_loc": [
+    242,
+    647
+  ],
+  "activation_centroid": [
+    235.29213995449453,
+    605.8765944283281
+  ],
+  "heatmap_path": "data/interim/ml/explainability/heatmap_amphan_20200518T060000+0000.png",
+  "overlay_path": "data/interim/ml/explainability/overlay_amphan_20200518T060000+0000.png",
+  "original_path": "data/interim/ml/explainability/original_amphan_20200518T060000+0000.png",
+  "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+  "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+  "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+  "dataset_version": "v1.0-locked",
+  "preprocessing_version": "TRAIN_zscore_standardization",
+  "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+}

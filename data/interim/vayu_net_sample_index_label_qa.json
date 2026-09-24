@@ -1,0 +1,65 @@
+{
+  "total_samples": 1319,
+  "invalid_categories": {
+    "t0": 23,
+    "12h": 26,
+    "24h": 27,
+    "48h": 27,
+    "values_observed": [
+      "10",
+      "12",
+      "15",
+      "18",
+      "20",
+      "22",
+      "24",
+      "28",
+      "3",
+      "32",
+      "36",
+      "40",
+      "42",
+      "45",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "SUCS"
+    ]
+  },
+  "missing_wind": {
+    "t0": 21,
+    "12h": 24,
+    "24h": 24,
+    "48h": 29
+  },
+  "issues_by_classification": {
+    "EXTRACTION_COLUMN_SHIFT": 180,
+    "LEGITIMATELY_MISSING_IN_SOURCE": 10,
+    "CASING_INCONSISTENCY": 8,
+    "OCR_COORDINATE_CORRUPTION": 7,
+    "EXTRACTION_POST_LANDFALL_SHIFT": 2,
+    "EXTRACTION_WHITESPACE_CORRUPTION": 1
+  },
+  "issues_traceability": {
+    "traceable_to_extraction": 198,
+    "traceable_to_sample_index_construction": 0,
+    "legitimate_source_missing_fields": 10
+  },
+  "mekunu_forensic_root_cause": {
+    "source_document": "27_60dae9_rsmc-2018.pdf",
+    "source_table": "Table 2.3.1 (Cyclone MEKUNU)",
+    "affected_page": 70,
+    "nature_of_defect": "COLUMN_SHIFT_EXTRACTION_ARTIFACT",
+    "mechanism": "Table continuation on page 70 detected with 10 columns by pdfplumber due to an artifactual empty column. Column mapping shifted Estimated Pressure Drop into the Grade field, and set Estimated Wind to NaN for rows 1-28, and shifted Grade to Pressure Drop for rows 30-38."
+  },
+  "overall_status": "REQUIRES CORRECTION",
+  "post_correction_status": {
+    "total_issues_identified": 208,
+    "resolved_by_source_correction": 198,
+    "retained_legitimate_source_nan": 10,
+    "unresolved_issues": 0,
+    "post_correction_overall_status": "PASS"
+  }
+}

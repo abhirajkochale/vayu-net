@@ -1,0 +1,851 @@
+{
+  "audit_version": "1.0",
+  "date": "2026-09-24",
+  "grid_coordinates": {
+    "sample_npz": "data/interim/gridsat/1998/gridsat_1998.10.07.03.npz",
+    "irwin_cdr_shape": [
+      572,
+      929
+    ],
+    "lat_shape": [
+      572
+    ],
+    "lon_shape": [
+      929
+    ],
+    "lat_0": -4.970001220703125,
+    "lat_last": 35.0,
+    "lat_min": -4.970001220703125,
+    "lat_max": 35.0,
+    "lon_0": 40.00999450683594,
+    "lon_last": 104.97000122070312,
+    "lon_min": 40.00999450683594,
+    "lon_max": 104.97000122070312,
+    "lat_monotonicity": "strictly increasing",
+    "lon_monotonicity": "strictly increasing",
+    "lat_spacing_min": 0.06999969482421875,
+    "lat_spacing_max": 0.07000732421875,
+    "lat_spacing_mean": 0.07000000029802322,
+    "lon_spacing_min": 0.069976806640625,
+    "lon_spacing_max": 0.07000732421875,
+    "lon_spacing_mean": 0.07000000774860382,
+    "array_orientation": {
+      "rows (dimension 0)": "Index 0 is South (-4.97\u00b0N), Index 571 is North (+35.00\u00b0N) -> Latitude increases UPWARD in physical space (downward in index space)",
+      "cols (dimension 1)": "Index 0 is West (40.01\u00b0E), Index 928 is East (104.97\u00b0E) -> Longitude increases LEFT-TO-RIGHT in index space"
+    }
+  },
+  "target_bounds": {
+    "total_samples": 1319,
+    "satellite_extent": {
+      "lat_min": -4.970001220703125,
+      "lat_max": 35.0,
+      "lon_min": 40.00999450683594,
+      "lon_max": 104.97000122070312
+    },
+    "target_lat_min": 3.0,
+    "target_lat_max": 24.8,
+    "target_lon_min": 51.5,
+    "target_lon_max": 99.7,
+    "samples_outside_lat_extent": 0,
+    "samples_outside_lon_extent": 0
+  },
+  "transform_reversibility": {
+    "formula": {
+      "u_lat": "(lat - (-5.0)) / 40.0",
+      "u_lon": "(lon - 40.0) / 65.0",
+      "lat_rec": "-5.0 + u_lat * 40.0",
+      "lon_rec": "40.0 + u_lon * 65.0"
+    },
+    "u_lat_min": 0.2,
+    "u_lat_max": 0.745,
+    "u_lon_min": 0.17692307692307693,
+    "u_lon_max": 0.9184615384615386,
+    "max_abs_lat_diff_deg": 3.552713678800501e-15,
+    "max_abs_lon_diff_deg": 0.0,
+    "exact_within_float_tolerance": true
+  },
+  "array_orientation": {
+    "array_shape": [
+      572,
+      929
+    ],
+    "dimension_0": {
+      "name": "rows / height",
+      "size": 572,
+      "physical_axis": "Latitude",
+      "index_0_value": -4.970001220703125,
+      "index_last_value": 35.0,
+      "correlation_with_lat": 0.9999999999999819,
+      "direction": "South to North (index 0 is South, index 571 is North)"
+    },
+    "dimension_1": {
+      "name": "columns / width",
+      "size": 929,
+      "physical_axis": "Longitude",
+      "index_0_value": 40.00999450683594,
+      "index_last_value": 104.97000122070312,
+      "correlation_with_lon": 0.9999999999999358,
+      "direction": "West to East (index 0 is West, index 928 is East)"
+    },
+    "loader_behavior": "Preserves original NPZ orientation without flipping or transposition."
+  },
+  "preprocessing_audit": [
+    {
+      "storm_id": "NIO_1998_UNNAMED_31",
+      "sample_id": "NIO_1998_UNNAMED_31_19981007_0300Z",
+      "split": "TRAIN",
+      "raw_min": 189.0500030517578,
+      "raw_max": 320.5400085449219,
+      "raw_mean": 281.1913146972656,
+      "raw_std": 18.616910934448242,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -3.9629552364349365,
+      "norm_max": 1.8065580129623413,
+      "norm_mean": 0.0800190195441246,
+      "norm_std": 0.8168720602989197
+    },
+    {
+      "storm_id": "NIO_2018_MEKUNU",
+      "sample_id": "NIO_2018_MEKUNU_20180523_0900Z",
+      "split": "TRAIN",
+      "raw_min": 184.83999633789062,
+      "raw_max": 337.57000732421875,
+      "raw_mean": 278.0927734375,
+      "raw_std": 32.98779296875,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -4.147681713104248,
+      "norm_max": 2.553799629211426,
+      "norm_mean": -0.055939264595508575,
+      "norm_std": 1.447437047958374
+    },
+    {
+      "storm_id": "NIO_2019_FANI",
+      "sample_id": "NIO_2019_FANI_20190429_1200Z",
+      "split": "VALIDATION",
+      "raw_min": 184.58999633789062,
+      "raw_max": 325.07000732421875,
+      "raw_mean": 285.0190734863281,
+      "raw_std": 26.88150405883789,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -4.158651351928711,
+      "norm_max": 2.0053250789642334,
+      "norm_mean": 0.2479708194732666,
+      "norm_std": 1.1795055866241455
+    },
+    {
+      "storm_id": "NIO_2019_VAYU",
+      "sample_id": "NIO_2019_VAYU_20190613_0000Z",
+      "split": "VALIDATION",
+      "raw_min": 177.6699981689453,
+      "raw_max": 305.17999267578125,
+      "raw_mean": 276.4489440917969,
+      "raw_std": 21.904802322387695,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -4.462286472320557,
+      "norm_max": 1.1325918436050415,
+      "norm_mean": -0.12806867063045502,
+      "norm_std": 0.9611380100250244
+    },
+    {
+      "storm_id": "NIO_2023_BIPARJOY",
+      "sample_id": "NIO_2023_BIPARJOY_20230611_0300Z",
+      "split": "TEST",
+      "raw_min": 185.88999938964844,
+      "raw_max": 306.739990234375,
+      "raw_mean": 281.4123840332031,
+      "raw_std": 20.56843376159668,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -4.101609706878662,
+      "norm_max": 1.201041340827942,
+      "norm_mean": 0.08971752971410751,
+      "norm_std": 0.9025008678436279
+    },
+    {
+      "storm_id": "NIO_2024_REMAL",
+      "sample_id": "NIO_2024_REMAL_20240525_0600Z",
+      "split": "TEST",
+      "raw_min": 181.9499969482422,
+      "raw_max": 329.16998291015625,
+      "raw_mean": 279.7333984375,
+      "raw_std": 30.390562057495117,
+      "imputed_pixels_pct": 0.0,
+      "norm_min": -4.274488925933838,
+      "norm_max": 2.1852235794067383,
+      "norm_mean": 0.016047654673457146,
+      "norm_std": 1.333475947380066
+    }
+  ],
+  "center_grid_mapping_30_samples": [
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_1998_UNNAMED_31_19981007_0300Z",
+      "storm_id": "NIO_1998_UNNAMED_31",
+      "t0": "1998-10-07T03:00:00+00:00",
+      "imd_lat": 14.0,
+      "imd_lon": 69.0,
+      "nearest_grid_row": 271,
+      "nearest_grid_col": 414,
+      "nearest_grid_lat": 14.0,
+      "nearest_grid_lon": 68.99000549316406,
+      "distance_km": 1.0783269527389907,
+      "delta_lat_deg": 0.0,
+      "delta_lon_deg": 0.0099945068359375
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_1999_UNNAMED_13_19990201_0300Z",
+      "storm_id": "NIO_1999_UNNAMED_13",
+      "t0": "1999-02-01T03:00:00+00:00",
+      "imd_lat": 9.0,
+      "imd_lon": 89.0,
+      "nearest_grid_row": 200,
+      "nearest_grid_col": 700,
+      "nearest_grid_lat": 9.029998779296875,
+      "nearest_grid_lon": 89.010009765625,
+      "distance_km": 3.5121795433177865,
+      "delta_lat_deg": 0.029998779296875,
+      "delta_lon_deg": 0.010009765625
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2018_MEKUNU_20180523_0900Z",
+      "storm_id": "NIO_2018_MEKUNU",
+      "t0": "2018-05-23T09:00:00+00:00",
+      "imd_lat": 11.8,
+      "imd_lon": 55.9,
+      "nearest_grid_row": 240,
+      "nearest_grid_col": 227,
+      "nearest_grid_lat": 11.830001831054688,
+      "nearest_grid_lon": 55.899993896484375,
+      "distance_km": 3.3360514694688463,
+      "delta_lat_deg": 0.03000183105468679,
+      "delta_lon_deg": 6.1035156235789145e-06
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2002_UNNAMED_25_20021110_1200Z",
+      "storm_id": "NIO_2002_UNNAMED_25",
+      "t0": "2002-11-10T12:00:00+00:00",
+      "imd_lat": 12.0,
+      "imd_lon": 82.5,
+      "nearest_grid_row": 242,
+      "nearest_grid_col": 607,
+      "nearest_grid_lat": 11.970001220703125,
+      "nearest_grid_lon": 82.5,
+      "distance_km": 3.3357120633423225,
+      "delta_lat_deg": 0.029998779296875,
+      "delta_lon_deg": 0.0
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2006_UNNAMED_2_2_3_20060702_1500Z",
+      "storm_id": "NIO_2006_UNNAMED_2_2_3",
+      "t0": "2006-07-02T15:00:00+00:00",
+      "imd_lat": 20.5,
+      "imd_lon": 87.0,
+      "nearest_grid_row": 364,
+      "nearest_grid_col": 671,
+      "nearest_grid_lat": 20.51000213623047,
+      "nearest_grid_lon": 86.98001098632812,
+      "distance_km": 2.3603105622635248,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.019989013671875
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2007_UNNAMED_2_3_1_20070603_1500Z",
+      "storm_id": "NIO_2007_UNNAMED_2_3_1",
+      "t0": "2007-06-03T15:00:00+00:00",
+      "imd_lat": 17.5,
+      "imd_lon": 66.5,
+      "nearest_grid_row": 321,
+      "nearest_grid_col": 378,
+      "nearest_grid_lat": 17.5,
+      "nearest_grid_lon": 66.47000122070312,
+      "distance_km": 3.181325134339107,
+      "delta_lat_deg": 0.0,
+      "delta_lon_deg": 0.029998779296875
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2009_WARD_20091212_1200Z",
+      "storm_id": "NIO_2009_WARD",
+      "t0": "2009-12-12T12:00:00+00:00",
+      "imd_lat": 10.0,
+      "imd_lon": 83.5,
+      "nearest_grid_row": 214,
+      "nearest_grid_col": 621,
+      "nearest_grid_lat": 10.010002136230469,
+      "nearest_grid_lon": 83.48001098632812,
+      "distance_km": 2.45522637339653,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.019989013671875
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2011_UNNAMED_2_9_1_20111128_0600Z",
+      "storm_id": "NIO_2011_UNNAMED_2_9_1",
+      "t0": "2011-11-28T06:00:00+00:00",
+      "imd_lat": 14.5,
+      "imd_lon": 69.0,
+      "nearest_grid_row": 278,
+      "nearest_grid_col": 414,
+      "nearest_grid_lat": 14.489997863769531,
+      "nearest_grid_lon": 68.99000549316406,
+      "distance_km": 1.5474682495273493,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.0099945068359375
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2014_NILOFAR_20141025_1200Z",
+      "storm_id": "NIO_2014_NILOFAR",
+      "t0": "2014-10-25T12:00:00+00:00",
+      "imd_lat": 13.0,
+      "imd_lon": 61.0,
+      "nearest_grid_row": 257,
+      "nearest_grid_col": 300,
+      "nearest_grid_lat": 13.019996643066406,
+      "nearest_grid_lon": 61.00999450683594,
+      "distance_km": 2.473164942183419,
+      "delta_lat_deg": 0.01999664306640625,
+      "delta_lon_deg": 0.0099945068359375
+    },
+    {
+      "split": "TRAIN",
+      "sample_id": "NIO_2016_KYANT_20161024_0000Z",
+      "storm_id": "NIO_2016_KYANT",
+      "t0": "2016-10-24T00:00:00+00:00",
+      "imd_lat": 16.4,
+      "imd_lon": 93.2,
+      "nearest_grid_row": 305,
+      "nearest_grid_col": 760,
+      "nearest_grid_lat": 16.37999725341797,
+      "nearest_grid_lon": 93.20999145507812,
+      "distance_km": 2.466398796977212,
+      "delta_lat_deg": 0.02000274658202983,
+      "delta_lon_deg": 0.009991455078122158
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_FANI_20190429_1200Z",
+      "storm_id": "NIO_2019_FANI",
+      "t0": "2019-04-29T12:00:00+00:00",
+      "imd_lat": 10.1,
+      "imd_lon": 86.7,
+      "nearest_grid_row": 215,
+      "nearest_grid_col": 667,
+      "nearest_grid_lat": 10.080001831054688,
+      "nearest_grid_lon": 86.70001220703125,
+      "distance_km": 2.223695330455409,
+      "delta_lat_deg": 0.019998168945312145,
+      "delta_lon_deg": 1.2207031247157829e-05
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_VAYU_20190613_0000Z",
+      "storm_id": "NIO_2019_VAYU",
+      "t0": "2019-06-13T00:00:00+00:00",
+      "imd_lat": 20.3,
+      "imd_lon": 69.5,
+      "nearest_grid_row": 361,
+      "nearest_grid_col": 421,
+      "nearest_grid_lat": 20.300003051757812,
+      "nearest_grid_lon": 69.47999572753906,
+      "distance_km": 2.0862153999743227,
+      "delta_lat_deg": 3.0517578117894573e-06,
+      "delta_lon_deg": 0.0200042724609375
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_HIKAA_20190923_0000Z",
+      "storm_id": "NIO_2019_HIKAA",
+      "t0": "2019-09-23T00:00:00+00:00",
+      "imd_lat": 20.5,
+      "imd_lon": 66.2,
+      "nearest_grid_row": 364,
+      "nearest_grid_col": 374,
+      "nearest_grid_lat": 20.51000213623047,
+      "nearest_grid_lon": 66.19000244140625,
+      "distance_km": 1.5235313916135316,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.009997558593752842
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_KYARR_20191028_0300Z",
+      "storm_id": "NIO_2019_KYARR",
+      "t0": "2019-10-28T03:00:00+00:00",
+      "imd_lat": 18.2,
+      "imd_lon": 65.0,
+      "nearest_grid_row": 331,
+      "nearest_grid_col": 357,
+      "nearest_grid_lat": 18.199996948242188,
+      "nearest_grid_lon": 65.0,
+      "distance_km": 0.0003393399860188878,
+      "delta_lat_deg": 3.0517578117894573e-06,
+      "delta_lon_deg": 0.0
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_PABUK_20190105_0300Z",
+      "storm_id": "NIO_2019_PABUK",
+      "t0": "2019-01-05T03:00:00+00:00",
+      "imd_lat": 9.1,
+      "imd_lon": 98.1,
+      "nearest_grid_row": 201,
+      "nearest_grid_col": 830,
+      "nearest_grid_lat": 9.099998474121094,
+      "nearest_grid_lon": 98.11001586914062,
+      "distance_km": 1.0996964322297975,
+      "delta_lat_deg": 1.5258789058947286e-06,
+      "delta_lon_deg": 0.010015869140630684
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_PAWAN_20191204_0600Z",
+      "storm_id": "NIO_2019_PAWAN",
+      "t0": "2019-12-04T06:00:00+00:00",
+      "imd_lat": 7.4,
+      "imd_lon": 56.6,
+      "nearest_grid_row": 177,
+      "nearest_grid_col": 237,
+      "nearest_grid_lat": 7.4199981689453125,
+      "nearest_grid_lon": 56.600006103515625,
+      "distance_km": 2.2236950307446652,
+      "delta_lat_deg": 0.019998168945312145,
+      "delta_lon_deg": 6.1035156235789145e-06
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_UNNAMED_2_4_1_20190806_1800Z",
+      "storm_id": "NIO_2019_UNNAMED_2_4_1",
+      "t0": "2019-08-06T18:00:00+00:00",
+      "imd_lat": 20.8,
+      "imd_lon": 87.6,
+      "nearest_grid_row": 368,
+      "nearest_grid_col": 680,
+      "nearest_grid_lat": 20.790000915527344,
+      "nearest_grid_lon": 87.61001586914062,
+      "distance_km": 1.5232283952024568,
+      "delta_lat_deg": 0.00999908447265696,
+      "delta_lon_deg": 0.010015869140630684
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2019_UNNAMED_2_9_1_20191107_0600Z",
+      "storm_id": "NIO_2019_UNNAMED_2_9_1",
+      "t0": "2019-11-07T06:00:00+00:00",
+      "imd_lat": 15.3,
+      "imd_lon": 88.7,
+      "nearest_grid_row": 290,
+      "nearest_grid_col": 696,
+      "nearest_grid_lat": 15.330001831054688,
+      "nearest_grid_lon": 88.73001098632812,
+      "distance_km": 4.635557737713455,
+      "delta_lat_deg": 0.03000183105468679,
+      "delta_lon_deg": 0.030010986328122158
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2020_AMPHAN_20200517_0600Z",
+      "storm_id": "NIO_2020_AMPHAN",
+      "t0": "2020-05-17T06:00:00+00:00",
+      "imd_lat": 11.5,
+      "imd_lon": 86.0,
+      "nearest_grid_row": 235,
+      "nearest_grid_col": 657,
+      "nearest_grid_lat": 11.480003356933594,
+      "nearest_grid_lon": 86.0,
+      "distance_km": 2.2235252589064674,
+      "delta_lat_deg": 0.01999664306640625,
+      "delta_lon_deg": 0.0
+    },
+    {
+      "split": "VALIDATION",
+      "sample_id": "NIO_2020_BUREVI_20201201_1800Z",
+      "storm_id": "NIO_2020_BUREVI",
+      "t0": "2020-12-01T18:00:00+00:00",
+      "imd_lat": 8.1,
+      "imd_lon": 84.2,
+      "nearest_grid_row": 187,
+      "nearest_grid_col": 631,
+      "nearest_grid_lat": 8.120002746582031,
+      "nearest_grid_lon": 84.17999267578125,
+      "distance_km": 3.130164445887489,
+      "delta_lat_deg": 0.020002746582031605,
+      "delta_lon_deg": 0.020007324218752842
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2023_BIPARJOY_20230611_0300Z",
+      "storm_id": "NIO_2023_BIPARJOY",
+      "t0": "2023-06-11T03:00:00+00:00",
+      "imd_lat": 18.0,
+      "imd_lon": 67.6,
+      "nearest_grid_row": 328,
+      "nearest_grid_col": 394,
+      "nearest_grid_lat": 17.98999786376953,
+      "nearest_grid_lon": 67.58999633789062,
+      "distance_km": 1.5349933945782521,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.010003662109369316
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2024_REMAL_20240525_0600Z",
+      "storm_id": "NIO_2024_REMAL",
+      "t0": "2024-05-25T06:00:00+00:00",
+      "imd_lat": 18.2,
+      "imd_lon": 89.7,
+      "nearest_grid_row": 331,
+      "nearest_grid_col": 710,
+      "nearest_grid_lat": 18.199996948242188,
+      "nearest_grid_lon": 89.70999145507812,
+      "distance_km": 1.055418171692047,
+      "delta_lat_deg": 3.0517578117894573e-06,
+      "delta_lon_deg": 0.009991455078122158
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2024_FENGAL_20241128_0000Z",
+      "storm_id": "NIO_2024_FENGAL",
+      "t0": "2024-11-28T00:00:00+00:00",
+      "imd_lat": 9.0,
+      "imd_lon": 82.2,
+      "nearest_grid_row": 200,
+      "nearest_grid_col": 603,
+      "nearest_grid_lat": 9.029998779296875,
+      "nearest_grid_lon": 82.22000122070312,
+      "distance_km": 3.9939776589483333,
+      "delta_lat_deg": 0.029998779296875,
+      "delta_lon_deg": 0.020001220703122158
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2021_GULAB_20210925_0600Z",
+      "storm_id": "NIO_2021_GULAB",
+      "t0": "2021-09-25T06:00:00+00:00",
+      "imd_lat": 18.4,
+      "imd_lon": 88.7,
+      "nearest_grid_row": 334,
+      "nearest_grid_col": 696,
+      "nearest_grid_lat": 18.410003662109375,
+      "nearest_grid_lon": 88.73001098632812,
+      "distance_km": 3.356077448954982,
+      "delta_lat_deg": 0.010003662109376421,
+      "delta_lon_deg": 0.030010986328122158
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2021_TAUKTAE_20210515_1800Z",
+      "storm_id": "NIO_2021_TAUKTAE",
+      "t0": "2021-05-15T18:00:00+00:00",
+      "imd_lat": 14.5,
+      "imd_lon": 72.6,
+      "nearest_grid_row": 278,
+      "nearest_grid_col": 466,
+      "nearest_grid_lat": 14.489997863769531,
+      "nearest_grid_lon": 72.6300048828125,
+      "distance_km": 3.4162988806648014,
+      "delta_lat_deg": 0.01000213623046875,
+      "delta_lon_deg": 0.030004882812505684
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2022_ASANI_20220508_1800Z",
+      "storm_id": "NIO_2022_ASANI",
+      "t0": "2022-05-08T18:00:00+00:00",
+      "imd_lat": 13.1,
+      "imd_lon": 87.5,
+      "nearest_grid_row": 258,
+      "nearest_grid_col": 678,
+      "nearest_grid_lat": 13.090003967285156,
+      "nearest_grid_lon": 87.47000122070312,
+      "distance_km": 3.4338392396283606,
+      "delta_lat_deg": 0.009996032714843395,
+      "delta_lon_deg": 0.029998779296875
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2022_SITRANG_20221022_1800Z",
+      "storm_id": "NIO_2022_SITRANG",
+      "t0": "2022-10-22T18:00:00+00:00",
+      "imd_lat": 14.9,
+      "imd_lon": 89.8,
+      "nearest_grid_row": 284,
+      "nearest_grid_col": 711,
+      "nearest_grid_lat": 14.910003662109375,
+      "nearest_grid_lon": 89.77999877929688,
+      "distance_km": 2.420002677686988,
+      "delta_lat_deg": 0.010003662109374645,
+      "delta_lon_deg": 0.020001220703122158
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2022_UNNAMED_2_15_1_20221215_0000Z",
+      "storm_id": "NIO_2022_UNNAMED_2_15_1",
+      "t0": "2022-12-15T00:00:00+00:00",
+      "imd_lat": 13.9,
+      "imd_lon": 68.2,
+      "nearest_grid_row": 270,
+      "nearest_grid_col": 403,
+      "nearest_grid_lat": 13.930000305175781,
+      "nearest_grid_lon": 68.22000122070312,
+      "distance_km": 3.9734595488026825,
+      "delta_lat_deg": 0.030000305175780895,
+      "delta_lon_deg": 0.020001220703122158
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2022_UNNAMED_2_9_1_20220814_0600Z",
+      "storm_id": "NIO_2022_UNNAMED_2_9_1",
+      "t0": "2022-08-14T06:00:00+00:00",
+      "imd_lat": 21.8,
+      "imd_lon": 87.5,
+      "nearest_grid_row": 382,
+      "nearest_grid_col": 678,
+      "nearest_grid_lat": 21.769996643066406,
+      "nearest_grid_lon": 87.47000122070312,
+      "distance_km": 4.552448552877297,
+      "delta_lat_deg": 0.03000335693359446,
+      "delta_lon_deg": 0.029998779296875
+    },
+    {
+      "split": "TEST",
+      "sample_id": "NIO_2023_MIDHILI_20231115_1800Z",
+      "storm_id": "NIO_2023_MIDHILI",
+      "t0": "2023-11-15T18:00:00+00:00",
+      "imd_lat": 16.0,
+      "imd_lon": 86.4,
+      "nearest_grid_row": 300,
+      "nearest_grid_col": 663,
+      "nearest_grid_lat": 16.029998779296875,
+      "nearest_grid_lon": 86.42001342773438,
+      "distance_km": 3.9626247055813306,
+      "delta_lat_deg": 0.029998779296875,
+      "delta_lon_deg": 0.020013427734369316
+    }
+  ],
+  "visual_alignment_figures": [
+    {
+      "storm_id": "NIO_1998_UNNAMED_31",
+      "sample_id": "NIO_1998_UNNAMED_31_19981007_0300Z",
+      "split": "TRAIN",
+      "t0": "1998-10-07T03:00:00+00:00",
+      "file": "alignment_nio_1998_unnamed_31_19981007.png",
+      "imd_center": [
+        14.0,
+        69.0
+      ],
+      "nearest_grid_idx": [
+        271,
+        414
+      ]
+    },
+    {
+      "storm_id": "NIO_2018_MEKUNU",
+      "sample_id": "NIO_2018_MEKUNU_20180523_0900Z",
+      "split": "TRAIN",
+      "t0": "2018-05-23T09:00:00+00:00",
+      "file": "alignment_nio_2018_mekunu_20180523.png",
+      "imd_center": [
+        11.8,
+        55.9
+      ],
+      "nearest_grid_idx": [
+        240,
+        227
+      ]
+    },
+    {
+      "storm_id": "NIO_2019_FANI",
+      "sample_id": "NIO_2019_FANI_20190429_1200Z",
+      "split": "VALIDATION",
+      "t0": "2019-04-29T12:00:00+00:00",
+      "file": "alignment_nio_2019_fani_20190429.png",
+      "imd_center": [
+        10.1,
+        86.7
+      ],
+      "nearest_grid_idx": [
+        215,
+        667
+      ]
+    },
+    {
+      "storm_id": "NIO_2019_VAYU",
+      "sample_id": "NIO_2019_VAYU_20190613_0000Z",
+      "split": "VALIDATION",
+      "t0": "2019-06-13T00:00:00+00:00",
+      "file": "alignment_nio_2019_vayu_20190613.png",
+      "imd_center": [
+        20.3,
+        69.5
+      ],
+      "nearest_grid_idx": [
+        361,
+        421
+      ]
+    },
+    {
+      "storm_id": "NIO_2023_BIPARJOY",
+      "sample_id": "NIO_2023_BIPARJOY_20230611_0300Z",
+      "split": "TEST",
+      "t0": "2023-06-11T03:00:00+00:00",
+      "file": "alignment_nio_2023_biparjoy_20230611.png",
+      "imd_center": [
+        18.0,
+        67.6
+      ],
+      "nearest_grid_idx": [
+        328,
+        394
+      ]
+    },
+    {
+      "storm_id": "NIO_2024_REMAL",
+      "sample_id": "NIO_2024_REMAL_20240525_0600Z",
+      "split": "TEST",
+      "t0": "2024-05-25T06:00:00+00:00",
+      "file": "alignment_nio_2024_remal_20240525.png",
+      "imd_center": [
+        18.2,
+        89.7
+      ],
+      "nearest_grid_idx": [
+        331,
+        710
+      ]
+    }
+  ],
+  "prediction_collapse_check": {
+    "samples_evaluated": 50,
+    "pred_lat": {
+      "mean": 12.985229263305664,
+      "std": 1.0681449141184418,
+      "min": 11.23939323425293,
+      "max": 16.095712661743164
+    },
+    "true_lat": {
+      "mean": 17.529999961853026,
+      "std": 4.360516019522538,
+      "min": 11.0,
+      "max": 24.100000381469727
+    },
+    "pred_lon": {
+      "mean": 73.81557846069336,
+      "std": 5.714470392808899,
+      "min": 63.480712890625,
+      "max": 85.26821899414062
+    },
+    "true_lon": {
+      "mean": 75.06199966430664,
+      "std": 9.409057362207779,
+      "min": 61.79999923706055,
+      "max": 91.19999694824219
+    },
+    "std_ratio_lat": 0.24495837404018989,
+    "std_ratio_lon": 0.6073371829745156,
+    "is_geographically_collapsed": true,
+    "per_storm": {
+      "NIO_2021_GULAB": {
+        "samples": 9,
+        "pred_lat_mean": 14.620664808485243,
+        "pred_lat_std": 0.7710038798124458,
+        "pred_lon_mean": 73.33778805202908,
+        "pred_lon_std": 3.370635189372687,
+        "true_lat_mean": 18.355555004543728,
+        "true_lon_mean": 88.8000005086263,
+        "mean_dpe_km": 1706.1252565678408
+      },
+      "NIO_2021_JAWAD": {
+        "samples": 7,
+        "pred_lat_mean": 11.829719815935407,
+        "pred_lat_std": 0.5093567506042512,
+        "pred_lon_mean": 83.14091491699219,
+        "pred_lon_std": 1.5672913857411745,
+        "true_lat_mean": 13.757142748151507,
+        "true_lon_mean": 86.32857186453683,
+        "mean_dpe_km": 504.5521593615435
+      },
+      "NIO_2021_SHAHEEN": {
+        "samples": 15,
+        "pred_lat_mean": 13.082953135172525,
+        "pred_lat_std": 0.7583922678331313,
+        "pred_lon_mean": 74.5091049194336,
+        "pred_lon_std": 4.709113558743719,
+        "true_lat_mean": 23.38666674296061,
+        "true_lon_mean": 64.6866668701172,
+        "mean_dpe_km": 1596.16458337458
+      },
+      "NIO_2021_TAUKTAE": {
+        "samples": 19,
+        "pred_lat_mean": 12.559112849988436,
+        "pred_lat_std": 0.5612869689581955,
+        "pred_lon_mean": 70.05872907136616,
+        "pred_lon_std": 4.285007799842805,
+        "true_lat_mean": 13.905263298436216,
+        "true_lon_mean": 72.59473539653577,
+        "mean_dpe_km": 519.049187371936
+      }
+    }
+  },
+  "centroid_baseline": {
+    "train_centroid_mean": {
+      "lat": 14.493534482758621,
+      "lon": 80.74281609195403
+    },
+    "train_centroid_median": {
+      "lat": 13.0,
+      "lon": 86.0
+    },
+    "constant_mean_predictor_test_dpe": {
+      "mean_km": 1185.9798063126439,
+      "median_km": 1082.6110514892514
+    },
+    "constant_median_predictor_test_dpe": {
+      "mean_km": 1289.1993795208382,
+      "median_km": 1078.1640685979214
+    },
+    "single_frame_cnn_test_dpe": {
+      "mean_km": 1215.1,
+      "median_km": 1204.9
+    },
+    "cnn_vs_centroid_diff_km": 29.12019368735605
+  },
+  "hypotheses_evaluation": {
+    "A_spatial_array_orientation_mismatch": {
+      "plausible": false,
+      "evidence": "Array coordinates lat/lon are strictly monotonic (spacing 0.07\u00b0). Distance from IMD ground-truth to nearest satellite grid cell is <= 5.5 km for 100% of samples. Visual overlays confirm the red crosshair coincides perfectly with cyclone eyes/vortex cores."
+    },
+    "B_coordinate_grid_mismatch": {
+      "plausible": false,
+      "evidence": "Zero target coordinates out of 1,319 lie outside the satellite bounds. Max coordinate deviation from nearest grid point is ~0.035\u00b0 (half of 0.07\u00b0 cell size)."
+    },
+    "C_dataset_normalization_problem": {
+      "plausible": false,
+      "evidence": "Satellite IR mean (279.37 K) and std (22.79 K) cleanly standardize pixel values into [-3.5, +2.5]. Imputation replaces NaNs with 0.0 normalized without destroying local cloud contrast."
+    },
+    "D_target_normalization_problem": {
+      "plausible": false,
+      "evidence": "Geographic normalization maps [-5, 35] lat and [40, 105] lon to [0, 1]. Reconstruction error is < 1e-15 degrees across all 1,319 samples. Denormalization is exact."
+    },
+    "E_model_prediction_collapse": {
+      "plausible": true,
+      "evidence": "PROVEN. The CNN center head outputs latitude with std = 1.07\u00b0 (compared to actual std = 4.36\u00b0), clustered tightly around 13.0\u00b0N (the exact training set median). The model collapsed to predicting the climatological regional mean/median."
+    },
+    "F_severe_class_imbalance": {
+      "plausible": true,
+      "evidence": "Affects category classification (84% of samples in D, DD, CS; macro F1 = 0.0911). Does not directly cause spatial collapse, but shared backbone gradients are dominated by majority categories."
+    },
+    "G_insufficient_representation_capacity": {
+      "plausible": true,
+      "evidence": "Training a 1-channel ResNet-18 from scratch on only 696 unaugmented full-basin images (572x929, covering 4,000 x 6,500 km) without pretrained weights or bounding box supervision causes severe overfitting by epoch 2 (val loss diverged from 3.08 to 5.32)."
+    },
+    "H_global_average_pooling_spatial_loss": {
+      "plausible": true,
+      "evidence": "PRIMARY ARCHITECTURAL CAUSE. The ResNet-18 backbone applies AdaptiveAvgPool2d((1, 1)) at layer4, completely averaging out all 2D spatial dimensions [B, 512, 18, 29] -> [B, 512, 1, 1]. Global average pooling destroys absolute spatial position information! To predict coordinate location from an image, a model requires either spatial coordinate channels (CoordConv), spatial heatmaps (UNet), detection heads (YOLO/FasterRCNN), or patch attention, rather than global average pooling."
+    }
+  }
+}

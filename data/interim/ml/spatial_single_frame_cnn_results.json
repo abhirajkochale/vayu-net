@@ -1,0 +1,346 @@
+{
+  "metadata": {
+    "experiment_name": "SpatialAwareSingleFrameCNN",
+    "model_architecture": "SpatialAwareSingleFrameResNet (1-channel ResNet-18, weights=None)",
+    "parameter_count": 11396137,
+    "python_version": "3.13.13",
+    "pytorch_version": "2.14.0+cpu",
+    "device": "cpu",
+    "random_seed": 42,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "epochs_trained": 3,
+    "best_epoch": 1,
+    "patience": 2,
+    "loss_weights": {
+      "heatmap": 10.0,
+      "coord": 1.0,
+      "wind": 1.0,
+      "category": 1.0
+    },
+    "heatmap_resolution": [
+      72,
+      117
+    ],
+    "gaussian_sigma_cells": 1.5,
+    "loss_formulation": {
+      "heatmap": "MSELoss(pred_heatmap_prob, gaussian_target_heatmap)",
+      "coord": "SmoothL1Loss(soft_argmax_norm_center, target_norm_center)",
+      "wind": "MaskedSmoothL1Loss(pred_norm_wind, target_norm_wind)",
+      "category": "CrossEntropyLoss(pred_cat_logits, target_cat, ignore_index=-1)",
+      "total": "10.0 * heatmap + 1.0 * coord + 1.0 * wind + 1.0 * category"
+    }
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 3.4458,
+      "train_loss_hm": 0.1518,
+      "train_loss_coord": 0.0144,
+      "train_loss_wind": 0.328,
+      "train_loss_cat": 1.5849,
+      "val_loss": 4.3424,
+      "val_loss_hm": 0.1237,
+      "val_loss_coord": 0.0121,
+      "val_loss_wind": 0.9639,
+      "val_loss_cat": 2.1291,
+      "val_mean_dpe_km": 1263.4,
+      "val_median_dpe_km": 1304.2,
+      "val_wind_mae_kt": 24.75,
+      "val_cat_acc": 0.2389,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.735263621670076,
+      "train_loss_hm": 0.100200273353478,
+      "train_loss_coord": 0.012243415592987647,
+      "train_loss_wind": 0.3060094587419225,
+      "train_loss_cat": 1.415008013275848,
+      "val_loss": 4.422430806689793,
+      "val_loss_hm": 0.09617481806448527,
+      "val_loss_coord": 0.009220878179702494,
+      "val_loss_wind": 1.087201981080903,
+      "val_loss_cat": 2.364259818243602,
+      "val_mean_dpe_km": 975.4104208301226,
+      "val_median_dpe_km": 882.6461926217919,
+      "val_wind_mae_kt": 26.602736790974934,
+      "val_cat_acc": 0.12955465587044535,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.4425161789203513,
+      "train_loss_hm": 0.08385246589608576,
+      "train_loss_coord": 0.010127398602921387,
+      "train_loss_wind": 0.27208914821860436,
+      "train_loss_cat": 1.321774949972657,
+      "val_loss": 4.453020580231198,
+      "val_loss_hm": 0.08919126812427763,
+      "val_loss_coord": 0.007274067480235346,
+      "val_loss_wind": 1.0605755864627777,
+      "val_loss_cat": 2.493258215132214,
+      "val_mean_dpe_km": 709.051350650639,
+      "val_median_dpe_km": 294.0241239852635,
+      "val_wind_mae_kt": 27.02388332003639,
+      "val_cat_acc": 0.2793522267206478,
+      "lr": 0.0001
+    }
+  ],
+  "metrics": {
+    "train": {
+      "center_lat_mae_deg": 4.036668997386406,
+      "center_lon_mae_deg": 13.225086420431904,
+      "center_mean_dpe_km": 1516.266863846321,
+      "center_median_dpe_km": 1553.6541044503483,
+      "center_p90_dpe_km": 1994.228089892253,
+      "pred_lat_std_deg": 0.16182865625007684,
+      "pred_lon_std_deg": 0.2822333905619476,
+      "true_lat_std_deg": 4.704717747607884,
+      "true_lon_std_deg": 11.41371948934776,
+      "var_ratio_lat": 0.03439710200093485,
+      "var_ratio_lon": 0.024727556238380615,
+      "wind_mae_kt": 13.877711367333072,
+      "wind_rmse_kt": 18.27252498321742,
+      "category_accuracy": 0.381294964028777,
+      "category_macro_f1": 0.17716196086721112,
+      "confusion_matrix": [
+        [
+          104,
+          66,
+          76,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          63,
+          86,
+          41,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          45,
+          31,
+          75,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          7,
+          16,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          9,
+          29,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "validation": {
+      "center_lat_mae_deg": 4.163360292949374,
+      "center_lon_mae_deg": 10.552873626587884,
+      "center_mean_dpe_km": 1263.4297583559264,
+      "center_median_dpe_km": 1304.1635207866761,
+      "center_p90_dpe_km": 1946.1278045424822,
+      "pred_lat_std_deg": 0.16931628181120253,
+      "pred_lon_std_deg": 0.2508730698101896,
+      "true_lat_std_deg": 4.760676619965998,
+      "true_lon_std_deg": 11.443611280882761,
+      "var_ratio_lat": 0.035565591895299085,
+      "var_ratio_lon": 0.02192254382401892,
+      "wind_mae_kt": 24.74997453840952,
+      "wind_rmse_kt": 32.74226757845484,
+      "category_accuracy": 0.2388663967611336,
+      "category_macro_f1": 0.08479391756702681,
+      "confusion_matrix": [
+        [
+          5,
+          1,
+          23,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          1,
+          21,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          15,
+          1,
+          53,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          18,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          3,
+          31,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          0,
+          21,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          19,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "test": {
+      "center_lat_mae_deg": 4.405384368330963,
+      "center_lon_mae_deg": 10.115102947882885,
+      "center_mean_dpe_km": 1268.5629552029543,
+      "center_median_dpe_km": 1364.0464789284867,
+      "center_p90_dpe_km": 1833.1926904346099,
+      "pred_lat_std_deg": 0.18439316885083687,
+      "pred_lon_std_deg": 0.2707626171670387,
+      "true_lat_std_deg": 5.1666320074376895,
+      "true_lon_std_deg": 10.283385707867124,
+      "var_ratio_lat": 0.035689239834652706,
+      "var_ratio_lon": 0.02633010419514815,
+      "wind_mae_kt": 20.382642586597534,
+      "wind_rmse_kt": 23.882631470672813,
+      "category_accuracy": 0.20485175202156333,
+      "category_macro_f1": 0.10761251246613342,
+      "confusion_matrix": [
+        [
+          20,
+          10,
+          55,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          6,
+          62,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          11,
+          3,
+          50,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          9,
+          2,
+          29,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          17,
+          10,
+          41,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          13,
+          0,
+          11,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "baseline_comparison": {
+    "constant_train_centroid_mean_dpe_km": 1186.0,
+    "phase3_single_frame_cnn_mean_dpe_km": 1215.1,
+    "spatial_single_frame_cnn_mean_dpe_km": 1268.5629552029543,
+    "dpe_reduction_vs_phase3_km": -53.46295520295439,
+    "dpe_reduction_vs_centroid_km": -82.5629552029543
+  }
+}

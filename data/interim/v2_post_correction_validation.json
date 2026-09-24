@@ -1,0 +1,146 @@
+{
+  "results": {
+    "1_imd_v2_row_count": {
+      "status": "PASS",
+      "before": 3960,
+      "after_csv": 3960,
+      "after_parquet": 3960,
+      "expected": 3960
+    },
+    "2_timestamp_uniqueness": {
+      "status": "PASS",
+      "violations": 0
+    },
+    "3_changed_rows_and_fields": {
+      "status": "PASS",
+      "total_field_corrections": 113,
+      "total_rows_corrected": 49,
+      "storms_corrected": [
+        "NIO_2002_UNNAMED_29",
+        "NIO_2007_UNNAMED_2_3_1",
+        "NIO_2018_MEKUNU",
+        "NIO_2002_UNNAMED_25",
+        "NIO_2009_WARD",
+        "NIO_2009_PHYAN"
+      ],
+      "unapproved_storms": []
+    },
+    "4_category_schema_validity": {
+      "status": "PASS",
+      "invalid_categories_v2": 0,
+      "invalid_categories_sample": 0
+    },
+    "5_candidate_coordinates_validity": {
+      "status": "PASS",
+      "sample_coord_errors": 0
+    },
+    "6_legitimate_missing_winds": {
+      "status": "PASS",
+      "nan_wind_slots": 10,
+      "nan_winds_by_col": {
+        "imd_wind_t0": 0,
+        "wind_12h": 0,
+        "wind_24h": 0,
+        "wind_48h": 10
+      },
+      "storms_with_nan_wind": [
+        "NIO_2002_UNNAMED_25",
+        "NIO_2006_UNNAMED_2_2_1",
+        "NIO_2007_UNNAMED_2_12_1",
+        "NIO_2011_UNNAMED_2_9_1"
+      ]
+    },
+    "7_sample_index_imd_equality": {
+      "status": "PASS",
+      "discrepancies": 0
+    },
+    "8_gridsat_frame_references": {
+      "status": "PASS",
+      "missing_references": 0,
+      "total_references_verified": 7914
+    },
+    "9_candidate_sample_count": {
+      "status": "PASS",
+      "before": 1319,
+      "after": 1319,
+      "expected": 1319
+    },
+    "10_split_assignments": {
+      "status": "PASS",
+      "sample_counts": {
+        "TRAIN": 696,
+        "TEST": 371,
+        "VALIDATION": 252
+      },
+      "storm_counts": {
+        "TEST": 31,
+        "TRAIN": 81,
+        "VALIDATION": 14
+      },
+      "intersections": {
+        "train_val": 0,
+        "train_test": 0,
+        "val_test": 0
+      }
+    },
+    "11_gridsat_file_integrity": {
+      "status": "PASS",
+      "npz_count": 2353,
+      "nc_count": 2353,
+      "expected_each": 2353
+    },
+    "12_source_pdf_immutability": {
+      "status": "PASS",
+      "pdf_count": 29,
+      "expected": 29
+    },
+    "13_itemized_provenance_completeness": {
+      "status": "PASS",
+      "total_corrections": 113,
+      "unprovenanced_count": 0
+    }
+  },
+  "metrics": {
+    "imd_v2_rows_before": 3960,
+    "imd_v2_rows_after": 3960,
+    "timestamp_violations": 0,
+    "total_field_corrections": 113,
+    "total_rows_corrected": 49,
+    "storms_corrected": [
+      "NIO_2002_UNNAMED_29",
+      "NIO_2007_UNNAMED_2_3_1",
+      "NIO_2018_MEKUNU",
+      "NIO_2002_UNNAMED_25",
+      "NIO_2009_WARD",
+      "NIO_2009_PHYAN"
+    ],
+    "invalid_categories_v2": 0,
+    "invalid_categories_sample": 0,
+    "candidate_sample_coord_errors": 0,
+    "total_legitimate_nan_wind_slots": 10,
+    "nan_winds_by_col": {
+      "imd_wind_t0": 0,
+      "wind_12h": 0,
+      "wind_24h": 0,
+      "wind_48h": 10
+    },
+    "sample_index_imd_discrepancies": 0,
+    "missing_frame_references": 0,
+    "candidate_samples_before": 1319,
+    "candidate_samples_after": 1319,
+    "split_sample_counts": {
+      "TRAIN": 696,
+      "TEST": 371,
+      "VALIDATION": 252
+    },
+    "split_storm_counts": {
+      "TEST": 31,
+      "TRAIN": 81,
+      "VALIDATION": 14
+    },
+    "total_gridsat_npz": 2353,
+    "total_gridsat_nc": 2353,
+    "raw_pdf_count": 29,
+    "overall_status": "PASS"
+  }
+}

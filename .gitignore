@@ -1,0 +1,83 @@
+# ==============================================================================
+# VAYU-NET (.gitignore)
+# Strict artifact boundaries separating repository source code from bulk research data
+# ==============================================================================
+
+# Python & Testing artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pkl
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Secrets & Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Build & Frontend artifacts
+node_modules/
+dist/
+build/
+coverage/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ML Model Weight Binaries (Managed via Supabase / Artifact script)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Bulk Scientific & Satellite Data Archives
+*.nc
+*.nc4
+*.h5
+*.hdf5
+*.npz
+
+# Large Research & Training Data Directories (Local research workspace only)
+data/raw/
+data/interim/gridsat/
+data/interim/gridsat_pilot/
+data/interim/backups_pre_correction/
+data/interim/imd/
+data/interim/ml/cache/
+data/interim/ml/checkpoints/
+
+# Scratch & Intermediate Testing directories
+scratch/
+tmp/
+temp/
+*.tmp
+
+# Preserve tracked metadata, manifests, and documentation
+!data/manifests/
+!data/processed/
+!data/interim/*.json
+!data/interim/ml/*.json
+!data/interim/ml/explainability/

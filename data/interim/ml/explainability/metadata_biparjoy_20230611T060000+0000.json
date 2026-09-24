@@ -1,0 +1,35 @@
+{
+  "sample_id": "NIO_2023_BIPARJOY_20230611_0600Z",
+  "storm_id": "NIO_2023_BIPARJOY",
+  "storm_name": "BIPARJOY",
+  "t0": "2023-06-11T06:00:00+00:00",
+  "source": "GridSat-B1 IRWIN CDR",
+  "split": "TEST",
+  "frame_index": 5,
+  "ground_truth_category": "ESCS",
+  "ground_truth_wind_kt": 90.0,
+  "predicted_class": "DD",
+  "predicted_class_idx": 1,
+  "confidence": 0.24643531441688538,
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "image_height": 572,
+  "image_width": 929,
+  "max_activation_loc": [
+    321,
+    392
+  ],
+  "activation_centroid": [
+    289.8227415339179,
+    419.7300947580346
+  ],
+  "heatmap_path": "data/interim/ml/explainability/heatmap_biparjoy_20230611T060000+0000.png",
+  "overlay_path": "data/interim/ml/explainability/overlay_biparjoy_20230611T060000+0000.png",
+  "original_path": "data/interim/ml/explainability/original_biparjoy_20230611T060000+0000.png",
+  "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+  "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+  "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+  "dataset_version": "v1.0-locked",
+  "preprocessing_version": "TRAIN_zscore_standardization",
+  "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+}

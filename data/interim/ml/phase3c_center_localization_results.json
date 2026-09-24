@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "experiment_name": "Phase3C_DedicatedCenterLocalization",
+    "model_architecture": "DedicatedCenterLocalizationResNet (1-channel ResNet-18, weights=None)",
+    "parameter_count": 11263777,
+    "python_version": "3.13.13",
+    "pytorch_version": "2.14.0+cpu",
+    "device": "cpu",
+    "random_seed": 42,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "epochs_trained": 5,
+    "selected_epoch": 2,
+    "patience": 3,
+    "model_selection_criterion": "Minimum VALIDATION Mean Center DPE (km)",
+    "loss_weights": {
+      "heatmap": 10.0,
+      "coord": 1.0
+    },
+    "heatmap_resolution": [
+      72,
+      117
+    ],
+    "gaussian_sigma_cells": 1.5,
+    "loss_formulation": {
+      "heatmap": "MSELoss(pred_heatmap_prob, target_gaussian_heatmap)",
+      "coord": "SmoothL1Loss(soft_argmax_center, target_norm_center)",
+      "total": "10.0 * heatmap + 1.0 * coord"
+    }
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.5056,
+      "train_loss_hm": 0.1491,
+      "train_loss_coord": 0.0146,
+      "val_loss": 1.2063,
+      "val_loss_hm": 0.1194,
+      "val_loss_coord": 0.012,
+      "val_mean_dpe_km": 1259.0,
+      "val_median_dpe_km": 1304.8,
+      "val_p90_dpe_km": 1956.4,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.9668,
+      "train_loss_hm": 0.0956,
+      "train_loss_coord": 0.0109,
+      "val_loss": 0.9972,
+      "val_loss_hm": 0.099,
+      "val_loss_coord": 0.0074,
+      "val_mean_dpe_km": 703.0,
+      "val_median_dpe_km": 262.5,
+      "val_p90_dpe_km": 1922.5,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.8481,
+      "train_loss_hm": 0.0838,
+      "train_loss_coord": 0.0099,
+      "val_loss": 0.7963,
+      "val_loss_hm": 0.0786,
+      "val_loss_coord": 0.0103,
+      "val_mean_dpe_km": 1086.1,
+      "val_median_dpe_km": 1122.5,
+      "val_p90_dpe_km": 1960.6,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7467,
+      "train_loss_hm": 0.0735,
+      "train_loss_coord": 0.0113,
+      "val_loss": 0.7876,
+      "val_loss_hm": 0.078,
+      "val_loss_coord": 0.0077,
+      "val_mean_dpe_km": 736.4,
+      "val_median_dpe_km": 286.1,
+      "val_p90_dpe_km": 1938.6,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6868,
+      "train_loss_hm": 0.0675,
+      "train_loss_coord": 0.0113,
+      "val_loss": 0.6899,
+      "val_loss_hm": 0.0682,
+      "val_loss_coord": 0.0084,
+      "val_mean_dpe_km": 819.6,
+      "val_median_dpe_km": 471.4,
+      "val_p90_dpe_km": 1971.0,
+      "lr": 0.0001
+    }
+  ],
+  "metrics": {
+    "train": {
+      "center_lat_mae_deg": 2.9608158071835837,
+      "center_lon_mae_deg": 6.450792285217636,
+      "center_mean_dpe_km": 814.3408765040198,
+      "center_median_dpe_km": 422.52650504418887,
+      "center_p90_dpe_km": 2013.0884026001743,
+      "pred_lat_std_deg": 4.242035856278151,
+      "pred_lon_std_deg": 10.672119167258995,
+      "true_lat_std_deg": 4.704717747607884,
+      "true_lon_std_deg": 11.41371948934776,
+      "var_ratio_lat": 0.9016557599943199,
+      "var_ratio_lon": 0.9350255345962473
+    },
+    "validation": {
+      "center_lat_mae_deg": 2.6575477501702687,
+      "center_lon_mae_deg": 5.5740208852858775,
+      "center_mean_dpe_km": 703.0029634311862,
+      "center_median_dpe_km": 262.49179159436824,
+      "center_p90_dpe_km": 1922.5478390204037,
+      "pred_lat_std_deg": 4.179411328566275,
+      "pred_lon_std_deg": 9.409525120695838,
+      "true_lat_std_deg": 4.760676619965998,
+      "true_lon_std_deg": 11.443611280882761,
+      "var_ratio_lat": 0.8779027987404289,
+      "var_ratio_lon": 0.8222513758759888
+    },
+    "test": {
+      "center_lat_mae_deg": 3.480649752115625,
+      "center_lon_mae_deg": 6.0661698107449515,
+      "center_mean_dpe_km": 810.2570958335273,
+      "center_median_dpe_km": 407.3836940717603,
+      "center_p90_dpe_km": 1973.490968827424,
+      "pred_lat_std_deg": 3.628317441861818,
+      "pred_lon_std_deg": 9.543039139233095,
+      "true_lat_std_deg": 5.1666320074376895,
+      "true_lon_std_deg": 10.283385707867124,
+      "var_ratio_lat": 0.7022596996725581,
+      "var_ratio_lon": 0.9280055625971863
+    }
+  },
+  "top_20_worst_validation_cases": [
+    {
+      "rank": 1,
+      "sample_id": "NIO_2019_VAYU_20190611_0000Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-11T00:00:00+00:00",
+      "true_center": [
+        14.699999809265137,
+        70.5999984741211
+      ],
+      "pred_center": [
+        -2.8810830116271973,
+        97.67107391357422
+      ],
+      "dpe_km": 3565.3844635206888
+    },
+    {
+      "rank": 2,
+      "sample_id": "NIO_2020_GATI_20201122_0300Z",
+      "storm_id": "NIO_2020_GATI",
+      "timestamp": "2020-11-22T03:00:00+00:00",
+      "true_center": [
+        10.699999809265137,
+        53.79999923706055
+      ],
+      "pred_center": [
+        7.2278594970703125,
+        84.19819641113281
+      ],
+      "dpe_km": 3359.571194114708
+    },
+    {
+      "rank": 3,
+      "sample_id": "NIO_2019_PABUK_20190104_1200Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-04T12:00:00+00:00",
+      "true_center": [
+        8.5,
+        99.69999694824219
+      ],
+      "pred_center": [
+        14.978206634521484,
+        72.03578186035156
+      ],
+      "dpe_km": 3093.7501996833166
+    },
+    {
+      "rank": 4,
+      "sample_id": "NIO_2019_PABUK_20190104_1800Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-04T18:00:00+00:00",
+      "true_center": [
+        8.699999809265137,
+        99.19999694824219
+      ],
+      "pred_center": [
+        14.902164459228516,
+        72.19080352783203
+      ],
+      "dpe_km": 3016.894258354828
+    },
+    {
+      "rank": 5,
+      "sample_id": "NIO_2019_PABUK_20190105_0000Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-05T00:00:00+00:00",
+      "true_center": [
+        8.899999618530273,
+        98.69999694824219
+      ],
+      "pred_center": [
+        14.708333969116211,
+        72.26223754882812
+      ],
+      "dpe_km": 2946.734997347112
+    },
+    {
+      "rank": 6,
+      "sample_id": "NIO_2019_PABUK_20190105_0300Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-05T03:00:00+00:00",
+      "true_center": [
+        9.100000381469727,
+        98.0999984741211
+      ],
+      "pred_center": [
+        14.768548965454102,
+        72.40763092041016
+      ],
+      "dpe_km": 2863.036554969765
+    },
+    {
+      "rank": 7,
+      "sample_id": "NIO_2019_PABUK_20190105_0600Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-05T06:00:00+00:00",
+      "true_center": [
+        9.300000190734863,
+        97.5999984741211
+      ],
+      "pred_center": [
+        14.894271850585938,
+        72.30552673339844
+      ],
+      "dpe_km": 2817.4396682866595
+    },
+    {
+      "rank": 8,
+      "sample_id": "NIO_2019_PABUK_20190105_1200Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-05T12:00:00+00:00",
+      "true_center": [
+        9.800000190734863,
+        97.0999984741211
+      ],
+      "pred_center": [
+        14.877954483032227,
+        72.21035766601562
+      ],
+      "dpe_km": 2760.040337925289
+    },
+    {
+      "rank": 9,
+      "sample_id": "NIO_2019_PABUK_20190105_1800Z",
+      "storm_id": "NIO_2019_PABUK",
+      "timestamp": "2019-01-05T18:00:00+00:00",
+      "true_center": [
+        10.399999618530273,
+        96.5
+      ],
+      "pred_center": [
+        14.807516098022461,
+        72.27667236328125
+      ],
+      "dpe_km": 2672.2339534396187
+    },
+    {
+      "rank": 10,
+      "sample_id": "NIO_2019_VAYU_20190614_0000Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-14T00:00:00+00:00",
+      "true_center": [
+        21.0,
+        68.5
+      ],
+      "pred_center": [
+        10.090009689331055,
+        90.168701171875
+      ],
+      "dpe_km": 2614.4547576322097
+    },
+    {
+      "rank": 11,
+      "sample_id": "NIO_2019_VAYU_20190614_1800Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-14T18:00:00+00:00",
+      "true_center": [
+        20.799999237060547,
+        67.80000305175781
+      ],
+      "pred_center": [
+        19.191608428955078,
+        92.15333557128906
+      ],
+      "dpe_km": 2548.6143724116246
+    },
+    {
+      "rank": 12,
+      "sample_id": "NIO_2019_VAYU_20190614_1500Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-14T15:00:00+00:00",
+      "true_center": [
+        20.799999237060547,
+        67.9000015258789
+      ],
+      "pred_center": [
+        19.323549270629883,
+        92.06184387207031
+      ],
+      "dpe_km": 2526.662063958169
+    },
+    {
+      "rank": 13,
+      "sample_id": "NIO_2019_VAYU_20190613_1800Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T18:00:00+00:00",
+      "true_center": [
+        20.899999618530273,
+        68.80000305175781
+      ],
+      "pred_center": [
+        11.983850479125977,
+        90.52824401855469
+      ],
+      "dpe_km": 2516.690823927778
+    },
+    {
+      "rank": 14,
+      "sample_id": "NIO_2019_VAYU_20190613_2100Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T21:00:00+00:00",
+      "true_center": [
+        20.899999618530273,
+        68.5999984741211
+      ],
+      "pred_center": [
+        11.662824630737305,
+        89.48341369628906
+      ],
+      "dpe_km": 2450.6137877161236
+    },
+    {
+      "rank": 15,
+      "sample_id": "NIO_2019_VAYU_20190613_1500Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T15:00:00+00:00",
+      "true_center": [
+        20.899999618530273,
+        68.80000305175781
+      ],
+      "pred_center": [
+        12.747474670410156,
+        89.78948974609375
+      ],
+      "dpe_km": 2407.7323935949134
+    },
+    {
+      "rank": 16,
+      "sample_id": "NIO_2019_VAYU_20190613_0000Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T00:00:00+00:00",
+      "true_center": [
+        20.299999237060547,
+        69.5
+      ],
+      "pred_center": [
+        18.5008602142334,
+        91.435302734375
+      ],
+      "dpe_km": 2307.5906414277083
+    },
+    {
+      "rank": 17,
+      "sample_id": "NIO_2019_VAYU_20190613_0300Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T03:00:00+00:00",
+      "true_center": [
+        20.399999618530273,
+        69.4000015258789
+      ],
+      "pred_center": [
+        18.243728637695312,
+        91.22230529785156
+      ],
+      "dpe_km": 2300.6620556185553
+    },
+    {
+      "rank": 18,
+      "sample_id": "NIO_2019_VAYU_20190613_0600Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T06:00:00+00:00",
+      "true_center": [
+        20.5,
+        69.30000305175781
+      ],
+      "pred_center": [
+        17.717655181884766,
+        90.53312683105469
+      ],
+      "dpe_km": 2250.602342686871
+    },
+    {
+      "rank": 19,
+      "sample_id": "NIO_2019_VAYU_20190613_1200Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T12:00:00+00:00",
+      "true_center": [
+        20.899999618530273,
+        69.0
+      ],
+      "pred_center": [
+        13.770050048828125,
+        88.68843078613281
+      ],
+      "dpe_km": 2232.648899861449
+    },
+    {
+      "rank": 20,
+      "sample_id": "NIO_2019_VAYU_20190613_0900Z",
+      "storm_id": "NIO_2019_VAYU",
+      "timestamp": "2019-06-13T09:00:00+00:00",
+      "true_center": [
+        20.700000762939453,
+        69.0999984741211
+      ],
+      "pred_center": [
+        14.913190841674805,
+        87.77882385253906
+      ],
+      "dpe_km": 2077.7106723651764
+    }
+  ],
+  "baseline_comparison": {
+    "constant_train_centroid": {
+      "mean_dpe_km": 1186.0,
+      "median_dpe_km": 1082.6
+    },
+    "phase3_single_frame_cnn": {
+      "mean_dpe_km": 1215.1,
+      "median_dpe_km": 1204.9
+    },
+    "phase3b_spatial_aware_cnn": {
+      "mean_dpe_km": 1268.6,
+      "median_dpe_km": 1364.0
+    },
+    "phase3c_dedicated_center_cnn": {
+      "mean_dpe_km": 810.2570958335273,
+      "median_dpe_km": 407.3836940717603
+    },
+    "dpe_reduction_vs_centroid_km": 375.7429041664727,
+    "dpe_reduction_vs_phase3_km": 404.84290416647264,
+    "dpe_reduction_vs_phase3b_km": 458.34290416647264
+  }
+}

@@ -1,0 +1,1064 @@
+{
+  "total_storms_audited": 216,
+  "total_imd_observations": 3960,
+  "total_valid_t0_candidates": 1319,
+  "candidate_sample_yield_percent": 33.31,
+  "split_counts": {
+    "TRAIN": 696,
+    "VALIDATION": 252,
+    "TEST": 371,
+    "BLIND": 0
+  },
+  "candidate_counts_by_year": {
+    "1998": 1,
+    "1999": 1,
+    "2002": 5,
+    "2005": 82,
+    "2006": 67,
+    "2007": 108,
+    "2008": 35,
+    "2009": 18,
+    "2010": 36,
+    "2011": 65,
+    "2012": 7,
+    "2013": 96,
+    "2014": 24,
+    "2015": 60,
+    "2016": 25,
+    "2017": 14,
+    "2018": 52,
+    "2019": 198,
+    "2020": 54,
+    "2021": 71,
+    "2022": 60,
+    "2023": 154,
+    "2024": 86
+  },
+  "storm_buckets": {
+    "zero_candidates": 90,
+    "1_to_5_candidates": 55,
+    "6_to_10_candidates": 28,
+    "greater_than_10_candidates": 43
+  },
+  "max_candidates_in_single_storm": 81,
+  "median_candidates_per_eligible_storm": 6.0,
+  "category_distribution_at_t0": {
+    "D": 360,
+    "DD": 307,
+    "CS": 279,
+    "VSCS": 171,
+    "SCS": 98,
+    "ESCS": 56,
+    "SuCS": 19,
+    "32": 5,
+    "24": 4,
+    "SUCS": 2,
+    "7": 2,
+    "6": 1,
+    "8": 1,
+    "9": 1,
+    "10": 1,
+    "15": 1,
+    "18": 1,
+    "20": 1,
+    "22": 1,
+    "28": 1,
+    "36": 1
+  },
+  "no_split_leakage_verified": true,
+  "zero_candidate_storms_count": 90,
+  "zero_candidate_storms": [
+    {
+      "storm_id": "NIO_1998_UNNAMED_10",
+      "storm_name": "nan",
+      "year": 1998,
+      "split": "TRAIN",
+      "total_obs": 13,
+      "duration_hours": 43896.0,
+      "reason": "Gaps in synoptic reporting (e.g. 05-19 03: missing +12h,+48h; 05-19 06: missing +24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_1998_UNNAMED_16",
+      "storm_name": "nan",
+      "year": 1998,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 453.0,
+      "reason": "Gaps in synoptic reporting (e.g. 06-07 03: missing +12h,+48h; 06-08 03: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_1998_UNNAMED_26",
+      "storm_name": "nan",
+      "year": 1998,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 36.0,
+      "reason": "Short lifetime (36.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_1998_UNNAMED_46",
+      "storm_name": "nan",
+      "year": 1998,
+      "split": "TRAIN",
+      "total_obs": 1,
+      "duration_hours": 0.0,
+      "reason": "Short lifetime (0.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_1998_UNNAMED_52",
+      "storm_name": "nan",
+      "year": 1998,
+      "split": "TRAIN",
+      "total_obs": 14,
+      "duration_hours": 72.0,
+      "reason": "Gaps in synoptic reporting (e.g. 11-16 03: missing +12h,+24h,+48h; 11-15 00: missing +48h)"
+    },
+    {
+      "storm_id": "NIO_1999_UNNAMED_40",
+      "storm_name": "nan",
+      "year": 1999,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 4485.0,
+      "reason": "Gaps in synoptic reporting (e.g. 02-03 18: missing +12h,+24h,+48h; 08-08 12: missing +24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_1999_UNNAMED_48",
+      "storm_name": "nan",
+      "year": 1999,
+      "split": "TRAIN",
+      "total_obs": 10,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2000_UNNAMED_49",
+      "storm_name": "nan",
+      "year": 2000,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2001_UNNAMED_18",
+      "storm_name": "nan",
+      "year": 2001,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2001_UNNAMED_34",
+      "storm_name": "nan",
+      "year": 2001,
+      "split": "TRAIN",
+      "total_obs": 1,
+      "duration_hours": 0.0,
+      "reason": "Short lifetime (0.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2002_UNNAMED_30",
+      "storm_name": "nan",
+      "year": 2002,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 36.0,
+      "reason": "Short lifetime (36.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2002_UNNAMED_33",
+      "storm_name": "nan",
+      "year": 2002,
+      "split": "TRAIN",
+      "total_obs": 19,
+      "duration_hours": 108.0,
+      "reason": "Gaps in synoptic reporting (e.g. 12-22 12: missing +12h,+24h; 12-22 00: missing +24h)"
+    },
+    {
+      "storm_id": "NIO_2003_01B",
+      "storm_name": "BOB_VSCS_MAY",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 85.0,
+      "reason": "Gaps in synoptic reporting (e.g. 05-10 21: missing +24h,+48h; 05-14 06: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2003_02B",
+      "storm_name": "BOB_DD_JULY",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 1,
+      "duration_hours": 0.0,
+      "reason": "Short lifetime (0.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2003_03A",
+      "storm_name": "ARB_SCS_NOV",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 2,
+      "duration_hours": 5.0,
+      "reason": "Short lifetime (5.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2003_04B",
+      "storm_name": "BOB_D_OCT",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 2,
+      "duration_hours": 11.5,
+      "reason": "Short lifetime (11.5h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2003_05B",
+      "storm_name": "BOB_DD_OCT",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 2,
+      "duration_hours": 1.9333333333333333,
+      "reason": "Short lifetime (1.9h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2003_06B",
+      "storm_name": "BOB_SCS_DEC",
+      "year": 2003,
+      "split": "TRAIN",
+      "total_obs": 4,
+      "duration_hours": 12.0,
+      "reason": "Short lifetime (12.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2004_UNNAMED_29",
+      "storm_name": "nan",
+      "year": 2004,
+      "split": "TRAIN",
+      "total_obs": 1,
+      "duration_hours": 0.0,
+      "reason": "Short lifetime (0.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2005_EPRESSION",
+      "storm_name": "EPRESSION",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_obs": 6,
+      "duration_hours": 57.0,
+      "reason": "Gaps in synoptic reporting (e.g. 07-30 03: missing +12h,+48h; 07-29 12: missing +12h)"
+    },
+    {
+      "storm_id": "NIO_2005_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_obs": 4,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2005_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_obs": 17,
+      "duration_hours": 192.0,
+      "reason": "Gaps in synoptic reporting (e.g. 06-27 12: missing +12h; 07-05 12: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2005_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_obs": 10,
+      "duration_hours": 105.0,
+      "reason": "Gaps in synoptic reporting (e.g. 09-15 12: missing +12h,+48h; 09-16 03: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2005_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_obs": 6,
+      "duration_hours": 57.0,
+      "reason": "Gaps in synoptic reporting (e.g. 09-15 12: missing +12h,+48h; 09-16 03: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2006_HEAVY",
+      "storm_name": "HEAVY",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_obs": 12,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2006_UNNAMED_2_11_1",
+      "storm_name": "nan",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_obs": 14,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2006_UNNAMED_2_12_1",
+      "storm_name": "nan",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_obs": 12,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2006_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2006_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_10_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_obs": 10,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_obs": 12,
+      "duration_hours": 33.0,
+      "reason": "Short lifetime (33.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_obs": 15,
+      "duration_hours": 42.0,
+      "reason": "Short lifetime (42.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2008_RASHMI",
+      "storm_name": "RASHMI",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_obs": 13,
+      "duration_hours": 48.0,
+      "reason": "Gaps in synoptic reporting (e.g. 10-27 00: missing +12h,+24h,+48h; 10-25 09: missing +12h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2008_UNNAMED_05",
+      "storm_name": "nan",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 75.0,
+      "reason": "Gaps in synoptic reporting (e.g. 10-21 12: missing +12h,+48h; 10-22 12: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2008_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_obs": 16,
+      "duration_hours": 45.0,
+      "reason": "Short lifetime (45.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2008_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_obs": 7,
+      "duration_hours": 48.0,
+      "reason": "Gaps in synoptic reporting (e.g. 06-17 09: missing +12h,+24h,+48h; 06-16 12: missing +12h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2008_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_obs": 3,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2009_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2009,
+      "split": "TRAIN",
+      "total_obs": 7,
+      "duration_hours": 24.0,
+      "reason": "Short lifetime (24.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2009_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2009,
+      "split": "TRAIN",
+      "total_obs": 3,
+      "duration_hours": 9.0,
+      "reason": "Short lifetime (9.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2009_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2009,
+      "split": "TRAIN",
+      "total_obs": 7,
+      "duration_hours": 27.0,
+      "reason": "Short lifetime (27.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2010_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2010,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2011_IS",
+      "storm_name": "IS",
+      "year": 2011,
+      "split": "TRAIN",
+      "total_obs": 13,
+      "duration_hours": 669.0,
+      "reason": "Gaps in synoptic reporting (e.g. 10-19 18: missing +12h,+24h,+48h; 09-22 18: missing +24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2011_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2011,
+      "split": "TRAIN",
+      "total_obs": 3,
+      "duration_hours": 9.0,
+      "reason": "Short lifetime (9.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2011_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2011,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 18.0,
+      "reason": "Short lifetime (18.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2011_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2011,
+      "split": "TRAIN",
+      "total_obs": 4,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2012_MURJAN",
+      "storm_name": "MURJAN",
+      "year": 2012,
+      "split": "TRAIN",
+      "total_obs": 12,
+      "duration_hours": 72.0,
+      "reason": "Gaps in synoptic reporting (e.g. 10-25 06: missing +24h,+48h; 10-24 12: missing +48h)"
+    },
+    {
+      "storm_id": "NIO_2012_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2012,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 15.0,
+      "reason": "Short lifetime (15.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2013_IGHA",
+      "storm_name": "IGHA",
+      "year": 2013,
+      "split": "TRAIN",
+      "total_obs": 2,
+      "duration_hours": 3.0,
+      "reason": "Short lifetime (3.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2013_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2013,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 45.0,
+      "reason": "Short lifetime (45.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2014_ARE",
+      "storm_name": "ARE",
+      "year": 2014,
+      "split": "TRAIN",
+      "total_obs": 14,
+      "duration_hours": 3333.0,
+      "reason": "Gaps in synoptic reporting (e.g. 05-21 12: missing +48h; 01-04 03: missing +12h,+24h,+48h)"
+    },
+    {
+      "storm_id": "NIO_2014_HUDHUD",
+      "storm_name": "HUDHUD",
+      "year": 2014,
+      "split": "TRAIN",
+      "total_obs": 6,
+      "duration_hours": 24.0,
+      "reason": "Short lifetime (24.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2014_UNNAMED_02",
+      "storm_name": "nan",
+      "year": 2014,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2015_ASHOBAA",
+      "storm_name": "ASHOBAA",
+      "year": 2015,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2015_UNNAMED_2_12_1",
+      "storm_name": "nan",
+      "year": 2015,
+      "split": "TRAIN",
+      "total_obs": 11,
+      "duration_hours": 48.0,
+      "reason": "Gaps in synoptic reporting (e.g. 11-08 03: missing +12h; 11-09 00: missing +48h)"
+    },
+    {
+      "storm_id": "NIO_2015_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2015,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2015_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2015,
+      "split": "TRAIN",
+      "total_obs": 15,
+      "duration_hours": 42.0,
+      "reason": "Short lifetime (42.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2015_UNNAMED_2_7_1",
+      "storm_name": "nan",
+      "year": 2015,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 15.0,
+      "reason": "Short lifetime (15.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2016_UNNAMED_2_10_1",
+      "storm_name": "nan",
+      "year": 2016,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 24.0,
+      "reason": "Short lifetime (24.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2016_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2016,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2016_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2016,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2016_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2016,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2016_VARDAH",
+      "storm_name": "VARDAH",
+      "year": 2016,
+      "split": "TRAIN",
+      "total_obs": 11,
+      "duration_hours": 45.0,
+      "reason": "Short lifetime (45.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_MAARUTHA",
+      "storm_name": "MAARUTHA",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 10,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 7,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 6,
+      "duration_hours": 24.0,
+      "reason": "Short lifetime (24.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 8,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_UNNAMED_2_7_1",
+      "storm_name": "nan",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 18.0,
+      "reason": "Short lifetime (18.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2017_UNNAMED_2_8_1",
+      "storm_name": "nan",
+      "year": 2017,
+      "split": "TRAIN",
+      "total_obs": 11,
+      "duration_hours": 48.0,
+      "reason": "Gaps in synoptic reporting (e.g. 11-17 03: missing +12h,+24h,+48h; 11-15 03: missing +12h)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_1_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_4_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 5,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 2,
+      "duration_hours": 6.0,
+      "reason": "Short lifetime (6.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 11,
+      "duration_hours": 45.0,
+      "reason": "Short lifetime (45.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_7_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 4,
+      "duration_hours": 15.0,
+      "reason": "Short lifetime (15.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2018_UNNAMED_2_8_1",
+      "storm_name": "nan",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_obs": 10,
+      "duration_hours": 45.0,
+      "reason": "Short lifetime (45.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2019_UNNAMED_2_12_1",
+      "storm_name": "nan",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_obs": 10,
+      "duration_hours": 42.0,
+      "reason": "Short lifetime (42.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2019_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_obs": 8,
+      "duration_hours": 36.0,
+      "reason": "Short lifetime (36.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2020_UNNAMED_2_5_1",
+      "storm_name": "nan",
+      "year": 2020,
+      "split": "VALIDATION",
+      "total_obs": 7,
+      "duration_hours": 27.0,
+      "reason": "Short lifetime (27.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2020_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2020,
+      "split": "VALIDATION",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2020_UNNAMED_2_7_1",
+      "storm_name": "nan",
+      "year": 2020,
+      "split": "VALIDATION",
+      "total_obs": 10,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2021_UNNAMED_02",
+      "storm_name": "nan",
+      "year": 2021,
+      "split": "TEST",
+      "total_obs": 7,
+      "duration_hours": 27.0,
+      "reason": "Short lifetime (27.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2021_UNNAMED_2_10_1",
+      "storm_name": "nan",
+      "year": 2021,
+      "split": "TEST",
+      "total_obs": 2,
+      "duration_hours": 3.0,
+      "reason": "Short lifetime (3.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2021_UNNAMED_2_8_1",
+      "storm_name": "nan",
+      "year": 2021,
+      "split": "TEST",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2021_UNNAMED_2_9_1",
+      "storm_name": "nan",
+      "year": 2021,
+      "split": "TEST",
+      "total_obs": 7,
+      "duration_hours": 30.0,
+      "reason": "Short lifetime (30.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2022_EPR",
+      "storm_name": "EPR",
+      "year": 2022,
+      "split": "TEST",
+      "total_obs": 9,
+      "duration_hours": 39.0,
+      "reason": "Short lifetime (39.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2022_EPRESSION",
+      "storm_name": "EPRESSION",
+      "year": 2022,
+      "split": "TEST",
+      "total_obs": 6,
+      "duration_hours": 24.0,
+      "reason": "Short lifetime (24.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2022_UNNAMED_2_7_1",
+      "storm_name": "nan",
+      "year": 2022,
+      "split": "TEST",
+      "total_obs": 4,
+      "duration_hours": 15.0,
+      "reason": "Short lifetime (15.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2022_UNNAMED_2_8_1",
+      "storm_name": "nan",
+      "year": 2022,
+      "split": "TEST",
+      "total_obs": 7,
+      "duration_hours": 27.0,
+      "reason": "Short lifetime (27.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2023_UNNAMED_2_6_1",
+      "storm_name": "nan",
+      "year": 2023,
+      "split": "TEST",
+      "total_obs": 5,
+      "duration_hours": 21.0,
+      "reason": "Short lifetime (21.0h < 48h required for +48h target)"
+    },
+    {
+      "storm_id": "NIO_2024_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2024,
+      "split": "TEST",
+      "total_obs": 7,
+      "duration_hours": 27.0,
+      "reason": "Short lifetime (27.0h < 48h required for +48h target)"
+    }
+  ],
+  "top_20_storms": [
+    {
+      "storm_id": "NIO_2023_BIPARJOY",
+      "storm_name": "BIPARJOY",
+      "year": 2023,
+      "split": "TEST",
+      "total_imd_observations": 97,
+      "number_of_valid_t0_candidates": 81,
+      "duration_hours": 312.0
+    },
+    {
+      "storm_id": "NIO_2019_KYARR",
+      "storm_name": "KYARR",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_imd_observations": 74,
+      "number_of_valid_t0_candidates": 57,
+      "duration_hours": 228.0
+    },
+    {
+      "storm_id": "NIO_2019_FANI",
+      "storm_name": "FANI",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_imd_observations": 64,
+      "number_of_valid_t0_candidates": 47,
+      "duration_hours": 201.0
+    },
+    {
+      "storm_id": "NIO_2019_VAYU",
+      "storm_name": "VAYU",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_imd_observations": 59,
+      "number_of_valid_t0_candidates": 42,
+      "duration_hours": 180.0
+    },
+    {
+      "storm_id": "NIO_2005_UNNAMED_2_12_1",
+      "storm_name": "nan",
+      "year": 2005,
+      "split": "TRAIN",
+      "total_imd_observations": 53,
+      "number_of_valid_t0_candidates": 37,
+      "duration_hours": 156.0
+    },
+    {
+      "storm_id": "NIO_2024_ASNA",
+      "storm_name": "ASNA",
+      "year": 2024,
+      "split": "TEST",
+      "total_imd_observations": 49,
+      "number_of_valid_t0_candidates": 28,
+      "duration_hours": 195.0
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_08",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_imd_observations": 43,
+      "number_of_valid_t0_candidates": 27,
+      "duration_hours": 126.0
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_3_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_imd_observations": 43,
+      "number_of_valid_t0_candidates": 26,
+      "duration_hours": 129.0
+    },
+    {
+      "storm_id": "NIO_2018_MEKUNU",
+      "storm_name": "MEKUNU",
+      "year": 2018,
+      "split": "TRAIN",
+      "total_imd_observations": 41,
+      "number_of_valid_t0_candidates": 25,
+      "duration_hours": 132.0
+    },
+    {
+      "storm_id": "NIO_2008_NARGIS",
+      "storm_name": "NARGIS",
+      "year": 2008,
+      "split": "TRAIN",
+      "total_imd_observations": 41,
+      "number_of_valid_t0_candidates": 25,
+      "duration_hours": 120.0
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_12_1",
+      "storm_name": "nan",
+      "year": 2007,
+      "split": "TRAIN",
+      "total_imd_observations": 39,
+      "number_of_valid_t0_candidates": 23,
+      "duration_hours": 114.0
+    },
+    {
+      "storm_id": "NIO_2021_TAUKTAE",
+      "storm_name": "TAUKTAE",
+      "year": 2021,
+      "split": "TEST",
+      "total_imd_observations": 40,
+      "number_of_valid_t0_candidates": 23,
+      "duration_hours": 123.0
+    },
+    {
+      "storm_id": "NIO_2006_UNNAMED_2_2_1",
+      "storm_name": "nan",
+      "year": 2006,
+      "split": "TRAIN",
+      "total_imd_observations": 38,
+      "number_of_valid_t0_candidates": 22,
+      "duration_hours": 111.0
+    },
+    {
+      "storm_id": "NIO_2013_VIYARU",
+      "storm_name": "VIYARU",
+      "year": 2013,
+      "split": "TRAIN",
+      "total_imd_observations": 38,
+      "number_of_valid_t0_candidates": 21,
+      "duration_hours": 117.0
+    },
+    {
+      "storm_id": "NIO_2020_AMPHAN",
+      "storm_name": "AMPHAN",
+      "year": 2020,
+      "split": "VALIDATION",
+      "total_imd_observations": 36,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 105.0
+    },
+    {
+      "storm_id": "NIO_2019_UNNAMED_2_9_1",
+      "storm_name": "nan",
+      "year": 2019,
+      "split": "VALIDATION",
+      "total_imd_observations": 38,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 129.0
+    },
+    {
+      "storm_id": "NIO_2013_PHAILIN",
+      "storm_name": "PHAILIN",
+      "year": 2013,
+      "split": "TRAIN",
+      "total_imd_observations": 37,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 117.0
+    },
+    {
+      "storm_id": "NIO_2013_LEHAR",
+      "storm_name": "LEHAR",
+      "year": 2013,
+      "split": "TRAIN",
+      "total_imd_observations": 36,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 111.0
+    },
+    {
+      "storm_id": "NIO_2024_FENGAL",
+      "storm_name": "FENGAL",
+      "year": 2024,
+      "split": "TEST",
+      "total_imd_observations": 40,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 159.0
+    },
+    {
+      "storm_id": "NIO_2023_MOCHA",
+      "storm_name": "MOCHA",
+      "year": 2023,
+      "split": "TEST",
+      "total_imd_observations": 39,
+      "number_of_valid_t0_candidates": 20,
+      "duration_hours": 132.0
+    }
+  ]
+}

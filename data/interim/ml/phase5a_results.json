@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "phase": "Phase 5A",
+    "title": "Environmental Steering + Satellite Track Prediction",
+    "device": "cpu",
+    "random_seed": 42,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 16,
+    "era5_variables": [
+      "u_component_of_wind",
+      "v_component_of_wind"
+    ],
+    "pressure_levels": [
+      850,
+      700,
+      500,
+      300
+    ],
+    "spatial_domain": "-5 to 35 N, 40 to 105 E (41x66 grid cells, ~1.0 deg)",
+    "satellite_backbone": "Phase 3C DedicatedCenterLocalizationResNet (frozen 11.26M params)",
+    "environmental_encoder": "EnvironmentSpatialCNN (3-stage, 64-dim) + 2-layer GRU (64-dim)",
+    "fusion": "Late concatenation (128+64 -> 128) + Multi-Horizon Track Heads",
+    "model_selection_criterion": "Minimum VALIDATION Mean Track DPE (km)"
+  },
+  "baselines": {
+    "stationary_persistence": {
+      "12h": 132.67,
+      "24h": 263.37,
+      "48h": 530.81,
+      "mean_track": 308.95
+    },
+    "constant_velocity_exact": {
+      "12h": 71.28,
+      "24h": 150.74,
+      "48h": 345.15,
+      "mean_track": 189.06
+    },
+    "phase4a_satellite_only_gru": {
+      "12h": 823.0,
+      "24h": 832.5,
+      "48h": 890.0,
+      "mean_track": 848.5
+    }
+  },
+  "experiment_b_environment_only": {
+    "selected_epoch": 5,
+    "best_val_track_dpe_km": 1373.328125,
+    "test_metrics": {
+      "mean_track_dpe_km": 1216.12,
+      "12h": {
+        "mean": 1220.17,
+        "median": 985.94,
+        "p90": 2051.98
+      },
+      "24h": {
+        "mean": 1212.54,
+        "median": 955.84,
+        "p90": 2111.52
+      },
+      "48h": {
+        "mean": 1215.66,
+        "median": 1170.25,
+        "p90": 2175.28
+      }
+    }
+  },
+  "experiment_c_multimodal_sat_env": {
+    "selected_epoch": 13,
+    "best_val_track_dpe_km": 836.30517578125,
+    "test_metrics": {
+      "mean_track_dpe_km": 978.72,
+      "12h": {
+        "mean": 941.19,
+        "median": 819.41,
+        "p90": 1947.44
+      },
+      "24h": {
+        "mean": 963.74,
+        "median": 822.59,
+        "p90": 1858.78
+      },
+      "48h": {
+        "mean": 1031.22,
+        "median": 844.78,
+        "p90": 1865.65
+      }
+    }
+  },
+  "comparisons_test": {
+    "multimodal_vs_env_only": {
+      "dpe_reduction_km": 237.39999999999986,
+      "percentage_improvement": 19.52109989145807
+    },
+    "multimodal_vs_satellite_only": {
+      "dpe_difference_km": 130.22000000000003,
+      "status": "Degradation (+130.22 km vs Phase 4A)"
+    },
+    "multimodal_vs_constant_velocity": {
+      "dpe_difference_km": 789.6600000000001,
+      "status": "Degradation (+789.66 km vs Kinematic Base)"
+    }
+  }
+}

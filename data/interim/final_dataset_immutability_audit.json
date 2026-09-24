@@ -1,0 +1,71 @@
+{
+  "audit_timestamp": "2026-09-23T19:53:22.476061+00:00",
+  "final_verdict": "DATASET LOCK READY",
+  "imd_source_pdfs": {
+    "status": "PASS",
+    "baseline_available": true,
+    "baseline_manifest": "data/manifests/imd_source_inventory.csv",
+    "total_pdfs": 29,
+    "verified_bit_identical": 29,
+    "discrepancies": []
+  },
+  "gridsat_production_archive": {
+    "status": "PASS",
+    "pre_correction_sha256_baseline": "HASH BASELINE UNAVAILABLE",
+    "missing_baseline_description": "No pre-correction cryptographic SHA-256 hash manifest was created for interim .npz and .nc files in data/interim/gridsat/ (gridsat_required_file_manifest.csv tracked raw source URLs, timestamps, and download status only).",
+    "structural_manifest_available": true,
+    "structural_manifest_path": "data/manifests/gridsat_required_file_manifest.csv",
+    "total_npz_files": 2353,
+    "total_nc_files": 2353,
+    "missing_expected_files_count": 0,
+    "earliest_file_mtime": "2026-09-23T15:16:59.974974+00:00",
+    "latest_file_mtime": "2026-09-23T19:21:48.434511+00:00",
+    "established_sha256_manifest": "data/manifests/gridsat_sha256_manifest.csv"
+  },
+  "invariants": {
+    "imd_v2_row_count": {
+      "status": "PASS",
+      "value": 3960,
+      "expected": 3960
+    },
+    "sample_index_count": {
+      "status": "PASS",
+      "value": 1319,
+      "expected": 1319
+    },
+    "sample_index_imd_parity": {
+      "status": "PASS",
+      "discrepancies": 0
+    },
+    "invalid_categories": {
+      "status": "PASS",
+      "v2_count": 0,
+      "sample_count": 0
+    },
+    "out_of_basin_coordinates": {
+      "status": "PASS",
+      "violations": 0
+    },
+    "gridsat_frame_references": {
+      "status": "PASS",
+      "resolved": 7914,
+      "total": 7914
+    },
+    "split_intersections": {
+      "status": "PASS",
+      "leakage": 0,
+      "storm_counts": {
+        "TRAIN": 81,
+        "VALIDATION": 14,
+        "TEST": 31
+      }
+    }
+  },
+  "metrics": {
+    "imd_pdf_count_baseline": 29,
+    "imd_pdf_count_disk": 29,
+    "gridsat_npz_count": 2353,
+    "gridsat_nc_count": 2353,
+    "gridsat_required_manifest_count": 2353
+  }
+}

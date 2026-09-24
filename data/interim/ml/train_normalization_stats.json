@@ -1,0 +1,18 @@
+{
+  "split": "TRAIN",
+  "num_train_samples": 696,
+  "num_unique_train_frames": 1304,
+  "total_valid_pixels": 690123451,
+  "total_nan_pixels": 2806501,
+  "mean_kelvin": 279.3676741882571,
+  "std_kelvin": 22.790485281834904,
+  "min_kelvin": 166.05999755859375,
+  "max_kelvin": 345.70001220703125,
+  "units": "Kelvin",
+  "missing_value_fill": "mean_kelvin",
+  "train_wind_mean_kt": 36.883620689655174,
+  "train_wind_std_kt": 17.97538960814631,
+  "train_wind_min_kt": 15.0,
+  "train_wind_max_kt": 127.0,
+  "train_wind_count": 696
+}

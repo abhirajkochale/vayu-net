@@ -1,0 +1,35 @@
+{
+  "sample_id": "NIO_2021_TAUKTAE_20210517_0300Z",
+  "storm_id": "NIO_2021_TAUKTAE",
+  "storm_name": "TAUKTAE",
+  "t0": "2021-05-17T03:00:00+00:00",
+  "source": "GridSat-B1 IRWIN CDR",
+  "split": "TEST",
+  "frame_index": 5,
+  "ground_truth_category": "ESCS",
+  "ground_truth_wind_kt": 100.0,
+  "predicted_class": "D",
+  "predicted_class_idx": 0,
+  "confidence": 0.43408358097076416,
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "image_height": 572,
+  "image_width": 929,
+  "max_activation_loc": [
+    218,
+    488
+  ],
+  "activation_centroid": [
+    283.0196965630889,
+    449.2176131540321
+  ],
+  "heatmap_path": "data/interim/ml/explainability/heatmap_tauktae_20210517T030000+0000.png",
+  "overlay_path": "data/interim/ml/explainability/overlay_tauktae_20210517T030000+0000.png",
+  "original_path": "data/interim/ml/explainability/original_tauktae_20210517T030000+0000.png",
+  "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+  "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+  "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+  "dataset_version": "v1.0-locked",
+  "preprocessing_version": "TRAIN_zscore_standardization",
+  "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+}

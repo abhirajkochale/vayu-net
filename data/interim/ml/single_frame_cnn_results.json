@@ -1,0 +1,333 @@
+{
+  "metadata": {
+    "model_architecture": "SingleFrameResNet (1-channel ResNet-18, weights=None)",
+    "parameter_count": 11368522,
+    "trainable_parameter_count": 11368522,
+    "python_version": "3.13.13",
+    "pytorch_version": "2.14.0+cpu",
+    "torchvision_version": "0.29.0+cpu",
+    "device": "cpu",
+    "random_seed": 42,
+    "batch_size": 16,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "epochs_trained": 4,
+    "best_epoch": 2,
+    "patience": 2,
+    "loss_weights": {
+      "center": 1.0,
+      "wind": 1.0,
+      "category": 1.0
+    },
+    "loss_formulation": {
+      "center": "SmoothL1Loss(pred_norm_center, true_norm_center)",
+      "wind": "MaskedSmoothL1Loss(pred_norm_wind, true_norm_wind) / sum(mask)",
+      "category": "CrossEntropyLoss(pred_cat_logits, true_cat, ignore_index=-1)",
+      "total": "1.0 * center + 1.0 * wind + 1.0 * category"
+    },
+    "wind_normalization_stats": {
+      "mean_kt": 36.883620689655174,
+      "std_kt": 17.97538960814631
+    },
+    "train_category_distribution": {
+      "D": 246,
+      "DD": 190,
+      "CS": 151,
+      "VSCS": 63,
+      "SCS": 40,
+      "ESCS": 3,
+      "SuCS": 2,
+      "NaN": 1
+    },
+    "evaluation_rule": "TEST set evaluated exactly once using best validation checkpoint"
+  },
+  "training_history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.9043522333276683,
+      "train_loss_center": 0.009837009756686702,
+      "train_loss_wind": 0.32403609533419553,
+      "train_loss_category": 1.5704791422547966,
+      "val_loss": 3.1306875319707963,
+      "val_loss_center": 0.010225673021364307,
+      "val_loss_wind": 1.0659156157856895,
+      "val_loss_category": 2.054546248345148,
+      "val_mean_dpe_km": 1126.0566940699678,
+      "val_wind_mae_kt": 26.096990835098993,
+      "val_category_acc": 0.21862348178137653,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.703894278098797,
+      "train_loss_center": 0.008216964658992043,
+      "train_loss_wind": 0.2923104500976102,
+      "train_loss_category": 1.4033668603020153,
+      "val_loss": 3.0779022300054155,
+      "val_loss_center": 0.009734318118601565,
+      "val_loss_wind": 0.9649824325054411,
+      "val_loss_category": 2.103185455004374,
+      "val_mean_dpe_km": 1111.237648176049,
+      "val_wind_mae_kt": 24.64265045287117,
+      "val_category_acc": 0.27125506072874495,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.5986459337431809,
+      "train_loss_center": 0.008246529033814353,
+      "train_loss_wind": 0.2706230216841588,
+      "train_loss_category": 1.3197763829395688,
+      "val_loss": 5.317220945206899,
+      "val_loss_center": 0.021533657589720354,
+      "val_loss_wind": 1.5064257380981294,
+      "val_loss_category": 3.7892614849030024,
+      "val_mean_dpe_km": 1576.1617092070496,
+      "val_wind_mae_kt": 34.451286134265715,
+      "val_category_acc": 0.10931174089068826,
+      "lr": 0.0001
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.4100895366449466,
+      "train_loss_center": 0.008088367033064708,
+      "train_loss_wind": 0.20373174770810137,
+      "train_loss_category": 1.19826943298866,
+      "val_loss": 4.768375058022756,
+      "val_loss_center": 0.013542981552226203,
+      "val_loss_wind": 1.3731195576607236,
+      "val_loss_category": 3.3817125047956194,
+      "val_mean_dpe_km": 1288.8768831054701,
+      "val_wind_mae_kt": 32.038597394549654,
+      "val_category_acc": 0.12550607287449392,
+      "lr": 0.0001
+    }
+  ],
+  "metrics": {
+    "train": {
+      "center_lat_mae_deg": 2.960231476131527,
+      "center_lon_mae_deg": 8.799134199646698,
+      "center_mean_dpe_km": 1067.2728561033289,
+      "center_median_dpe_km": 969.9591342639602,
+      "wind_mae_kt": 13.300277263268658,
+      "wind_rmse_kt": 16.64394407230896,
+      "category_accuracy": 0.38705035971223023,
+      "category_macro_f1": 0.15653251301645707,
+      "confusion_matrix": [
+        [
+          119,
+          4,
+          123,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          82,
+          10,
+          98,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          12,
+          0,
+          139,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          37,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          60,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "validation": {
+      "center_lat_mae_deg": 3.6903106485094344,
+      "center_lon_mae_deg": 8.906259975736104,
+      "center_mean_dpe_km": 1111.237648176049,
+      "center_median_dpe_km": 1046.2401643514356,
+      "wind_mae_kt": 24.64265045287117,
+      "wind_rmse_kt": 32.859897900850264,
+      "category_accuracy": 0.27125506072874495,
+      "category_macro_f1": 0.07501906456532792,
+      "confusion_matrix": [
+        [
+          2,
+          0,
+          27,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          26,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          0,
+          65,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          19,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          25,
+          0,
+          28,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          28,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          19,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "test": {
+      "center_lat_mae_deg": 3.9495721120397356,
+      "center_lon_mae_deg": 9.760412910235218,
+      "center_mean_dpe_km": 1215.0695607187513,
+      "center_median_dpe_km": 1204.9099982015614,
+      "wind_mae_kt": 18.586738987431694,
+      "wind_rmse_kt": 22.20792767822646,
+      "category_accuracy": 0.20215633423180593,
+      "category_macro_f1": 0.09114238742531777,
+      "confusion_matrix": [
+        [
+          19,
+          0,
+          66,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          0,
+          69,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          8,
+          0,
+          56,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          37,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          21,
+          0,
+          47,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          0,
+          18,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    }
+  }
+}

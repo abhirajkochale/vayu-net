@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project": "VAYU-NET",
+  "version": "1.0.0",
+  "description": "Production runtime artifacts and model checkpoints manifest for VAYU-NET (SIH 26070)",
+  "storage_provider": "Supabase Storage",
+  "storage_bucket": "vayu-net-runtime",
+  "storage_status": "NOT_PROVISIONED",
+  "models": [
+    {
+      "name": "center_localization_cnn",
+      "version": "phase3c-v1.0",
+      "path": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "required": true,
+      "size_bytes": 51406686,
+      "sha256": "5ef11b596ef94ece71079c1329eab1e50191127eb7b9b1ff13f7dcdd3185f1c9",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Single-frame dedicated cyclone center localization ResNet-18 (Phase 3C)"
+    },
+    {
+      "name": "temporal_track_gru",
+      "version": "phase4a-v1.0",
+      "path": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "required": true,
+      "size_bytes": 48407839,
+      "sha256": "7973c12a1d1b15fcb4c201deb9491bdb51d4ae9022881aff5233d85606676b46",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Shared spatial projection and 6-step temporal sequence GRU (Phase 4A)"
+    },
+    {
+      "name": "environment_hybrid_track_gru_variant_a",
+      "version": "phase5b-v1.0-variant-a",
+      "path": "data/interim/ml/checkpoints/best_phase5b_variant_a.pt",
+      "required": true,
+      "size_bytes": 1754009,
+      "sha256": "c1a51fb9d2e55a6043c4b903a4b4696d4c98cb9034082e4825fb6682fefd9216",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Environment-aware hybrid kinematic + satellite residual track forecast with observed IMD center anchor (Phase 5B Variant A)"
+    },
+    {
+      "name": "environment_hybrid_track_gru_variant_b",
+      "version": "phase5b-v1.0-variant-b",
+      "path": "data/interim/ml/checkpoints/best_phase5b_variant_b.pt",
+      "required": true,
+      "size_bytes": 1754009,
+      "sha256": "2f0ec1e1e136c552a1ab4a4a8002e1af3293489d5fb649d95b30c2ca5e4a9533",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Environment-aware hybrid kinematic + satellite residual track forecast with Phase 3C satellite-derived center anchor (Phase 5B Variant B)"
+    },
+    {
+      "name": "intensity_wind_multitask",
+      "version": "phase6-v1.0",
+      "path": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "required": true,
+      "size_bytes": 1506213,
+      "sha256": "a014e06dbf6fc17f37d04bb545a58746e57be6cb309808735660989009a460ef",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Multimodal multi-task IMD intensity classifier and sustained wind speed regressor (Phase 6)"
+    }
+  ],
+  "runtime_assets": [
+    {
+      "name": "train_normalization_stats",
+      "path": "data/interim/ml/train_normalization_stats.json",
+      "required": true,
+      "size_bytes": 544,
+      "sha256": "e42eaa68ea3985c5a2256b8e86e2aa24cf0afcf1f8170327ae7cec4ad7968743",
+      "purpose": "Satellite IRWIN CDR training-only z-score normalization parameters"
+    },
+    {
+      "name": "era5_train_normalization_stats",
+      "path": "data/interim/ml/era5_train_normalization_stats.json",
+      "required": true,
+      "size_bytes": 1795,
+      "sha256": "32a5c1b7851326be17037df745fdbd768bcc94b62ff34b161e317411cd026487",
+      "purpose": "ERA5 environmental reanalysis 8-channel wind field normalization parameters"
+    },
+    {
+      "name": "uncertainty_parameters",
+      "path": "data/interim/ml/uncertainty_parameters.json",
+      "required": true,
+      "size_bytes": 1970,
+      "sha256": "a08ba1d55edd75758c88d26e04578eec4395b59cc892f2ebcd44287d9930f3c1",
+      "purpose": "Validation residual empirical P80 error cones and wind uncertainty bounds"
+    },
+    {
+      "name": "analog_retrieval_cache",
+      "path": "data/interim/ml/analog_retrieval_cache.json",
+      "required": true,
+      "size_bytes": 651441,
+      "sha256": "ec5ee152c1ba5871ad5ea24c9642146c5a436f2a329422dbcc34335e61cb6ac3",
+      "purpose": "7-D standardized feature cache across all 696 candidate TRAIN observations"
+    },
+    {
+      "name": "sample_index",
+      "path": "data/manifests/vayu_net_sample_index.csv",
+      "required": true,
+      "size_bytes": 653304,
+      "sha256": "3cef6d04657c3905ffaabfb4c1a3dc19af4ea87310c04c98291ac4c4d6864b6a",
+      "purpose": "Index of all 1,319 ML samples with ground truth and splits"
+    },
+    {
+      "name": "storm_event_manifest",
+      "path": "data/manifests/storm_event_manifest_v2.csv",
+      "required": true,
+      "size_bytes": 29663,
+      "sha256": "0c5d496cf74fe98db50d790c2d0b171d087733697d2c324ac7767819f96d99ef",
+      "purpose": "Event-level manifest of 126 cyclones across Bay of Bengal and Arabian Sea"
+    }
+  ],
+  "demo_assets": [
+    {
+      "cyclone": "FANI",
+      "year": 2019,
+      "basin": "Bay of Bengal",
+      "directory": "data/interim/ml/explainability/"
+    },
+    {
+      "cyclone": "AMPHAN",
+      "year": 2020,
+      "basin": "Bay of Bengal",
+      "directory": "data/interim/ml/explainability/"
+    },
+    {
+      "cyclone": "TAUKTAE",
+      "year": 2021,
+      "basin": "Arabian Sea",
+      "directory": "data/interim/ml/explainability/"
+    },
+    {
+      "cyclone": "BIPARJOY",
+      "year": 2023,
+      "basin": "Arabian Sea",
+      "directory": "data/interim/ml/explainability/"
+    },
+    {
+      "cyclone": "REMAL",
+      "year": 2024,
+      "basin": "Bay of Bengal",
+      "directory": "data/interim/ml/explainability/"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# VAYU-NET — Render Deployment Blueprint
+# SIH 2026 Problem Statement 26070
+#
+# CLOUD DEPLOYMENT STATUS:
+# Cloud deployment has not yet been performed. Manual deployment is pending.
+# Manual deployment will configure MODEL_STORAGE_BASE_URL or Supabase Storage bucket 'vayu-net-runtime'
+# with model weights matching artifacts/manifest.json checksums.
+
+services:
+  - type: web
+    name: vayu-net-backend
+    env: python
+    region: oregon
+    plan: standard
+    buildCommand: "pip install --upgrade pip && pip install -r apps/backend/requirements.txt && python scripts/setup/download_runtime_artifacts.py"
+    startCommand: "uvicorn apps.backend.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /health
+    autoDeploy: false
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: ENVIRONMENT
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: CORS_ORIGINS
+        value: "http://localhost:5173,https://vayu-net.vercel.app"
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: MODEL_STORAGE_BASE_URL
+        sync: false

@@ -1,0 +1,188 @@
+{
+  "status": "COMPLETED",
+  "num_reference_cases": 5,
+  "cases": [
+    {
+      "sample_id": "NIO_2019_FANI_20190502_1200Z",
+      "storm_id": "NIO_2019_FANI",
+      "storm_name": "FANI",
+      "t0": "2019-05-02T12:00:00+00:00",
+      "source": "GridSat-B1 IRWIN CDR",
+      "split": "VALIDATION",
+      "frame_index": 5,
+      "ground_truth_category": "ESCS",
+      "ground_truth_wind_kt": 115.0,
+      "predicted_class": "DD",
+      "predicted_class_idx": 1,
+      "confidence": 0.4321984350681305,
+      "method": "Grad-CAM",
+      "target_layer": "spatial_encoder.layer2",
+      "image_height": 572,
+      "image_width": 929,
+      "max_activation_loc": [
+        91,
+        853
+      ],
+      "activation_centroid": [
+        340.75266904421045,
+        538.8836574491067
+      ],
+      "heatmap_path": "data/interim/ml/explainability/heatmap_fani_20190502T120000+0000.png",
+      "overlay_path": "data/interim/ml/explainability/overlay_fani_20190502T120000+0000.png",
+      "original_path": "data/interim/ml/explainability/original_fani_20190502T120000+0000.png",
+      "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "dataset_version": "v1.0-locked",
+      "preprocessing_version": "TRAIN_zscore_standardization",
+      "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+    },
+    {
+      "sample_id": "NIO_2020_AMPHAN_20200518_0600Z",
+      "storm_id": "NIO_2020_AMPHAN",
+      "storm_name": "AMPHAN",
+      "t0": "2020-05-18T06:00:00+00:00",
+      "source": "GridSat-B1 IRWIN CDR",
+      "split": "VALIDATION",
+      "frame_index": 5,
+      "ground_truth_category": "SuCS",
+      "ground_truth_wind_kt": 120.0,
+      "predicted_class": "VSCS",
+      "predicted_class_idx": 4,
+      "confidence": 0.27506524324417114,
+      "method": "Grad-CAM",
+      "target_layer": "spatial_encoder.layer2",
+      "image_height": 572,
+      "image_width": 929,
+      "max_activation_loc": [
+        242,
+        647
+      ],
+      "activation_centroid": [
+        235.29213995449453,
+        605.8765944283281
+      ],
+      "heatmap_path": "data/interim/ml/explainability/heatmap_amphan_20200518T060000+0000.png",
+      "overlay_path": "data/interim/ml/explainability/overlay_amphan_20200518T060000+0000.png",
+      "original_path": "data/interim/ml/explainability/original_amphan_20200518T060000+0000.png",
+      "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "dataset_version": "v1.0-locked",
+      "preprocessing_version": "TRAIN_zscore_standardization",
+      "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+    },
+    {
+      "sample_id": "NIO_2021_TAUKTAE_20210517_0300Z",
+      "storm_id": "NIO_2021_TAUKTAE",
+      "storm_name": "TAUKTAE",
+      "t0": "2021-05-17T03:00:00+00:00",
+      "source": "GridSat-B1 IRWIN CDR",
+      "split": "TEST",
+      "frame_index": 5,
+      "ground_truth_category": "ESCS",
+      "ground_truth_wind_kt": 100.0,
+      "predicted_class": "D",
+      "predicted_class_idx": 0,
+      "confidence": 0.43408358097076416,
+      "method": "Grad-CAM",
+      "target_layer": "spatial_encoder.layer2",
+      "image_height": 572,
+      "image_width": 929,
+      "max_activation_loc": [
+        218,
+        488
+      ],
+      "activation_centroid": [
+        283.0196965630889,
+        449.2176131540321
+      ],
+      "heatmap_path": "data/interim/ml/explainability/heatmap_tauktae_20210517T030000+0000.png",
+      "overlay_path": "data/interim/ml/explainability/overlay_tauktae_20210517T030000+0000.png",
+      "original_path": "data/interim/ml/explainability/original_tauktae_20210517T030000+0000.png",
+      "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "dataset_version": "v1.0-locked",
+      "preprocessing_version": "TRAIN_zscore_standardization",
+      "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+    },
+    {
+      "sample_id": "NIO_2023_BIPARJOY_20230611_0600Z",
+      "storm_id": "NIO_2023_BIPARJOY",
+      "storm_name": "BIPARJOY",
+      "t0": "2023-06-11T06:00:00+00:00",
+      "source": "GridSat-B1 IRWIN CDR",
+      "split": "TEST",
+      "frame_index": 5,
+      "ground_truth_category": "ESCS",
+      "ground_truth_wind_kt": 90.0,
+      "predicted_class": "DD",
+      "predicted_class_idx": 1,
+      "confidence": 0.24643531441688538,
+      "method": "Grad-CAM",
+      "target_layer": "spatial_encoder.layer2",
+      "image_height": 572,
+      "image_width": 929,
+      "max_activation_loc": [
+        321,
+        392
+      ],
+      "activation_centroid": [
+        289.8227415339179,
+        419.7300947580346
+      ],
+      "heatmap_path": "data/interim/ml/explainability/heatmap_biparjoy_20230611T060000+0000.png",
+      "overlay_path": "data/interim/ml/explainability/overlay_biparjoy_20230611T060000+0000.png",
+      "original_path": "data/interim/ml/explainability/original_biparjoy_20230611T060000+0000.png",
+      "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "dataset_version": "v1.0-locked",
+      "preprocessing_version": "TRAIN_zscore_standardization",
+      "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+    },
+    {
+      "sample_id": "NIO_2024_REMAL_20240526_0300Z",
+      "storm_id": "NIO_2024_REMAL",
+      "storm_name": "REMAL",
+      "t0": "2024-05-26T03:00:00+00:00",
+      "source": "GridSat-B1 IRWIN CDR",
+      "split": "TEST",
+      "frame_index": 5,
+      "ground_truth_category": "SCS",
+      "ground_truth_wind_kt": 50.0,
+      "predicted_class": "DD",
+      "predicted_class_idx": 1,
+      "confidence": 0.4118519425392151,
+      "method": "Grad-CAM",
+      "target_layer": "spatial_encoder.layer2",
+      "image_height": 572,
+      "image_width": 929,
+      "max_activation_loc": [
+        194,
+        520
+      ],
+      "activation_centroid": [
+        250.5699064387866,
+        544.1498104758546
+      ],
+      "heatmap_path": "data/interim/ml/explainability/heatmap_remal_20240526T030000+0000.png",
+      "overlay_path": "data/interim/ml/explainability/overlay_remal_20240526T030000+0000.png",
+      "original_path": "data/interim/ml/explainability/original_remal_20240526T030000+0000.png",
+      "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+      "dataset_version": "v1.0-locked",
+      "preprocessing_version": "TRAIN_zscore_standardization",
+      "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+    }
+  ],
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "spatial_resolution": [
+    572,
+    929
+  ],
+  "interpretation_disclaimer": "The saliency/Grad-CAM output is an interpretation aid and must not be presented as a causal meteorological explanation."
+}

@@ -1,0 +1,35 @@
+{
+  "sample_id": "NIO_2024_REMAL_20240526_0300Z",
+  "storm_id": "NIO_2024_REMAL",
+  "storm_name": "REMAL",
+  "t0": "2024-05-26T03:00:00+00:00",
+  "source": "GridSat-B1 IRWIN CDR",
+  "split": "TEST",
+  "frame_index": 5,
+  "ground_truth_category": "SCS",
+  "ground_truth_wind_kt": 50.0,
+  "predicted_class": "DD",
+  "predicted_class_idx": 1,
+  "confidence": 0.4118519425392151,
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "image_height": 572,
+  "image_width": 929,
+  "max_activation_loc": [
+    194,
+    520
+  ],
+  "activation_centroid": [
+    250.5699064387866,
+    544.1498104758546
+  ],
+  "heatmap_path": "data/interim/ml/explainability/heatmap_remal_20240526T030000+0000.png",
+  "overlay_path": "data/interim/ml/explainability/overlay_remal_20240526T030000+0000.png",
+  "original_path": "data/interim/ml/explainability/original_remal_20240526T030000+0000.png",
+  "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+  "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+  "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+  "dataset_version": "v1.0-locked",
+  "preprocessing_version": "TRAIN_zscore_standardization",
+  "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+}

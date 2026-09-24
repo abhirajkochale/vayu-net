@@ -1,0 +1,291 @@
+{
+  "metadata": {
+    "phase": "Phase 6",
+    "title": "VAYU-NET Multi-Task Cyclone Intensity Classification & Wind Speed Regression",
+    "problem_statement": "SIH 2026 PS 26070",
+    "timestamp_evaluation": "2026-09-25T01:06:04.569672",
+    "selected_model": "EXP-3_Multimodal_ERA5",
+    "mode": "multimodal_era5",
+    "best_epoch": 23,
+    "total_test_samples": 371,
+    "test_storms_count": 31,
+    "frozen_checkpoint_path": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt"
+  },
+  "validation_metrics": {
+    "composite_error": 2.2147168610209773,
+    "macro_f1": 0.2005565331753715,
+    "accuracy": 0.25101214574898784,
+    "wind_mae": 25.44009048219711,
+    "wind_rmse": 34.295344197108584,
+    "per_class_f1": [
+      0.2553191489361702,
+      0.16666666666666666,
+      0.36809815950920244,
+      0.15789473684210525,
+      0.21782178217821782,
+      0.23809523809523808,
+      0.0
+    ]
+  },
+  "test_metrics": {
+    "classification": {
+      "accuracy": 0.25336927223719674,
+      "macro_f1": 0.23679992470019207,
+      "macro_precision": 0.285189976149897,
+      "macro_recall": 0.22819308278867104,
+      "per_class_f1": {
+        "D": 0.4875,
+        "DD": 0.15217391304347827,
+        "CS": 0.15748031496062992,
+        "SCS": 0.13793103448275862,
+        "VSCS": 0.2857142857142857,
+        "ESCS": 0.2,
+        "SuCS": 0.0
+      },
+      "confusion_matrix": [
+        [
+          39,
+          13,
+          18,
+          8,
+          7,
+          0,
+          0
+        ],
+        [
+          13,
+          14,
+          18,
+          16,
+          28,
+          1,
+          0
+        ],
+        [
+          7,
+          22,
+          10,
+          15,
+          9,
+          1,
+          0
+        ],
+        [
+          5,
+          14,
+          8,
+          6,
+          7,
+          0,
+          0
+        ],
+        [
+          9,
+          27,
+          7,
+          2,
+          22,
+          1,
+          0
+        ],
+        [
+          2,
+          4,
+          2,
+          0,
+          13,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "uncalibrated_ece": 0.25005048095697985,
+      "calibrated_ece": 0.12566087666065545,
+      "temperature": 1.725075364112854
+    },
+    "wind_regression": {
+      "mae_kt": 19.651722859179557,
+      "rmse_kt": 25.464161253049575,
+      "median_ae_kt": 16.275741577148438,
+      "p90_ae_kt": 42.36370849609375,
+      "bias_kt": -1.3097653144774732,
+      "pearson_r": 0.17276313869743046,
+      "uncertainty_p80_ae_kt": 46.8080909729004,
+      "uncertainty_p90_ae_kt": 55.70576400756837,
+      "coverage_p80_pct": 93.53099730458221,
+      "coverage_p90_pct": 97.03504043126685
+    }
+  },
+  "baselines": {
+    "majority_category": {
+      "predicted_category": "D",
+      "accuracy": 0.22911051212938005,
+      "macro_f1": 0.062134502923976605,
+      "confusion_matrix": [
+        [
+          85,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          90,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          64,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          40,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          68,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          24,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "mean_wind": {
+      "predicted_wind_kt": 36.87931034482759,
+      "mae_kt": 17.724463240078073,
+      "rmse_kt": 23.76971636107546,
+      "median_ae_kt": 11.879310344827587,
+      "p90_ae_kt": 48.12068965517241,
+      "bias_kt": -8.444139789943302
+    },
+    "persistence_6h": {
+      "eligible_samples_count": 321,
+      "wind_mae_kt": 3.0529595015576323,
+      "wind_rmse_kt": 4.865800289886463,
+      "category_accuracy": 0.7725856697819314,
+      "category_macro_f1": 0.7676703612536295
+    }
+  },
+  "subgroup_analysis": {
+    "weak_systems_under_34kt": {
+      "sample_count": 175,
+      "wind_mae_kt": 15.659499500819615,
+      "category_macro_f1": 0.134776550834945
+    },
+    "moderate_systems_34_to_63kt": {
+      "sample_count": 104,
+      "wind_mae_kt": 15.397566061753492,
+      "category_macro_f1": 0.07343729174996667
+    },
+    "intense_systems_64kt_plus": {
+      "sample_count": 92,
+      "wind_mae_kt": 32.0546728009763,
+      "category_macro_f1": 0.10691169671752195
+    },
+    "arabian_sea": {
+      "sample_count": 168,
+      "wind_mae_kt": 26.578214429673693
+    },
+    "bay_of_bengal": {
+      "sample_count": 203,
+      "wind_mae_kt": 13.919453973253372
+    }
+  },
+  "top_5_largest_wind_errors": [
+    {
+      "sample_id": "NIO_2021_TAUKTAE_20210517_0300Z",
+      "storm_id": "NIO_2021_TAUKTAE",
+      "t0": "2021-05-17T03:00:00+00:00",
+      "true_cat": "ESCS",
+      "pred_cat": "D",
+      "true_wind": 100.0,
+      "pred_wind": 27.962520599365234,
+      "abs_wind_error": 72.03747940063477
+    },
+    {
+      "sample_id": "NIO_2021_TAUKTAE_20210517_0600Z",
+      "storm_id": "NIO_2021_TAUKTAE",
+      "t0": "2021-05-17T06:00:00+00:00",
+      "true_cat": "ESCS",
+      "pred_cat": "D",
+      "true_wind": 100.0,
+      "pred_wind": 28.1025447845459,
+      "abs_wind_error": 71.8974552154541
+    },
+    {
+      "sample_id": "NIO_2021_TAUKTAE_20210517_0000Z",
+      "storm_id": "NIO_2021_TAUKTAE",
+      "t0": "2021-05-17T00:00:00+00:00",
+      "true_cat": "ESCS",
+      "pred_cat": "DD",
+      "true_wind": 100.0,
+      "pred_wind": 30.3892822265625,
+      "abs_wind_error": 69.6107177734375
+    },
+    {
+      "sample_id": "NIO_2024_LAT_20240831_0000Z",
+      "storm_id": "NIO_2024_LAT",
+      "t0": "2024-08-31T00:00:00+00:00",
+      "true_cat": "D",
+      "pred_cat": "VSCS",
+      "true_wind": 25.0,
+      "pred_wind": 94.42092895507812,
+      "abs_wind_error": 69.42092895507812
+    },
+    {
+      "sample_id": "NIO_2024_ASNA_20240826_1200Z",
+      "storm_id": "NIO_2024_ASNA",
+      "t0": "2024-08-26T12:00:00+00:00",
+      "true_cat": "DD",
+      "pred_cat": "VSCS",
+      "true_wind": 30.0,
+      "pred_wind": 98.72554016113281,
+      "abs_wind_error": 68.72554016113281
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "sample_id": "NIO_2019_FANI_20190502_1200Z",
+  "storm_id": "NIO_2019_FANI",
+  "storm_name": "FANI",
+  "t0": "2019-05-02T12:00:00+00:00",
+  "source": "GridSat-B1 IRWIN CDR",
+  "split": "VALIDATION",
+  "frame_index": 5,
+  "ground_truth_category": "ESCS",
+  "ground_truth_wind_kt": 115.0,
+  "predicted_class": "DD",
+  "predicted_class_idx": 1,
+  "confidence": 0.4321984350681305,
+  "method": "Grad-CAM",
+  "target_layer": "spatial_encoder.layer2",
+  "image_height": 572,
+  "image_width": 929,
+  "max_activation_loc": [
+    91,
+    853
+  ],
+  "activation_centroid": [
+    340.75266904421045,
+    538.8836574491067
+  ],
+  "heatmap_path": "data/interim/ml/explainability/heatmap_fani_20190502T120000+0000.png",
+  "overlay_path": "data/interim/ml/explainability/overlay_fani_20190502T120000+0000.png",
+  "original_path": "data/interim/ml/explainability/original_fani_20190502T120000+0000.png",
+  "model_checkpoint": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+  "spatial_checkpoint": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+  "temporal_checkpoint": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
+  "dataset_version": "v1.0-locked",
+  "preprocessing_version": "TRAIN_zscore_standardization",
+  "interpretation_note": "Interpretation aid showing regions that contributed most strongly to the model's IMD intensity classification. Must not be presented or interpreted as a causal meteorological explanation."
+}
