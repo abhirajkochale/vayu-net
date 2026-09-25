@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
 """VAYU-NET — Runtime Artifacts Verification & Download Utility
 ============================================================
-Verifies and downloads required model weights and runtime assets
-according to the specifications in artifacts/manifest.json.
+Verifies and downloads required model weights, feature cache,
+and GridSat satellite observation frames according to artifacts/manifest.json.
+
+Supports both flat GitHub Release Asset endpoints and static HTTPS storage.
 
 Usage:
   python scripts/setup/download_runtime_artifacts.py --check
   python scripts/setup/download_runtime_artifacts.py --dry-run
   python scripts/setup/download_runtime_artifacts.py
+  python scripts/setup/download_runtime_artifacts.py --release-tag v1.1.0
+  python scripts/setup/download_runtime_artifacts.py --base-url https://github.com/abhirajkochale/vayu-net/releases/download/v1.1.0
+  python scripts/setup/download_runtime_artifacts.py --base-url http://127.0.0.1:8765 --target-dir /path/to/target
 """
 
 from __future__ import annotations
@@ -17,6 +22,7 @@ import hashlib
 import json
 import os
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
@@ -26,6 +32,8 @@ if hasattr(sys.stdout, "reconfigure"):
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_PATH = PROJECT_ROOT / "artifacts/manifest.json"
+DEFAULT_RELEASE_REPO = "abhirajkochale/vayu-net"
+USER_AGENT = "VAYU-NET-Downloader/1.1 (Operational Cyclone Intelligence)"
 
 
 def compute_sha256(file_path: Path) -> str:
@@ -37,68 +45,61 @@ def compute_sha256(file_path: Path) -> str:
     return h.hexdigest()
 
 
-def check_artifacts(manifest: Dict[str, Any]) -> Tuple[int, int, List[str]]:
+def check_artifacts(manifest: Dict[str, Any], target_root: Path = PROJECT_ROOT) -> Tuple[int, int, List[str]]:
     """Checks the presence and SHA-256 integrity of all manifest artifacts."""
     print("=" * 68)
     print("VAYU-NET RUNTIME ARTIFACT INTEGRITY CHECK")
+    print(f"Target Root: {target_root}")
     print("=" * 68)
 
     passed = 0
     failed = 0
     missing_files: List[str] = []
 
-    # Check models
-    print("\n[1] Checking Runtime Model Checkpoints:")
-    for m in manifest.get("models", []):
-        name = m["name"]
-        rel_path = m["path"]
-        expected_sha = m["sha256"]
-        full_path = PROJECT_ROOT / rel_path
+    def _check_group(title: str, items: List[Dict[str, Any]]) -> None:
+        nonlocal passed, failed
+        print(f"\n{title}")
+        for item in items:
+            name = item["name"]
+            rel_path = item.get("destination_path") or item["path"]
+            expected_sha = item["sha256"]
+            full_path = target_root / rel_path
 
-        if not full_path.exists():
-            print(f"  [MISSING] {name:30s} -> {rel_path}")
-            failed += 1
-            missing_files.append(rel_path)
-            continue
+            if not full_path.exists():
+                print(f"  [MISSING] {name:35s} -> {rel_path}")
+                failed += 1
+                missing_files.append(rel_path)
+                continue
 
-        actual_sha = compute_sha256(full_path)
-        if actual_sha.lower() == expected_sha.lower():
-            print(f"  [OK]      {name:30s} ({full_path.stat().st_size / (1024*1024):.1f} MB)")
-            passed += 1
-        else:
-            print(f"  [MISMATCH]{name:30s}")
-            print(f"     Expected: {expected_sha}")
-            print(f"     Actual:   {actual_sha}")
-            failed += 1
+            actual_sha = compute_sha256(full_path)
+            if actual_sha.lower() == expected_sha.lower():
+                size_mb = full_path.stat().st_size / (1024 * 1024)
+                print(f"  [OK]      {name:35s} ({size_mb:6.2f} MB)")
+                passed += 1
+            else:
+                print(f"  [MISMATCH]{name:35s}")
+                print(f"     Expected: {expected_sha}")
+                print(f"     Actual:   {actual_sha}")
+                failed += 1
 
-    # Check runtime assets
-    print("\n[2] Checking Runtime Metadata & Calibration Assets:")
-    for a in manifest.get("runtime_assets", []):
-        name = a["name"]
-        rel_path = a["path"]
-        expected_sha = a["sha256"]
-        full_path = PROJECT_ROOT / rel_path
+    # 1. Models
+    _check_group("[1] Checking Runtime Model Checkpoints:", manifest.get("models", []))
 
-        if not full_path.exists():
-            print(f"  [MISSING] {name:30s} -> {rel_path}")
-            failed += 1
-            missing_files.append(rel_path)
-            continue
+    # 2. Feature Cache
+    _check_group("[2] Checking Runtime Feature Store Cache:", manifest.get("feature_cache", []))
 
-        actual_sha = compute_sha256(full_path)
-        if actual_sha.lower() == expected_sha.lower():
-            print(f"  [OK]      {name:30s}")
-            passed += 1
-        else:
-            print(f"  [MISMATCH]{name:30s}")
-            failed += 1
+    # 3. GridSat Observation Frames
+    _check_group("[3] Checking GridSat Satellite Observations:", manifest.get("gridsat_frames", []))
 
-    # Check demo assets
-    print("\n[3] Checking Curated Demo Cyclone Assets:")
-    demo_dir = PROJECT_ROOT / "data/interim/ml/explainability"
+    # 4. Metadata & Calibration Assets
+    _check_group("[4] Checking Runtime Metadata & Calibration Assets:", manifest.get("runtime_assets", []))
+
+    # 5. Curated Demo Cyclone Assets
+    print("\n[5] Checking Curated Demo Cyclone Assets:")
+    demo_dir = target_root / "data/interim/ml/explainability"
     for d in manifest.get("demo_assets", []):
         cyclone = d["cyclone"]
-        matches = list(demo_dir.glob(f"*{cyclone.lower()}*.png"))
+        matches = list(demo_dir.glob(f"*{cyclone.lower()}*.png")) if demo_dir.exists() else []
         if matches:
             print(f"  [OK]      Cyclone {cyclone:10s} ({len(matches)} visualization assets)")
             passed += 1
@@ -112,74 +113,121 @@ def check_artifacts(manifest: Dict[str, Any]) -> Tuple[int, int, List[str]]:
     return passed, failed, missing_files
 
 
-def download_artifacts(manifest: Dict[str, Any], dry_run: bool = False) -> bool:
+def resolve_asset_url(
+    item: Dict[str, Any],
+    base_storage_url: str | None,
+    hierarchical: bool = False,
+) -> str | None:
+    """
+    Resolves the remote download URL for a manifest item.
+    Defaults to flat GitHub Release Asset layout:
+      <base_url>/<asset_filename>
+    If hierarchical=True and storage_rel_url is set, uses:
+      <base_url>/<storage_rel_url>
+    """
+    if not base_storage_url:
+        return item.get("source_url")
+
+    asset_filename = item.get("asset_filename") or Path(item.get("destination_path") or item["path"]).name
+
+    if hierarchical and item.get("storage_rel_url"):
+        return f"{base_storage_url.rstrip('/')}/{item['storage_rel_url'].lstrip('/')}"
+
+    # Default: Flat URL (GitHub Release Asset standard)
+    return f"{base_storage_url.rstrip('/')}/{asset_filename}"
+
+
+def download_artifacts(
+    manifest: Dict[str, Any],
+    dry_run: bool = False,
+    base_storage_url: str | None = None,
+    target_root: Path = PROJECT_ROOT,
+    hierarchical: bool = False,
+) -> bool:
     """Downloads missing artifacts from configured external sources."""
     print("=" * 68)
     print(f"VAYU-NET ARTIFACT DOWNLOAD {'(DRY RUN)' if dry_run else ''}")
+    print(f"Target Root: {target_root}")
+    print(f"Storage URL: {base_storage_url or 'NOT_CONFIGURED'}")
+    print(f"URL Mode:    {'HIERARCHICAL' if hierarchical else 'FLAT (GitHub Release Standard)'}")
     print("=" * 68)
 
-    models_to_fetch = []
-    for m in manifest.get("models", []):
-        rel_path = m["path"]
-        full_path = PROJECT_ROOT / rel_path
-        expected_sha = m["sha256"]
+    base_storage_url = base_storage_url or os.getenv("MODEL_STORAGE_BASE_URL")
+
+    # Collect all items requiring verification or download
+    all_targets: List[Dict[str, Any]] = []
+    all_targets.extend(manifest.get("models", []))
+    all_targets.extend(manifest.get("feature_cache", []))
+    all_targets.extend(manifest.get("gridsat_frames", []))
+
+    items_to_fetch = []
+    for item in all_targets:
+        rel_path = item.get("destination_path") or item["path"]
+        full_path = target_root / rel_path
+        expected_sha = item["sha256"]
 
         if full_path.exists():
             actual_sha = compute_sha256(full_path)
             if actual_sha.lower() == expected_sha.lower():
-                print(f"Artifact already present and verified: {m['name']} -> {rel_path}")
+                print(f"[VERIFIED] {item['name']:35s} -> {rel_path}")
                 continue
 
-        models_to_fetch.append(m)
+        items_to_fetch.append(item)
 
-    if not models_to_fetch:
-        print("\nAll runtime models are already present and verified. Nothing to download.")
+    if not items_to_fetch:
+        print("\nAll required runtime artifacts are already present and verified. Nothing to download.")
         return True
 
-    print(f"\n{len(models_to_fetch)} model(s) require download:")
-    for m in models_to_fetch:
-        print(f"  - {m['name']}: {m['size_bytes'] / (1024*1024):.1f} MB from {m['source_url']}")
+    print(f"\n{len(items_to_fetch)} artifact(s) require download:")
+    for item in items_to_fetch:
+        size_mb = item.get("size_bytes", 0) / (1024 * 1024)
+        print(f"  - {item['name']:35s}: {size_mb:6.2f} MB")
 
     if dry_run:
         print("\nDry run complete. No network requests initiated.")
         return True
 
-    base_storage_url = os.getenv("MODEL_STORAGE_BASE_URL")
     download_failed = False
 
-    for m in models_to_fetch:
-        name = m["name"]
-        url = m.get("source_url")
-        status = m.get("source_status", "UNKNOWN")
-
-        # Resolve remote URL if base storage is configured
-        if base_storage_url and (not url or "placeholder" in str(url) or status == "NOT_PROVISIONED"):
-            filename = Path(m["path"]).name
-            url = f"{base_storage_url.rstrip('/')}/models/{filename}"
-
-        dest = PROJECT_ROOT / m["path"]
+    for item in items_to_fetch:
+        name = item["name"]
+        rel_path = item.get("destination_path") or item["path"]
+        dest = target_root / rel_path
         dest.parent.mkdir(parents=True, exist_ok=True)
 
-        if not url or "placeholder" in str(url) or status == "NOT_PROVISIONED":
-            print(f"\n[MANUAL STEP PENDING] Cannot retrieve '{name}': Remote cloud storage is not yet configured (status: {status}).")
-            print(f"       Cloud deployment has not yet been performed. Manual deployment is pending.")
-            print(f"       Configure MODEL_STORAGE_BASE_URL or upload weights to Supabase Storage bucket 'vayu-net-runtime'.")
+        url = resolve_asset_url(item, base_storage_url=base_storage_url, hierarchical=hierarchical)
+        status = item.get("source_status", "UNKNOWN")
+
+        if not url or "placeholder" in str(url) or (status == "NOT_PROVISIONED" and not base_storage_url):
+            print(f"\n[FAIL] Cannot retrieve '{name}': Remote storage URL is not configured.")
+            print(f"       Set MODEL_STORAGE_BASE_URL to a valid GitHub Releases or HTTPS endpoint.")
             download_failed = True
             continue
 
         print(f"\nDownloading {name} from {url} ...")
         temp_dest = dest.with_suffix(".tmp")
         try:
-            urllib.request.urlretrieve(url, temp_dest)
-            actual_sha = compute_sha256(temp_dest)
-            if actual_sha.lower() != m["sha256"].lower():
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+            hasher = hashlib.sha256()
+
+            with urllib.request.urlopen(req) as resp, open(temp_dest, "wb") as out_f:
+                if resp.status not in (200, 206):
+                    raise urllib.error.HTTPError(url, resp.status, f"HTTP Error {resp.status}", resp.headers, None)
+                while chunk := resp.read(1024 * 1024):
+                    out_f.write(chunk)
+                    hasher.update(chunk)
+
+            actual_sha = hasher.hexdigest()
+            expected_sha = item["sha256"]
+            if actual_sha.lower() != expected_sha.lower():
                 temp_dest.unlink(missing_ok=True)
-                raise ValueError(f"Checksum mismatch for {name}! Expected {m['sha256']}, got {actual_sha}")
-            temp_dest.rename(dest)
-            print(f"[OK]   Successfully downloaded and verified: {name}")
+                raise ValueError(f"Checksum mismatch for {name}! Expected {expected_sha}, got {actual_sha}")
+
+            temp_dest.replace(dest)
+            print(f"[OK]   Successfully downloaded and verified: {name} -> {rel_path}")
         except Exception as e:
             temp_dest.unlink(missing_ok=True)
-            print(f"[FAIL] Failed to download {name}: {e}")
+            print(f"[FAIL] Failed to download {name} from {url}: {e}")
             download_failed = True
 
     return not download_failed
@@ -189,6 +237,10 @@ def main():
     parser = argparse.ArgumentParser(description="VAYU-NET Runtime Artifact Management Utility")
     parser.add_argument("--check", action="store_true", help="Verify integrity of local runtime artifacts only (no downloads)")
     parser.add_argument("--dry-run", action="store_true", help="Simulate download without performing requests")
+    parser.add_argument("--base-url", type=str, default=None, help="Base URL of static HTTPS/HTTP or GitHub Releases endpoint")
+    parser.add_argument("--release-tag", type=str, default=None, help="GitHub release tag (e.g. v1.1.0) to construct download URL")
+    parser.add_argument("--target-dir", type=str, default=None, help="Target root directory to verify/download into")
+    parser.add_argument("--hierarchical", action="store_true", help="Use nested directory layout instead of flat release assets")
     args = parser.parse_args()
 
     if not MANIFEST_PATH.exists():
@@ -198,11 +250,31 @@ def main():
     with open(MANIFEST_PATH, "r") as f:
         manifest = json.load(f)
 
+    target_root = Path(args.target_dir).resolve() if args.target_dir else PROJECT_ROOT
+
     if args.check:
-        passed, failed, missing = check_artifacts(manifest)
+        passed, failed, missing = check_artifacts(manifest, target_root=target_root)
         sys.exit(0 if failed == 0 else 1)
 
-    success = download_artifacts(manifest, dry_run=args.dry_run)
+    # Determine base URL:
+    # 1. Explicit --base-url
+    # 2. Constructed from --release-tag / RELEASE_TAG
+    # 3. Environment variable MODEL_STORAGE_BASE_URL
+    base_url = args.base_url
+    if not base_url:
+        tag = args.release_tag or os.getenv("RELEASE_TAG")
+        if tag:
+            base_url = f"https://github.com/{DEFAULT_RELEASE_REPO}/releases/download/{tag}"
+        else:
+            base_url = os.getenv("MODEL_STORAGE_BASE_URL")
+
+    success = download_artifacts(
+        manifest,
+        dry_run=args.dry_run,
+        base_storage_url=base_url,
+        target_root=target_root,
+        hierarchical=args.hierarchical,
+    )
     sys.exit(0 if success else 1)
 
 

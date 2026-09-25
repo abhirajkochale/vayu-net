@@ -1,16 +1,20 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "project": "VAYU-NET",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Production runtime artifacts and model checkpoints manifest for VAYU-NET (SIH 26070)",
-  "storage_provider": "Supabase Storage",
+  "storage_provider": "GitHub Release Assets / Static HTTPS Storage",
   "storage_bucket": "vayu-net-runtime",
+  "release_url_template": "https://github.com/abhirajkochale/vayu-net/releases/download/{release_tag}/{asset_filename}",
   "storage_status": "NOT_PROVISIONED",
   "models": [
     {
       "name": "center_localization_cnn",
       "version": "phase3c-v1.0",
       "path": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "destination_path": "data/interim/ml/checkpoints/best_center_localization_cnn.pt",
+      "asset_filename": "best_center_localization_cnn.pt",
+      "storage_rel_url": "models/best_center_localization_cnn.pt",
       "required": true,
       "size_bytes": 51406686,
       "sha256": "5ef11b596ef94ece71079c1329eab1e50191127eb7b9b1ff13f7dcdd3185f1c9",
@@ -19,20 +23,12 @@
       "purpose": "Single-frame dedicated cyclone center localization ResNet-18 (Phase 3C)"
     },
     {
-      "name": "temporal_track_gru",
-      "version": "phase4a-v1.0",
-      "path": "data/interim/ml/checkpoints/best_temporal_track_gru.pt",
-      "required": true,
-      "size_bytes": 48407839,
-      "sha256": "7973c12a1d1b15fcb4c201deb9491bdb51d4ae9022881aff5233d85606676b46",
-      "source_status": "NOT_PROVISIONED",
-      "source_url": null,
-      "purpose": "Shared spatial projection and 6-step temporal sequence GRU (Phase 4A)"
-    },
-    {
       "name": "environment_hybrid_track_gru_variant_a",
       "version": "phase5b-v1.0-variant-a",
       "path": "data/interim/ml/checkpoints/best_phase5b_variant_a.pt",
+      "destination_path": "data/interim/ml/checkpoints/best_phase5b_variant_a.pt",
+      "asset_filename": "best_phase5b_variant_a.pt",
+      "storage_rel_url": "models/best_phase5b_variant_a.pt",
       "required": true,
       "size_bytes": 1754009,
       "sha256": "c1a51fb9d2e55a6043c4b903a4b4696d4c98cb9034082e4825fb6682fefd9216",
@@ -41,26 +37,117 @@
       "purpose": "Environment-aware hybrid kinematic + satellite residual track forecast with observed IMD center anchor (Phase 5B Variant A)"
     },
     {
-      "name": "environment_hybrid_track_gru_variant_b",
-      "version": "phase5b-v1.0-variant-b",
-      "path": "data/interim/ml/checkpoints/best_phase5b_variant_b.pt",
-      "required": true,
-      "size_bytes": 1754009,
-      "sha256": "2f0ec1e1e136c552a1ab4a4a8002e1af3293489d5fb649d95b30c2ca5e4a9533",
-      "source_status": "NOT_PROVISIONED",
-      "source_url": null,
-      "purpose": "Environment-aware hybrid kinematic + satellite residual track forecast with Phase 3C satellite-derived center anchor (Phase 5B Variant B)"
-    },
-    {
       "name": "intensity_wind_multitask",
       "version": "phase6-v1.0",
       "path": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "destination_path": "data/interim/ml/checkpoints/best_phase6_intensity_wind.pt",
+      "asset_filename": "best_phase6_intensity_wind.pt",
+      "storage_rel_url": "models/best_phase6_intensity_wind.pt",
       "required": true,
       "size_bytes": 1506213,
       "sha256": "a014e06dbf6fc17f37d04bb545a58746e57be6cb309808735660989009a460ef",
       "source_status": "NOT_PROVISIONED",
       "source_url": null,
       "purpose": "Multimodal multi-task IMD intensity classifier and sustained wind speed regressor (Phase 6)"
+    }
+  ],
+  "feature_cache": [
+    {
+      "name": "phase5b_hybrid_features",
+      "path": "data/interim/ml/cache/phase5b_hybrid_features.pt",
+      "destination_path": "data/interim/ml/cache/phase5b_hybrid_features.pt",
+      "asset_filename": "phase5b_hybrid_features.pt",
+      "storage_rel_url": "cache/phase5b_hybrid_features.pt",
+      "required": true,
+      "size_bytes": 697801287,
+      "sha256": "2a07d74290bc05e7d9cb58a2aff3564e23335fae7ed0c99d305e0e14597cb35f",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Standardized 7-D multimodal feature tensors across all candidate observations for track and intensity inference"
+    }
+  ],
+  "gridsat_frames": [
+    {
+      "name": "gridsat_2020.05.17.15",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.17.15.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.17.15.npz",
+      "asset_filename": "gridsat_2020.05.17.15.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.17.15.npz",
+      "required": true,
+      "size_bytes": 587602,
+      "sha256": "5250fd12e06981e74a441d81951b39ec3187d17325ac7a219a4ba3ec5b087bcd",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Causal observation frame t-15h for AMPHAN canonical sequence"
+    },
+    {
+      "name": "gridsat_2020.05.17.18",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.17.18.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.17.18.npz",
+      "asset_filename": "gridsat_2020.05.17.18.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.17.18.npz",
+      "required": true,
+      "size_bytes": 578715,
+      "sha256": "cd0bdae94612c78f129c8e69c515e309ac3f775ec3677584b355836a414a7309",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Causal observation frame t-12h for AMPHAN canonical sequence"
+    },
+    {
+      "name": "gridsat_2020.05.17.21",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.17.21.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.17.21.npz",
+      "asset_filename": "gridsat_2020.05.17.21.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.17.21.npz",
+      "required": true,
+      "size_bytes": 571054,
+      "sha256": "fcf44e4f7704f4410a27f986f4cbf2618d8898ef6522eb55a167b9d1cee4672a",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.17.21.npz",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Causal observation frame t-9h for AMPHAN canonical sequence"
+    },
+    {
+      "name": "gridsat_2020.05.18.00",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.18.00.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.18.00.npz",
+      "asset_filename": "gridsat_2020.05.18.00.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.00.npz",
+      "required": true,
+      "size_bytes": 567142,
+      "sha256": "035f20de398217facfe78b1a6cc0a2237be80723b9176528cba74f9f75603911",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.00.npz",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Causal observation frame t-6h for AMPHAN canonical sequence"
+    },
+    {
+      "name": "gridsat_2020.05.18.03",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.18.03.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.18.03.npz",
+      "asset_filename": "gridsat_2020.05.18.03.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.03.npz",
+      "required": true,
+      "size_bytes": 567173,
+      "sha256": "22b3d636c17bd927e5618cd1903816a49094a258f7618e024b4a5e1da657786e",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.03.npz",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Causal observation frame t-3h for AMPHAN canonical sequence"
+    },
+    {
+      "name": "gridsat_2020.05.18.06",
+      "path": "data/interim/gridsat/2020/gridsat_2020.05.18.06.npz",
+      "destination_path": "data/interim/gridsat/2020/gridsat_2020.05.18.06.npz",
+      "asset_filename": "gridsat_2020.05.18.06.npz",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.06.npz",
+      "required": true,
+      "size_bytes": 598496,
+      "sha256": "3a638e6885e96280e8dadd47688452707d9d5697b6f486f20c313409b3c87760",
+      "storage_rel_url": "gridsat/2020/gridsat_2020.05.18.06.npz",
+      "source_status": "NOT_PROVISIONED",
+      "source_url": null,
+      "purpose": "Canonical t0 observation frame for AMPHAN rehearsal and /api/satellite/image"
     }
   ],
   "runtime_assets": [
