@@ -1,0 +1,36 @@
+{
+  "audit_title": "VAYU-NET Multi-Source Satellite Dataset Validation Audit (Expanded TRAIN)",
+  "validation_timestamp": "2026-09-25T11:33:52.893020+00:00",
+  "baseline_dataset": {
+    "total_original_samples": 1319,
+    "total_original_storms": 126
+  },
+  "multisource_dataset": {
+    "total_paired_samples": 757,
+    "paired_train_samples": 207,
+    "paired_validation_samples": 252,
+    "paired_test_samples": 298,
+    "paired_train_storms": 25,
+    "paired_validation_storms": 14,
+    "paired_test_storms": 24,
+    "missing_insat_samples": 562
+  },
+  "temporal_alignment": {
+    "total_frames": 4542,
+    "exact_matches_count": 4202,
+    "exact_matches_pct": 92.51,
+    "le_15_min_pct": 92.51,
+    "le_30_min_pct": 93.9,
+    "le_60_min_pct": 100.0,
+    "max_accepted_offset_minutes": 60.0,
+    "rejected_frames_count": 0,
+    "mean_offset_minutes": 4.08,
+    "median_offset_minutes": 0.0
+  },
+  "anti_leakage_audit": {
+    "temporal_causality_violation_count": 0,
+    "train_normalization_isolation": "VERIFIED (Train-only derivation strictly across 207 samples)",
+    "storm_split_overlap_count": 0
+  },
+  "status": "READY_FOR_MULTI_SOURCE_MODEL_TRAINING"
+}

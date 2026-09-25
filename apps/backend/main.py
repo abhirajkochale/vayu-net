@@ -35,6 +35,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from ml.forecast.api_contracts import VayuForecastService, PredictionUnavailableError
+from apps.backend.services.inference_pipeline import get_inference_pipeline, InferencePipelineError
 
 app = FastAPI(
     title="VAYU-NET Cyclone Intelligence API",
@@ -57,6 +58,10 @@ app.add_middleware(
 
 @app.exception_handler(PredictionUnavailableError)
 def handle_prediction_unavailable(request, exc: PredictionUnavailableError):
+    return JSONResponse(status_code=exc.status_code, content={"detail": exc.to_dict()})
+
+@app.exception_handler(InferencePipelineError)
+def handle_inference_pipeline_error(request, exc: InferencePipelineError):
     return JSONResponse(status_code=exc.status_code, content={"detail": exc.to_dict()})
 
 # Mount static explainability assets
@@ -85,6 +90,11 @@ class PredictRequest(BaseModel):
     mode: str = Field("MODEL_INFERENCE", description="Prediction mode: 'MODEL_INFERENCE' (runs real checkpoint) or 'PRECOMPUTED_DEMO'")
 
 
+class InferenceRunRequest(BaseModel):
+    event_id: str = Field(..., description="Cyclone event identifier or storm name (e.g. AMPHAN, FANI, TAUKTAE, NIO_2020_AMPHAN)")
+    t0_utc: Optional[str] = Field(None, description="Observation timestamp in UTC (e.g. 2020-05-18T06:00:00+00:00)")
+
+
 class HealthResponse(BaseModel):
     status: str
     service: str
@@ -93,9 +103,77 @@ class HealthResponse(BaseModel):
     runtime_artifacts: Dict[str, bool]
 
 
+class CurrentInferenceRequest(BaseModel):
+    event_id: str = Field(..., description="Current cyclone identifier (e.g. active event ID or rehearsal ID)")
+    t0_utc: Optional[str] = Field(None, description="Current observation timestamp in UTC (e.g. 2023-06-11T00:00:00+00:00)")
+
+
 # ------------------------------------------------------------------------------
 # Route Handlers
 # ------------------------------------------------------------------------------
+@app.post("/api/inference/run")
+def run_canonical_inference(req: InferenceRunRequest):
+    """
+    Executes the canonical end-to-end multi-task inference pipeline.
+    Runs Phase 3C center localization, Phase 6 intensity/wind, Phase 5B track forecasting,
+    empirical uncertainty, downstream verification, analog retrieval, Grad-CAM, and IMERG context.
+    """
+    pipeline = get_inference_pipeline()
+    return pipeline.run_inference(event_id=req.event_id, t0_utc=req.t0_utc)
+
+
+@app.post("/api/inference/current")
+def run_current_inference(req: CurrentInferenceRequest):
+    """
+    Executes current / live cyclone inference workflow.
+    Evaluates strictly causal 6-frame satellite sequence and observed track history.
+    Verification is UNAVAILABLE (future ground truth is never accessed).
+    """
+    from apps.backend.services.current_event_service import CurrentEventError
+    from apps.backend.services.satellite_ingestion_service import SatelliteIngestionError
+    from apps.backend.services.inference_pipeline import InferencePipelineError
+
+    pipeline = get_inference_pipeline()
+    try:
+        return pipeline.execute_current_pipeline(event_id=req.event_id, t0_utc=req.t0_utc)
+    except (CurrentEventError, SatelliteIngestionError, InferencePipelineError) as e:
+        status_code = getattr(e, "status_code", 400)
+        raise HTTPException(status_code=status_code, detail={"code": getattr(e, "code", "CURRENT_INFERENCE_ERROR"), "message": str(e)})
+    except Exception as e:
+        raise HTTPException(status_code=500, detail={"code": "INTERNAL_ERROR", "message": str(e)})
+
+
+@app.get("/api/current/events")
+def list_current_events():
+    """
+    Discovers active cyclone events and evaluates operational readiness.
+    Returns: list of {event_id, name, source, status, latest_observation, latest_center, history_fix_count, satellite_frame_count, readiness}.
+    """
+    pipeline = get_inference_pipeline()
+    return pipeline.current_event_service.list_active_current_events()
+
+
+@app.get("/api/events")
+def list_canonical_events():
+    """Returns catalog of all historical cyclone events with observation counts and life-cycle metadata."""
+    pipeline = get_inference_pipeline()
+    return pipeline.list_events()
+
+
+@app.get("/api/events/{event_id}")
+def get_canonical_event(event_id: str):
+    """Returns detailed event information and available observation timestamps for a cyclone."""
+    pipeline = get_inference_pipeline()
+    return pipeline.get_event_details(event_id)
+
+
+@app.get("/api/inference/{inference_id}")
+def get_canonical_inference(inference_id: str):
+    """Retrieves cached canonical inference result by unique inference execution ID."""
+    pipeline = get_inference_pipeline()
+    return pipeline.get_cached_inference(inference_id)
+
+
 @app.get("/health", response_model=HealthResponse)
 def health_check() -> HealthResponse:
     """Verifies service responsiveness and runtime artifact presence without running heavy inference."""

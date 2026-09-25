@@ -1,0 +1,151 @@
+{
+  "audit_metadata": {
+    "audit_date": "2026-09-25",
+    "authority": "VAYU-NET Multi-Source Satellite Feasibility Study",
+    "benchmark_target": "SIH26070 Requirement",
+    "primary_archive": "MOSDAC (ISRO / Space Applications Centre)",
+    "search_api_endpoint": "https://mosdac.gov.in/apios/datasets.json",
+    "download_api_endpoint": "https://mosdac.gov.in/download_api/download",
+    "token_api_endpoint": "https://mosdac.gov.in/download_api/gettoken"
+  },
+  "candidate_evaluations": {
+    "INSAT-3D": {
+      "mission_period": "2013-07-26 to 2024-05-31 (Operational: Jan 2014 - May 2024)",
+      "status": "VERIFIED",
+      "storms_covered_in_benchmark": [
+        "FANI (2019)",
+        "AMPHAN (2020)",
+        "TAUKTAE (2021)",
+        "BIPARJOY (2023)",
+        "REMAL (2024)"
+      ],
+      "storms_not_covered": [],
+      "validation_split_coverage_pct": 100.0,
+      "test_split_coverage_pct": 80.5,
+      "train_split_coverage_pct": 31.4,
+      "cadence_minutes": 30,
+      "channels": 6,
+      "key_ir_channel": "TIR-1 (10.8 \u00b5m, 4km)",
+      "gridsat_synchronization": "EXACT (Zero minute offset at 00Z, 03Z, 06Z, 09Z, 12Z, 15Z, 18Z, 21Z)",
+      "recommended_dataset_id": "3DIMG_L1C_ASIA_MER",
+      "feasibility_verdict": "STRONGEST_HISTORICAL_MATCH"
+    },
+    "INSAT-3DR": {
+      "mission_period": "2016-09-08 to PRESENT (Active)",
+      "status": "VERIFIED",
+      "storms_covered_in_benchmark": [
+        "FANI (2019)",
+        "AMPHAN (2020)",
+        "TAUKTAE (2021)",
+        "BIPARJOY (2023)",
+        "REMAL (2024)"
+      ],
+      "storms_not_covered": [],
+      "validation_split_coverage_pct": 100.0,
+      "test_split_coverage_pct": 100.0,
+      "train_split_coverage_pct": 16.0,
+      "cadence_minutes": 30,
+      "channels": 6,
+      "key_ir_channel": "TIR-1 (10.8 \u00b5m, 4km)",
+      "gridsat_synchronization": "NEAR_SYNOPTIC (15-minute offset or rapid scan alignment)",
+      "recommended_dataset_id": "3RIMG_L1C_ASIA_MER",
+      "feasibility_verdict": "STRONGEST_CONTINUOUS_OPERATIONAL_MATCH"
+    },
+    "INSAT-3DS": {
+      "mission_period": "2024-02-17 to PRESENT (Active, operational April 2024)",
+      "status": "NOT_SUITABLE_FOR_HISTORICAL_DATASET",
+      "storms_covered_in_benchmark": [
+        "REMAL (2024)"
+      ],
+      "storms_not_covered": [
+        "FANI (2019)",
+        "AMPHAN (2020)",
+        "TAUKTAE (2021)",
+        "BIPARJOY (2023)"
+      ],
+      "validation_split_coverage_pct": 0.0,
+      "test_split_coverage_pct": 22.0,
+      "train_split_coverage_pct": 0.0,
+      "cadence_minutes": 30,
+      "channels": 6,
+      "key_ir_channel": "TIR-1 (10.8 \u00b5m, 4km)",
+      "gridsat_synchronization": "EXACT (Zero minute offset at synoptic hours)",
+      "recommended_dataset_id": "3SIMG_L1C_ASIA_MER",
+      "feasibility_verdict": "FUTURE_OPERATIONAL_TARGET_ONLY"
+    },
+    "Kalpana-1": {
+      "mission_period": "2002-09-12 to 2017-06-30 (Decommissioned)",
+      "status": "NOT_SUITABLE",
+      "storms_covered_in_benchmark": [],
+      "storms_not_covered": [
+        "FANI (2019)",
+        "AMPHAN (2020)",
+        "TAUKTAE (2021)",
+        "BIPARJOY (2023)",
+        "REMAL (2024)"
+      ],
+      "validation_split_coverage_pct": 0.0,
+      "test_split_coverage_pct": 0.0,
+      "train_split_coverage_pct": 81.4,
+      "cadence_minutes": 30,
+      "channels": 3,
+      "key_ir_channel": "TIR (11.0 \u00b5m, 8km)",
+      "gridsat_synchronization": "SYNOPTIC",
+      "recommended_dataset_id": "K1VHR_L1B_STD",
+      "feasibility_verdict": "SENSOR_DISCONTINUITY_RISK"
+    }
+  },
+  "combination_matrix": [
+    {
+      "combination": "GridSat-B1 only",
+      "historical_coverage": "100% (1998\u20132024)",
+      "synchronization_feasibility": "N/A (Single source)",
+      "leakage_risk": "NONE (Strict t0 enforcement)",
+      "implementation_complexity": "BASELINE (Already implemented)",
+      "recommendation_status": "CURRENT_BASELINE"
+    },
+    {
+      "combination": "GridSat-B1 + INSAT-3D",
+      "historical_coverage": "2014\u2013May 2024 (100% Validation, 80.5% Test, 31.4% Train)",
+      "synchronization_feasibility": "HIGH (Exact 00Z/03Z/06Z/09Z/12Z/15Z/18Z/21Z scan alignment)",
+      "leakage_risk": "LOW (Strict identical t0 cutoff)",
+      "implementation_complexity": "MEDIUM (HDF5 ingestion, Mercator reprojection to 0.07\u00b0)",
+      "recommendation_status": "HIGHLY_FEASIBLE_HISTORICAL_BENCHMARK"
+    },
+    {
+      "combination": "GridSat-B1 + INSAT-3DR",
+      "historical_coverage": "Late 2016\u2013PRESENT (100% Validation, 100% Test, 16.0% Train)",
+      "synchronization_feasibility": "MEDIUM_HIGH (15-min offset or rapid scan matching)",
+      "leakage_risk": "LOW (Strict identical t0 cutoff)",
+      "implementation_complexity": "MEDIUM (HDF5 ingestion, Mercator reprojection)",
+      "recommendation_status": "HIGHLY_FEASIBLE_CONTEMPORARY_PAIRING"
+    },
+    {
+      "combination": "GridSat-B1 + INSAT-3DS",
+      "historical_coverage": "Mid-2024 onwards (< 5% of historical storms; only REMAL in benchmark)",
+      "synchronization_feasibility": "HIGH (Exact synoptic scan schedule)",
+      "leakage_risk": "HIGH_TEMPORAL_LEAKAGE if claimed for past storms",
+      "implementation_complexity": "HIGH_SURROGATE_EFFORT (Cannot pair historical 2019-2023 storms)",
+      "recommendation_status": "REJECTED_FOR_HISTORICAL_DATASET"
+    },
+    {
+      "combination": "GridSat-B1 + INSAT-3D/3DR Joint Constellation",
+      "historical_coverage": "2014\u20132024 (100% Validation, 100% Test, 31.4% Train)",
+      "synchronization_feasibility": "EXCELLENT (Interleaved 15-30 min scans over NIO)",
+      "leakage_risk": "LOW (Unified t0 temporal cutoff)",
+      "implementation_complexity": "MODERATE (Standardized L1C_ASIA_MER HDF5 pipeline)",
+      "recommendation_status": "RECOMMENDED_GOLD_STANDARD"
+    }
+  ],
+  "technical_recommendation": {
+    "primary_recommendation": "INSAT-3D (3DIMG_L1C_ASIA_MER) with INSAT-3DR (3RIMG_L1C_ASIA_MER) constellation redundancy",
+    "multisource_claim_validity": "Legitimate multi-source pairing (NOAA Geostationary CDR + ISRO INSAT Geostationary Imager)",
+    "benchmark_storms_available": [
+      "FANI (2019)",
+      "AMPHAN (2020)",
+      "TAUKTAE (2021)",
+      "BIPARJOY (2023)",
+      "REMAL (2024)"
+    ]
+  }
+}

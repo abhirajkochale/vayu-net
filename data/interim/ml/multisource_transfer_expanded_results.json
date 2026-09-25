@@ -1,0 +1,1078 @@
+{
+  "metadata": {
+    "title": "VAYU-NET Multi-Source Satellite Transfer Learning Experiment (Expanded TRAIN)",
+    "date": "2026-09-25T17:22:51Z",
+    "train_samples": 207,
+    "train_storms": 25,
+    "val_samples": 252,
+    "val_storms": 14,
+    "test_samples": 298,
+    "test_storms": 24,
+    "seed": 42,
+    "training_hyperparameters": {
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 16,
+      "max_epochs": 20,
+      "patience": 5,
+      "scheduler": "ReduceLROnPlateau(factor=0.5, patience=2)"
+    }
+  },
+  "experiments": {
+    "EXP-1": {
+      "exp_name": "EXP-1",
+      "mode": "exp1_gridsat_frozen",
+      "in_channels_insat": 3,
+      "best_epoch": 1,
+      "parameter_counts": {
+        "total_parameters": 267024,
+        "trainable_parameters": 67344,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.5760172680020332,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 941.0881681884254,
+          "center_median_dpe_km": 818.3086429412601,
+          "center_p90_dpe_km": 1824.374817496412,
+          "center_lat_mae_deg": 4.860711574554443,
+          "center_lon_mae_deg": 5.54144811630249
+        },
+        "classification": {
+          "accuracy": 0.15476190476190477,
+          "macro_f1": 0.056535480339707254,
+          "per_class_recall": {
+            "D": 0.9411764705882353,
+            "DD": 0.0,
+            "CS": 0.10144927536231885,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 29.815576553344727,
+          "wind_rmse_kt": 40.13886260986328,
+          "wind_median_ae_kt": 18.55695915222168,
+          "wind_p90_ae_kt": 72.97591400146484,
+          "wind_bias_kt": -26.597877502441406,
+          "wind_pearson_r": 0.1680300795798546
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 912.1197410688933,
+          "track_12h_median_dpe_km": 734.776716631013,
+          "track_12h_p90_dpe_km": 1758.1093160216399,
+          "track_24h_mean_dpe_km": 928.381026645702,
+          "track_24h_median_dpe_km": 751.7690840537148,
+          "track_24h_p90_dpe_km": 1740.1033881310886,
+          "track_48h_mean_dpe_km": 854.7485730499503,
+          "track_48h_median_dpe_km": 770.190537398049,
+          "track_48h_p90_dpe_km": 1566.8867224871688,
+          "track_aggregate_mean_dpe_km": 898.4164469215151
+        }
+      },
+      "test_loss": 2.8817972227146753,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 954.283070593024,
+          "center_median_dpe_km": 921.6869881153152,
+          "center_p90_dpe_km": 1699.8376630345101,
+          "center_lat_mae_deg": 3.8041632175445557,
+          "center_lon_mae_deg": 7.121315956115723
+        },
+        "classification": {
+          "accuracy": 0.23825503355704697,
+          "macro_f1": 0.0885306553911205,
+          "per_class_recall": {
+            "D": 0.9696969696969697,
+            "DD": 0.0,
+            "CS": 0.0,
+            "SCS": 0.0,
+            "VSCS": 0.10294117647058823,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 21.117053985595703,
+          "wind_rmse_kt": 28.586336135864258,
+          "wind_median_ae_kt": 14.768696784973145,
+          "wind_p90_ae_kt": 52.642513275146484,
+          "wind_bias_kt": -18.199356079101562,
+          "wind_pearson_r": 0.2799297213480433
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 908.7154743364617,
+          "track_12h_median_dpe_km": 821.5050084084655,
+          "track_12h_p90_dpe_km": 1776.9172120003225,
+          "track_24h_mean_dpe_km": 954.4172827846838,
+          "track_24h_median_dpe_km": 806.9826952023209,
+          "track_24h_p90_dpe_km": 1874.0992194736023,
+          "track_48h_mean_dpe_km": 955.4353221953179,
+          "track_48h_median_dpe_km": 826.016783260281,
+          "track_48h_p90_dpe_km": 1785.246385038531,
+          "track_aggregate_mean_dpe_km": 939.5226931054879
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.9245,
+          "val_loss": 3.576,
+          "val_center_dpe_km": 941.09,
+          "val_class_macro_f1": 0.0565,
+          "val_wind_mae_kt": 29.82,
+          "val_track_dpe_km": 898.42,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5804,
+          "val_loss": 4.149,
+          "val_center_dpe_km": 982.22,
+          "val_class_macro_f1": 0.0776,
+          "val_wind_mae_kt": 30.13,
+          "val_track_dpe_km": 974.17,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4966,
+          "val_loss": 4.194,
+          "val_center_dpe_km": 806.47,
+          "val_class_macro_f1": 0.0795,
+          "val_wind_mae_kt": 30.09,
+          "val_track_dpe_km": 849.53,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.4435,
+          "val_loss": 3.9634,
+          "val_center_dpe_km": 836.86,
+          "val_class_macro_f1": 0.0877,
+          "val_wind_mae_kt": 30.05,
+          "val_track_dpe_km": 870.03,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.3828,
+          "val_loss": 4.1381,
+          "val_center_dpe_km": 817.3,
+          "val_class_macro_f1": 0.0857,
+          "val_wind_mae_kt": 30.46,
+          "val_track_dpe_km": 884.17,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.3623,
+          "val_loss": 4.1859,
+          "val_center_dpe_km": 831.87,
+          "val_class_macro_f1": 0.0862,
+          "val_wind_mae_kt": 30.33,
+          "val_track_dpe_km": 902.29,
+          "lr": 0.0005
+        }
+      ]
+    },
+    "EXP-2": {
+      "exp_name": "EXP-2",
+      "mode": "exp2_fusion_frozen",
+      "in_channels_insat": 2,
+      "best_epoch": 1,
+      "parameter_counts": {
+        "total_parameters": 340432,
+        "trainable_parameters": 140752,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.723238557577133,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1013.4284325747012,
+          "center_median_dpe_km": 872.5838618666984,
+          "center_p90_dpe_km": 1869.7921168340251,
+          "center_lat_mae_deg": 5.5869317054748535,
+          "center_lon_mae_deg": 5.522526741027832
+        },
+        "classification": {
+          "accuracy": 0.14682539682539683,
+          "macro_f1": 0.052111046847888955,
+          "per_class_recall": {
+            "D": 0.9117647058823529,
+            "DD": 0.0,
+            "CS": 0.08695652173913043,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 30.95622444152832,
+          "wind_rmse_kt": 41.55734634399414,
+          "wind_median_ae_kt": 18.904417037963867,
+          "wind_p90_ae_kt": 74.92214965820312,
+          "wind_bias_kt": -28.475021362304688,
+          "wind_pearson_r": 0.13353483446788977
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 880.1382469977792,
+          "track_12h_median_dpe_km": 757.6900533996592,
+          "track_12h_p90_dpe_km": 1524.8440588277022,
+          "track_24h_mean_dpe_km": 882.0140363053051,
+          "track_24h_median_dpe_km": 760.6953808172365,
+          "track_24h_p90_dpe_km": 1630.3779509576939,
+          "track_48h_mean_dpe_km": 922.9510914043409,
+          "track_48h_median_dpe_km": 816.5064688778664,
+          "track_48h_p90_dpe_km": 1656.7446773594265,
+          "track_aggregate_mean_dpe_km": 895.0344582358085
+        }
+      },
+      "test_loss": 3.130086732538123,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1033.2943509742245,
+          "center_median_dpe_km": 1036.03813625479,
+          "center_p90_dpe_km": 1759.7632565625145,
+          "center_lat_mae_deg": 4.496128082275391,
+          "center_lon_mae_deg": 7.286220550537109
+        },
+        "classification": {
+          "accuracy": 0.2348993288590604,
+          "macro_f1": 0.08833129334965321,
+          "per_class_recall": {
+            "D": 0.9696969696969697,
+            "DD": 0.0,
+            "CS": 0.10714285714285714,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 21.968015670776367,
+          "wind_rmse_kt": 29.627824783325195,
+          "wind_median_ae_kt": 14.858170509338379,
+          "wind_p90_ae_kt": 53.389530181884766,
+          "wind_bias_kt": -19.657604217529297,
+          "wind_pearson_r": 0.2619193749037394
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 922.2535384352684,
+          "track_12h_median_dpe_km": 871.0017208283318,
+          "track_12h_p90_dpe_km": 1499.2876571479107,
+          "track_24h_mean_dpe_km": 923.4134580879982,
+          "track_24h_median_dpe_km": 902.3431508930635,
+          "track_24h_p90_dpe_km": 1609.3565623873635,
+          "track_48h_mean_dpe_km": 1024.9685842494953,
+          "track_48h_median_dpe_km": 936.3761452250701,
+          "track_48h_p90_dpe_km": 1840.568035715576,
+          "track_aggregate_mean_dpe_km": 956.8785269242541
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.9099,
+          "val_loss": 3.7232,
+          "val_center_dpe_km": 1013.43,
+          "val_class_macro_f1": 0.0521,
+          "val_wind_mae_kt": 30.96,
+          "val_track_dpe_km": 895.03,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5297,
+          "val_loss": 3.8113,
+          "val_center_dpe_km": 924.53,
+          "val_class_macro_f1": 0.0874,
+          "val_wind_mae_kt": 28.86,
+          "val_track_dpe_km": 918.65,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.394,
+          "val_loss": 4.163,
+          "val_center_dpe_km": 853.6,
+          "val_class_macro_f1": 0.0867,
+          "val_wind_mae_kt": 30.15,
+          "val_track_dpe_km": 906.81,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.1961,
+          "val_loss": 4.5946,
+          "val_center_dpe_km": 824.02,
+          "val_class_macro_f1": 0.0758,
+          "val_wind_mae_kt": 30.86,
+          "val_track_dpe_km": 811.0,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.0525,
+          "val_loss": 5.0175,
+          "val_center_dpe_km": 786.67,
+          "val_class_macro_f1": 0.0568,
+          "val_wind_mae_kt": 33.78,
+          "val_track_dpe_km": 802.2,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.9205,
+          "val_loss": 4.3499,
+          "val_center_dpe_km": 882.16,
+          "val_class_macro_f1": 0.0886,
+          "val_wind_mae_kt": 27.95,
+          "val_track_dpe_km": 957.05,
+          "lr": 0.0005
+        }
+      ]
+    },
+    "EXP-3": {
+      "exp_name": "EXP-3",
+      "mode": "exp2_fusion_frozen",
+      "in_channels_insat": 3,
+      "best_epoch": 4,
+      "parameter_counts": {
+        "total_parameters": 340576,
+        "trainable_parameters": 140896,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.466532349586487,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1049.1676477144945,
+          "center_median_dpe_km": 968.3156842714109,
+          "center_p90_dpe_km": 1803.9402684585148,
+          "center_lat_mae_deg": 3.0082943439483643,
+          "center_lon_mae_deg": 8.7787504196167
+        },
+        "classification": {
+          "accuracy": 0.1984126984126984,
+          "macro_f1": 0.10215261851462684,
+          "per_class_recall": {
+            "D": 0.7647058823529411,
+            "DD": 0.0,
+            "CS": 0.18840579710144928,
+            "SCS": 0.0,
+            "VSCS": 0.20754716981132076,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 26.33566665649414,
+          "wind_rmse_kt": 33.82518005371094,
+          "wind_median_ae_kt": 17.319908142089844,
+          "wind_p90_ae_kt": 55.572837829589844,
+          "wind_bias_kt": -15.962162017822266,
+          "wind_pearson_r": 0.3154664579625196
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 1002.8280363464797,
+          "track_12h_median_dpe_km": 851.1067466417735,
+          "track_12h_p90_dpe_km": 1824.482740496443,
+          "track_24h_mean_dpe_km": 1113.6929045785573,
+          "track_24h_median_dpe_km": 1007.3973501946907,
+          "track_24h_p90_dpe_km": 1924.5744298430834,
+          "track_48h_mean_dpe_km": 1164.1437809393021,
+          "track_48h_median_dpe_km": 1031.9392563724723,
+          "track_48h_p90_dpe_km": 2067.4162542519603,
+          "track_aggregate_mean_dpe_km": 1093.554907288113
+        }
+      },
+      "test_loss": 2.7490055466953076,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1048.571022557588,
+          "center_median_dpe_km": 832.5462800770672,
+          "center_p90_dpe_km": 2119.972374999917,
+          "center_lat_mae_deg": 3.0270168781280518,
+          "center_lon_mae_deg": 8.294954299926758
+        },
+        "classification": {
+          "accuracy": 0.28187919463087246,
+          "macro_f1": 0.16706851516978097,
+          "per_class_recall": {
+            "D": 0.6818181818181818,
+            "DD": 0.0,
+            "CS": 0.3392857142857143,
+            "SCS": 0.0,
+            "VSCS": 0.29411764705882354,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 19.262432098388672,
+          "wind_rmse_kt": 24.817012786865234,
+          "wind_median_ae_kt": 14.713571548461914,
+          "wind_p90_ae_kt": 44.371150970458984,
+          "wind_bias_kt": -9.810328483581543,
+          "wind_pearson_r": 0.31282443761933276
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 1014.0535121053957,
+          "track_12h_median_dpe_km": 868.1377322236813,
+          "track_12h_p90_dpe_km": 2162.982750421705,
+          "track_24h_mean_dpe_km": 1133.8831907665672,
+          "track_24h_median_dpe_km": 990.7544022997704,
+          "track_24h_p90_dpe_km": 2240.692349724587,
+          "track_48h_mean_dpe_km": 1189.323915921356,
+          "track_48h_median_dpe_km": 993.672047385912,
+          "track_48h_p90_dpe_km": 2225.0489611379994,
+          "track_aggregate_mean_dpe_km": 1112.42020626444
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.9555,
+          "val_loss": 3.6104,
+          "val_center_dpe_km": 844.21,
+          "val_class_macro_f1": 0.0597,
+          "val_wind_mae_kt": 28.27,
+          "val_track_dpe_km": 889.01,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5445,
+          "val_loss": 3.9999,
+          "val_center_dpe_km": 1080.45,
+          "val_class_macro_f1": 0.0849,
+          "val_wind_mae_kt": 29.36,
+          "val_track_dpe_km": 1067.74,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4018,
+          "val_loss": 4.2267,
+          "val_center_dpe_km": 853.52,
+          "val_class_macro_f1": 0.0795,
+          "val_wind_mae_kt": 29.45,
+          "val_track_dpe_km": 939.44,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.2579,
+          "val_loss": 3.4665,
+          "val_center_dpe_km": 1049.17,
+          "val_class_macro_f1": 0.1022,
+          "val_wind_mae_kt": 26.34,
+          "val_track_dpe_km": 1093.55,
+          "lr": 0.001
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.12,
+          "val_loss": 4.7129,
+          "val_center_dpe_km": 834.45,
+          "val_class_macro_f1": 0.0751,
+          "val_wind_mae_kt": 30.37,
+          "val_track_dpe_km": 863.28,
+          "lr": 0.001
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.0102,
+          "val_loss": 3.7723,
+          "val_center_dpe_km": 1113.86,
+          "val_class_macro_f1": 0.0964,
+          "val_wind_mae_kt": 24.59,
+          "val_track_dpe_km": 1204.61,
+          "lr": 0.001
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.9153,
+          "val_loss": 4.4735,
+          "val_center_dpe_km": 784.06,
+          "val_class_macro_f1": 0.0861,
+          "val_wind_mae_kt": 26.35,
+          "val_track_dpe_km": 885.16,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.8521,
+          "val_loss": 5.7175,
+          "val_center_dpe_km": 763.55,
+          "val_class_macro_f1": 0.0515,
+          "val_wind_mae_kt": 31.43,
+          "val_track_dpe_km": 785.7,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.831,
+          "val_loss": 5.9098,
+          "val_center_dpe_km": 740.34,
+          "val_class_macro_f1": 0.0484,
+          "val_wind_mae_kt": 31.83,
+          "val_track_dpe_km": 788.97,
+          "lr": 0.0005
+        }
+      ]
+    }
+  },
+  "comparison_table": [
+    {
+      "Experiment": "EXP1: GridSat Frozen",
+      "Train_Samples": 207,
+      "Val_Loss": 3.576,
+      "Test_Loss": 2.8818,
+      "Center_Mean_DPE_km": 954.28,
+      "Center_Median_DPE_km": 921.69,
+      "Center_P90_DPE_km": 1699.84,
+      "Center_Lat_MAE_deg": 3.804,
+      "Center_Lon_MAE_deg": 7.121,
+      "Category_Acc": 0.2383,
+      "Category_Macro_F1": 0.0885,
+      "Wind_MAE_kt": 21.12,
+      "Wind_RMSE_kt": 28.59,
+      "Wind_Median_AE_kt": 14.77,
+      "Wind_P90_AE_kt": 52.64,
+      "Wind_Bias_kt": -18.2,
+      "Wind_Pearson_r": 0.2799,
+      "Track_12h_DPE_km": 908.72,
+      "Track_24h_DPE_km": 954.42,
+      "Track_48h_DPE_km": 955.44,
+      "Track_Aggregate_DPE_km": 939.52
+    },
+    {
+      "Experiment": "EXP2: GridSat + INSAT TIR1/TIR2",
+      "Train_Samples": 207,
+      "Val_Loss": 3.7232,
+      "Test_Loss": 3.1301,
+      "Center_Mean_DPE_km": 1033.29,
+      "Center_Median_DPE_km": 1036.04,
+      "Center_P90_DPE_km": 1759.76,
+      "Center_Lat_MAE_deg": 4.496,
+      "Center_Lon_MAE_deg": 7.286,
+      "Category_Acc": 0.2349,
+      "Category_Macro_F1": 0.0883,
+      "Wind_MAE_kt": 21.97,
+      "Wind_RMSE_kt": 29.63,
+      "Wind_Median_AE_kt": 14.86,
+      "Wind_P90_AE_kt": 53.39,
+      "Wind_Bias_kt": -19.66,
+      "Wind_Pearson_r": 0.2619,
+      "Track_12h_DPE_km": 922.25,
+      "Track_24h_DPE_km": 923.41,
+      "Track_48h_DPE_km": 1024.97,
+      "Track_Aggregate_DPE_km": 956.88
+    },
+    {
+      "Experiment": "EXP3: GridSat + INSAT TIR1/TIR2/WV",
+      "Train_Samples": 207,
+      "Val_Loss": 3.4665,
+      "Test_Loss": 2.749,
+      "Center_Mean_DPE_km": 1048.57,
+      "Center_Median_DPE_km": 832.55,
+      "Center_P90_DPE_km": 2119.97,
+      "Center_Lat_MAE_deg": 3.027,
+      "Center_Lon_MAE_deg": 8.295,
+      "Category_Acc": 0.2819,
+      "Category_Macro_F1": 0.1671,
+      "Wind_MAE_kt": 19.26,
+      "Wind_RMSE_kt": 24.82,
+      "Wind_Median_AE_kt": 14.71,
+      "Wind_P90_AE_kt": 44.37,
+      "Wind_Bias_kt": -9.81,
+      "Wind_Pearson_r": 0.3128,
+      "Track_12h_DPE_km": 1014.05,
+      "Track_24h_DPE_km": 1133.88,
+      "Track_48h_DPE_km": 1189.32,
+      "Track_Aggregate_DPE_km": 1112.42
+    }
+  ],
+  "previous_175_sample_results": {
+    "EXP-1": {
+      "exp_name": "EXP-1",
+      "mode": "exp1_gridsat_frozen",
+      "best_epoch": 1,
+      "parameter_counts": {
+        "total_parameters": 267024,
+        "trainable_parameters": 67344,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.426815412938595,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 943.1234307294227,
+          "center_median_dpe_km": 837.8893372370221,
+          "center_p90_dpe_km": 1616.5870272943873,
+          "center_lat_mae_deg": 4.701610088348389,
+          "center_lon_mae_deg": 6.288167476654053
+        },
+        "classification": {
+          "accuracy": 0.1349206349206349,
+          "macro_f1": 0.03469387755102041,
+          "per_class_recall": {
+            "D": 1.0,
+            "DD": 0.0,
+            "CS": 0.0,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 30.464630126953125,
+          "wind_rmse_kt": 40.98167037963867,
+          "wind_median_ae_kt": 18.963287353515625,
+          "wind_p90_ae_kt": 74.19571685791016,
+          "wind_bias_kt": -27.849546432495117,
+          "wind_pearson_r": 0.16310925156062306
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 876.023332295642,
+          "track_12h_median_dpe_km": 748.1810304779569,
+          "track_12h_p90_dpe_km": 1707.277795036284,
+          "track_24h_mean_dpe_km": 899.9705212067594,
+          "track_24h_median_dpe_km": 772.4553034353683,
+          "track_24h_p90_dpe_km": 1678.0730747593564,
+          "track_48h_mean_dpe_km": 925.7566750248607,
+          "track_48h_median_dpe_km": 892.671003142139,
+          "track_48h_p90_dpe_km": 1494.174008470201,
+          "track_aggregate_mean_dpe_km": 900.5835095090873
+        }
+      },
+      "test_loss": 2.75189523320449,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 959.4087434352068,
+          "center_median_dpe_km": 956.7838046111577,
+          "center_p90_dpe_km": 1595.1494031067305,
+          "center_lat_mae_deg": 3.7162983417510986,
+          "center_lon_mae_deg": 7.45172643661499
+        },
+        "classification": {
+          "accuracy": 0.23825503355704697,
+          "macro_f1": 0.0885306553911205,
+          "per_class_recall": {
+            "D": 0.9696969696969697,
+            "DD": 0.0,
+            "CS": 0.0,
+            "SCS": 0.0,
+            "VSCS": 0.10294117647058823,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 21.43531036376953,
+          "wind_rmse_kt": 29.11064338684082,
+          "wind_median_ae_kt": 14.94931411743164,
+          "wind_p90_ae_kt": 53.059539794921875,
+          "wind_bias_kt": -19.238262176513672,
+          "wind_pearson_r": 0.31055410684875173
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 885.0865602209548,
+          "track_12h_median_dpe_km": 822.5087910057482,
+          "track_12h_p90_dpe_km": 1684.1045320277867,
+          "track_24h_mean_dpe_km": 908.7628408612829,
+          "track_24h_median_dpe_km": 820.9825310062179,
+          "track_24h_p90_dpe_km": 1759.9809210714573,
+          "track_48h_mean_dpe_km": 1006.5441085021749,
+          "track_48h_median_dpe_km": 975.785104360341,
+          "track_48h_p90_dpe_km": 1744.3305728419161,
+          "track_aggregate_mean_dpe_km": 933.4645031948043
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 2.0379,
+          "val_loss": 3.4268,
+          "val_center_dpe_km": 943.12,
+          "val_class_macro_f1": 0.0347,
+          "val_wind_mae_kt": 30.46,
+          "val_track_dpe_km": 900.58,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.6464,
+          "val_loss": 3.8448,
+          "val_center_dpe_km": 1028.47,
+          "val_class_macro_f1": 0.0851,
+          "val_wind_mae_kt": 28.68,
+          "val_track_dpe_km": 1014.54,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4901,
+          "val_loss": 4.0388,
+          "val_center_dpe_km": 928.05,
+          "val_class_macro_f1": 0.0837,
+          "val_wind_mae_kt": 30.55,
+          "val_track_dpe_km": 968.29,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.4487,
+          "val_loss": 4.0979,
+          "val_center_dpe_km": 845.27,
+          "val_class_macro_f1": 0.0857,
+          "val_wind_mae_kt": 29.26,
+          "val_track_dpe_km": 901.83,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.3993,
+          "val_loss": 4.1993,
+          "val_center_dpe_km": 856.86,
+          "val_class_macro_f1": 0.0843,
+          "val_wind_mae_kt": 30.44,
+          "val_track_dpe_km": 888.82,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.4,
+          "val_loss": 4.1603,
+          "val_center_dpe_km": 849.22,
+          "val_class_macro_f1": 0.0857,
+          "val_wind_mae_kt": 30.11,
+          "val_track_dpe_km": 887.84,
+          "lr": 0.0005
+        }
+      ]
+    },
+    "EXP-2": {
+      "exp_name": "EXP-2",
+      "mode": "exp2_fusion_frozen",
+      "best_epoch": 1,
+      "parameter_counts": {
+        "total_parameters": 340576,
+        "trainable_parameters": 140896,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.455651879310608,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 902.8283491244863,
+          "center_median_dpe_km": 747.5729721551905,
+          "center_p90_dpe_km": 1852.337342966352,
+          "center_lat_mae_deg": 4.440592288970947,
+          "center_lon_mae_deg": 5.612762451171875
+        },
+        "classification": {
+          "accuracy": 0.18253968253968253,
+          "macro_f1": 0.07269108516769153,
+          "per_class_recall": {
+            "D": 0.9117647058823529,
+            "DD": 0.0,
+            "CS": 0.21739130434782608,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 29.629453659057617,
+          "wind_rmse_kt": 39.76622009277344,
+          "wind_median_ae_kt": 17.816539764404297,
+          "wind_p90_ae_kt": 72.19551086425781,
+          "wind_bias_kt": -25.94675636291504,
+          "wind_pearson_r": 0.16766741959282894
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 809.5686459460172,
+          "track_12h_median_dpe_km": 718.9081337286245,
+          "track_12h_p90_dpe_km": 1684.6180346685887,
+          "track_24h_mean_dpe_km": 1027.4662476723847,
+          "track_24h_median_dpe_km": 920.5535029668149,
+          "track_24h_p90_dpe_km": 1765.9002592048735,
+          "track_48h_mean_dpe_km": 976.7078133664213,
+          "track_48h_median_dpe_km": 897.5847409643202,
+          "track_48h_p90_dpe_km": 1682.6189331725002,
+          "track_aggregate_mean_dpe_km": 937.914235661608
+        }
+      },
+      "test_loss": 2.7985272093823084,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 938.6632452105291,
+          "center_median_dpe_km": 876.5119837416303,
+          "center_p90_dpe_km": 1684.9889376250853,
+          "center_lat_mae_deg": 3.4850029945373535,
+          "center_lon_mae_deg": 7.295552730560303
+        },
+        "classification": {
+          "accuracy": 0.23154362416107382,
+          "macro_f1": 0.08409829795371965,
+          "per_class_recall": {
+            "D": 0.9696969696969697,
+            "DD": 0.0,
+            "CS": 0.08928571428571429,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 20.92819595336914,
+          "wind_rmse_kt": 27.81562614440918,
+          "wind_median_ae_kt": 14.931944847106934,
+          "wind_p90_ae_kt": 50.91055679321289,
+          "wind_bias_kt": -17.217823028564453,
+          "wind_pearson_r": 0.30815719418006554
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 889.0654726929757,
+          "track_12h_median_dpe_km": 719.8381594555299,
+          "track_12h_p90_dpe_km": 1723.0190224908142,
+          "track_24h_mean_dpe_km": 1014.3748794783551,
+          "track_24h_median_dpe_km": 1078.4257783702756,
+          "track_24h_p90_dpe_km": 1669.9460853648184,
+          "track_48h_mean_dpe_km": 1018.5477331382056,
+          "track_48h_median_dpe_km": 944.5141528801992,
+          "track_48h_p90_dpe_km": 1773.6627326847479,
+          "track_aggregate_mean_dpe_km": 973.9960284365122
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.9958,
+          "val_loss": 3.4557,
+          "val_center_dpe_km": 902.83,
+          "val_class_macro_f1": 0.0727,
+          "val_wind_mae_kt": 29.63,
+          "val_track_dpe_km": 937.91,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.5959,
+          "val_loss": 4.0625,
+          "val_center_dpe_km": 1245.29,
+          "val_class_macro_f1": 0.0757,
+          "val_wind_mae_kt": 28.2,
+          "val_track_dpe_km": 1221.84,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4745,
+          "val_loss": 4.0266,
+          "val_center_dpe_km": 914.68,
+          "val_class_macro_f1": 0.0851,
+          "val_wind_mae_kt": 29.28,
+          "val_track_dpe_km": 997.02,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.4049,
+          "val_loss": 4.1934,
+          "val_center_dpe_km": 961.68,
+          "val_class_macro_f1": 0.0851,
+          "val_wind_mae_kt": 28.88,
+          "val_track_dpe_km": 979.44,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.2706,
+          "val_loss": 4.2435,
+          "val_center_dpe_km": 912.27,
+          "val_class_macro_f1": 0.0869,
+          "val_wind_mae_kt": 30.4,
+          "val_track_dpe_km": 939.43,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.1938,
+          "val_loss": 4.1472,
+          "val_center_dpe_km": 865.4,
+          "val_class_macro_f1": 0.0853,
+          "val_wind_mae_kt": 29.22,
+          "val_track_dpe_km": 919.48,
+          "lr": 0.0005
+        }
+      ]
+    },
+    "Channel_B_TIR1_TIR2": {
+      "exp_name": "Channel_B_TIR1_TIR2",
+      "mode": "exp2_fusion_frozen",
+      "best_epoch": 1,
+      "parameter_counts": {
+        "total_parameters": 340432,
+        "trainable_parameters": 140752,
+        "frozen_parameters": 199680
+      },
+      "val_loss": 3.544141098856926,
+      "val_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1016.2244447200512,
+          "center_median_dpe_km": 822.3471362011377,
+          "center_p90_dpe_km": 1850.8442840975179,
+          "center_lat_mae_deg": 5.306563854217529,
+          "center_lon_mae_deg": 5.985951900482178
+        },
+        "classification": {
+          "accuracy": 0.17063492063492064,
+          "macro_f1": 0.06825445470863797,
+          "per_class_recall": {
+            "D": 0.9117647058823529,
+            "DD": 0.0,
+            "CS": 0.17391304347826086,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 29.843563079833984,
+          "wind_rmse_kt": 40.0263557434082,
+          "wind_median_ae_kt": 18.344423294067383,
+          "wind_p90_ae_kt": 72.82411193847656,
+          "wind_bias_kt": -26.304283142089844,
+          "wind_pearson_r": 0.16102762466793788
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 861.556662875891,
+          "track_12h_median_dpe_km": 755.6144233701368,
+          "track_12h_p90_dpe_km": 1640.1292967556676,
+          "track_24h_mean_dpe_km": 864.9340672240671,
+          "track_24h_median_dpe_km": 750.4533734258748,
+          "track_24h_p90_dpe_km": 1661.7067756668582,
+          "track_48h_mean_dpe_km": 893.3618085906136,
+          "track_48h_median_dpe_km": 775.261634904783,
+          "track_48h_p90_dpe_km": 1566.1540060670852,
+          "track_aggregate_mean_dpe_km": 873.2841795635238
+        }
+      },
+      "test_loss": 2.9257231323342574,
+      "test_metrics": {
+        "identification": {
+          "center_mean_dpe_km": 1048.4745832027784,
+          "center_median_dpe_km": 963.6828484689465,
+          "center_p90_dpe_km": 1969.747058804724,
+          "center_lat_mae_deg": 4.217280864715576,
+          "center_lon_mae_deg": 7.850183010101318
+        },
+        "classification": {
+          "accuracy": 0.2348993288590604,
+          "macro_f1": 0.0877450980392157,
+          "per_class_recall": {
+            "D": 0.9696969696969697,
+            "DD": 0.0,
+            "CS": 0.10714285714285714,
+            "SCS": 0.0,
+            "VSCS": 0.0,
+            "ESCS": 0.0,
+            "SuCS": 0.0
+          }
+        },
+        "wind_regression": {
+          "wind_mae_kt": 20.851028442382812,
+          "wind_rmse_kt": 27.779415130615234,
+          "wind_median_ae_kt": 14.72562026977539,
+          "wind_p90_ae_kt": 51.57114028930664,
+          "wind_bias_kt": -17.280210494995117,
+          "wind_pearson_r": 0.32065150946704557
+        },
+        "track_prediction": {
+          "track_12h_mean_dpe_km": 891.8095082725883,
+          "track_12h_median_dpe_km": 799.168410362951,
+          "track_12h_p90_dpe_km": 1625.349464358987,
+          "track_24h_mean_dpe_km": 890.4862306961307,
+          "track_24h_median_dpe_km": 808.6881628879905,
+          "track_24h_p90_dpe_km": 1579.4268074431768,
+          "track_48h_mean_dpe_km": 994.9781920696537,
+          "track_48h_median_dpe_km": 866.0123877138253,
+          "track_48h_p90_dpe_km": 1845.0087217613063,
+          "track_aggregate_mean_dpe_km": 925.757977012791
+        }
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.9439,
+          "val_loss": 3.5441,
+          "val_center_dpe_km": 1016.22,
+          "val_class_macro_f1": 0.0683,
+          "val_wind_mae_kt": 29.84,
+          "val_track_dpe_km": 873.28,
+          "lr": 0.001
+        },
+        {
+          "epoch": 2,
+          "train_loss": 1.6216,
+          "val_loss": 3.9135,
+          "val_center_dpe_km": 1110.96,
+          "val_class_macro_f1": 0.0725,
+          "val_wind_mae_kt": 31.92,
+          "val_track_dpe_km": 977.85,
+          "lr": 0.001
+        },
+        {
+          "epoch": 3,
+          "train_loss": 1.4649,
+          "val_loss": 3.9511,
+          "val_center_dpe_km": 900.85,
+          "val_class_macro_f1": 0.0869,
+          "val_wind_mae_kt": 28.82,
+          "val_track_dpe_km": 972.7,
+          "lr": 0.001
+        },
+        {
+          "epoch": 4,
+          "train_loss": 1.302,
+          "val_loss": 4.1982,
+          "val_center_dpe_km": 879.2,
+          "val_class_macro_f1": 0.0795,
+          "val_wind_mae_kt": 31.19,
+          "val_track_dpe_km": 867.35,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 5,
+          "train_loss": 1.185,
+          "val_loss": 3.9974,
+          "val_center_dpe_km": 900.5,
+          "val_class_macro_f1": 0.0874,
+          "val_wind_mae_kt": 28.36,
+          "val_track_dpe_km": 911.98,
+          "lr": 0.0005
+        },
+        {
+          "epoch": 6,
+          "train_loss": 1.0802,
+          "val_loss": 3.9931,
+          "val_center_dpe_km": 872.39,
+          "val_class_macro_f1": 0.0987,
+          "val_wind_mae_kt": 27.27,
+          "val_track_dpe_km": 889.86,
+          "lr": 0.0005
+        }
+      ]
+    }
+  }
+}

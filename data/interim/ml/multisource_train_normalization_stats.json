@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "description": "VAYU-NET Multi-Source Satellite Train Normalization Statistics",
+    "source_satellite": "INSAT-3D Imager L1C (3DIMG_L1C_ASIA_MER)",
+    "derivation_split": "TRAIN_ONLY (2014-2018 paired storms)",
+    "train_samples_count": 207,
+    "unique_train_frames_count": 379,
+    "physical_units": "Kelvin (K)",
+    "anti_leakage_audit": "PASSED (Zero validation or test samples included)"
+  },
+  "channels": {
+    "IMG_TIR1": {
+      "role": "Primary Thermal Infrared Window (10.8um)",
+      "mean": 278.81,
+      "std": 23.56,
+      "min": 179.54,
+      "max": 338.63,
+      "percentile_1": 207.5,
+      "percentile_99": 319.43
+    },
+    "IMG_TIR2": {
+      "role": "Split-Window Thermal Infrared (12.0um)",
+      "mean": 276.89,
+      "std": 22.87,
+      "min": 179.54,
+      "max": 336.13,
+      "percentile_1": 207.5,
+      "percentile_99": 316.93
+    },
+    "IMG_WV": {
+      "role": "Upper-Tropospheric Water Vapor (6.8um)",
+      "mean": 261.82,
+      "std": 15.94,
+      "min": 195.0,
+      "max": 275.0,
+      "percentile_1": 211.4,
+      "percentile_99": 275.0
+    }
+  }
+}

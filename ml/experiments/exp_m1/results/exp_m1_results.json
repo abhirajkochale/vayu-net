@@ -1,0 +1,1475 @@
+{
+  "m1a_gridsat": {
+    "mode": "m1a_gridsat",
+    "checkpoint_name": "m1a_gridsat_only.pt",
+    "best_validation_epoch": 3,
+    "best_validation_loss": 3.1669152453541756,
+    "parameter_counts": {
+      "total_parameters": 82240,
+      "trainable_parameters": 82240,
+      "frozen_parameters": 0
+    },
+    "inference_latency_ms_per_seq": 0.8056420842913604,
+    "test_aggregate_metrics": {
+      "center": {
+        "mean_dpe_km": 896.2811800629557,
+        "median_dpe_km": 726.7594156141121,
+        "p90_dpe_km": 1751.4274413772941,
+        "latitude_mae_deg": 3.320110661642892,
+        "longitude_mae_deg": 6.818725565373094,
+        "ci_95": [
+          717.4856160808363,
+          1116.6433643943903
+        ]
+      },
+      "track": {
+        "track_12h_dpe_km": 929.2839283785827,
+        "track_24h_dpe_km": 949.7779397926877,
+        "track_48h_dpe_km": 1004.031934463209,
+        "aggregate_dpe_km": 961.0312675448266,
+        "valid_counts": {
+          "12h": 371,
+          "24h": 371,
+          "48h": 371
+        },
+        "track_12h_dpe_km_ci_95": [
+          740.6462904934239,
+          1155.4507745221456
+        ],
+        "track_24h_dpe_km_ci_95": [
+          767.8082411813155,
+          1156.3232391859071
+        ],
+        "track_48h_dpe_km_ci_95": [
+          800.1865066373015,
+          1251.3103760171298
+        ],
+        "track_aggregate_dpe_km_ci_95": [
+          773.4856163297424,
+          1186.6479173328678
+        ]
+      },
+      "intensity": {
+        "accuracy": 0.33692722371967654,
+        "macro_f1": 0.2335615180899533,
+        "num_evaluated_samples": 371,
+        "confusion_matrix": [
+          [
+            52,
+            12,
+            15,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            56,
+            11,
+            17,
+            0,
+            6,
+            0,
+            0
+          ],
+          [
+            28,
+            13,
+            18,
+            0,
+            5,
+            0,
+            0
+          ],
+          [
+            14,
+            0,
+            15,
+            0,
+            11,
+            0,
+            0
+          ],
+          [
+            9,
+            0,
+            15,
+            0,
+            44,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            5,
+            0,
+            16,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "cat_accuracy_ci_95": [
+          0.2619396292283616,
+          0.40586086972070234
+        ],
+        "cat_macro_f1_ci_95": [
+          0.1574002652225173,
+          0.25632007469866797
+        ]
+      },
+      "wind": {
+        "mae_kt": 13.659015048867609,
+        "rmse_kt": 18.4528256070055,
+        "median_ae_kt": 9.350103378295898,
+        "p90_ae_kt": 31.031478881835938,
+        "bias_kt": -4.901273537196239,
+        "pearson_r": 0.6098510202864189,
+        "num_evaluated_samples": 371,
+        "ci_95": [
+          8.762709330171,
+          18.005533736476007
+        ]
+      }
+    },
+    "storm_bootstrap_95ci": {
+      "center_mean_dpe_km": {
+        "ci_lower": 717.4856160808363,
+        "ci_upper": 1116.6433643943903
+      },
+      "wind_mae_kt": {
+        "ci_lower": 8.762709330171,
+        "ci_upper": 18.005533736476007
+      },
+      "cat_accuracy": {
+        "ci_lower": 0.2619396292283616,
+        "ci_upper": 0.40586086972070234
+      },
+      "cat_macro_f1": {
+        "ci_lower": 0.1574002652225173,
+        "ci_upper": 0.25632007469866797
+      },
+      "track_12h_dpe_km": {
+        "ci_lower": 740.6462904934239,
+        "ci_upper": 1155.4507745221456
+      },
+      "track_24h_dpe_km": {
+        "ci_lower": 767.8082411813155,
+        "ci_upper": 1156.3232391859071
+      },
+      "track_48h_dpe_km": {
+        "ci_lower": 800.1865066373015,
+        "ci_upper": 1251.3103760171298
+      },
+      "track_aggregate_dpe_km": {
+        "ci_lower": 773.4856163297424,
+        "ci_upper": 1186.6479173328678
+      }
+    },
+    "storm_level_metrics": {
+      "NIO_2021_GULAB": {
+        "storm_name": "GULAB",
+        "num_sequences": 9,
+        "center_mean_dpe_km": 530.1988471528191,
+        "wind_mae_kt": 6.836019939846462,
+        "cat_accuracy": 0.2222222222222222,
+        "track_12h_mean_dpe_km": 494.0295136238162,
+        "track_24h_mean_dpe_km": 566.147819473993,
+        "track_48h_mean_dpe_km": 355.67392347709057
+      },
+      "NIO_2021_JAWAD": {
+        "storm_name": "JAWAD",
+        "num_sequences": 7,
+        "center_mean_dpe_km": 467.4131142061151,
+        "wind_mae_kt": 5.352048056466239,
+        "cat_accuracy": 0.42857142857142855,
+        "track_12h_mean_dpe_km": 433.65473373859055,
+        "track_24h_mean_dpe_km": 527.8818880937714,
+        "track_48h_mean_dpe_km": 637.4045105087042
+      },
+      "NIO_2021_SHAHEEN": {
+        "storm_name": "SHAHEEN",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 1858.0816517180608,
+        "wind_mae_kt": 10.82013308207194,
+        "cat_accuracy": 0.26666666666666666,
+        "track_12h_mean_dpe_km": 2056.8164921112257,
+        "track_24h_mean_dpe_km": 1959.326213027127,
+        "track_48h_mean_dpe_km": 2148.9373110215647
+      },
+      "NIO_2021_TAUKTAE": {
+        "storm_name": "TAUKTAE",
+        "num_sequences": 23,
+        "center_mean_dpe_km": 709.7590050837556,
+        "wind_mae_kt": 21.448885544486668,
+        "cat_accuracy": 0.30434782608695654,
+        "track_12h_mean_dpe_km": 847.8904168343022,
+        "track_24h_mean_dpe_km": 770.2331231429872,
+        "track_48h_mean_dpe_km": 915.1248586595543
+      },
+      "NIO_2021_UNNAMED_2_5_1": {
+        "storm_name": "UNNAMED_2_5_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 393.51918482153957,
+        "wind_mae_kt": 1.8036842346191406,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 463.52122507482795,
+        "track_24h_mean_dpe_km": 520.965181137576,
+        "track_48h_mean_dpe_km": 193.73987971898288
+      },
+      "NIO_2021_YAAS": {
+        "storm_name": "YAAS",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 934.2975477030592,
+        "wind_mae_kt": 15.105393091837565,
+        "cat_accuracy": 0.06666666666666667,
+        "track_12h_mean_dpe_km": 883.971314445889,
+        "track_24h_mean_dpe_km": 995.8695651313535,
+        "track_48h_mean_dpe_km": 904.0451550983822
+      },
+      "NIO_2022_ASANI": {
+        "storm_name": "ASANI",
+        "num_sequences": 19,
+        "center_mean_dpe_km": 1066.4731129254376,
+        "wind_mae_kt": 9.868730043110094,
+        "cat_accuracy": 0.21052631578947367,
+        "track_12h_mean_dpe_km": 859.6722700089721,
+        "track_24h_mean_dpe_km": 739.5226750650094,
+        "track_48h_mean_dpe_km": 413.4115713925088
+      },
+      "NIO_2022_MANDOUS": {
+        "storm_name": "MANDOUS",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 373.09300772779875,
+        "wind_mae_kt": 5.94160270690918,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 302.5942204200446,
+        "track_24h_mean_dpe_km": 389.99834142019205,
+        "track_48h_mean_dpe_km": 335.65194385500746
+      },
+      "NIO_2022_NO": {
+        "storm_name": "NO",
+        "num_sequences": 8,
+        "center_mean_dpe_km": 484.8004448583256,
+        "wind_mae_kt": 2.656632900238037,
+        "cat_accuracy": 0.375,
+        "track_12h_mean_dpe_km": 618.9548004638995,
+        "track_24h_mean_dpe_km": 451.2038904711963,
+        "track_48h_mean_dpe_km": 346.9490956415734
+      },
+      "NIO_2022_SITRANG": {
+        "storm_name": "SITRANG",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 670.8937578452119,
+        "wind_mae_kt": 3.9907965660095215,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 630.572570404213,
+        "track_24h_mean_dpe_km": 945.8930126278769,
+        "track_48h_mean_dpe_km": 1319.031392225162
+      },
+      "NIO_2022_UNNAMED_01": {
+        "storm_name": "UNNAMED_01",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 1273.4802379345615,
+        "wind_mae_kt": 11.637325286865234,
+        "cat_accuracy": 0.6666666666666666,
+        "track_12h_mean_dpe_km": 1336.0038840898844,
+        "track_24h_mean_dpe_km": 1560.7636050864155,
+        "track_48h_mean_dpe_km": 1727.083661734029
+      },
+      "NIO_2022_UNNAMED_2_13_1": {
+        "storm_name": "UNNAMED_2_13_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 238.6834493875253,
+        "wind_mae_kt": 6.637020111083984,
+        "cat_accuracy": 0.0,
+        "track_12h_mean_dpe_km": 166.48072332577848,
+        "track_24h_mean_dpe_km": 373.15806533223883,
+        "track_48h_mean_dpe_km": 89.46213709771487
+      },
+      "NIO_2022_UNNAMED_2_15_1": {
+        "storm_name": "UNNAMED_2_15_1",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1486.3387047285803,
+        "wind_mae_kt": 2.588613986968994,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 1544.3143323766333,
+        "track_24h_mean_dpe_km": 1388.7461331669956,
+        "track_48h_mean_dpe_km": 1532.8860642403529
+      },
+      "NIO_2022_UNNAMED_2_16_1": {
+        "storm_name": "UNNAMED_2_16_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 207.8802703088411,
+        "wind_mae_kt": 6.635878372192383,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 272.2234322546966,
+        "track_24h_mean_dpe_km": 552.9705570138689,
+        "track_48h_mean_dpe_km": 596.805989283434
+      },
+      "NIO_2022_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 527.7049167322391,
+        "wind_mae_kt": 8.5260498046875,
+        "cat_accuracy": 0.8,
+        "track_12h_mean_dpe_km": 426.3552143597788,
+        "track_24h_mean_dpe_km": 522.0744761047571,
+        "track_48h_mean_dpe_km": 587.71502999986
+      },
+      "NIO_2022_UNNAMED_2_9_1": {
+        "storm_name": "UNNAMED_2_9_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 638.2416548505324,
+        "wind_mae_kt": 3.1055526733398438,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 407.97014326754186,
+        "track_24h_mean_dpe_km": 245.82601356554278,
+        "track_48h_mean_dpe_km": 543.7510820305843
+      },
+      "NIO_2023_BIPARJOY": {
+        "storm_name": "BIPARJOY",
+        "num_sequences": 81,
+        "center_mean_dpe_km": 756.1258401904441,
+        "wind_mae_kt": 23.212924627610196,
+        "cat_accuracy": 0.48148148148148145,
+        "track_12h_mean_dpe_km": 820.2016671208787,
+        "track_24h_mean_dpe_km": 919.8403050392417,
+        "track_48h_mean_dpe_km": 950.7193916009019
+      },
+      "NIO_2023_HAMOON": {
+        "storm_name": "HAMOON",
+        "num_sequences": 11,
+        "center_mean_dpe_km": 1357.3221737172828,
+        "wind_mae_kt": 21.685324928977273,
+        "cat_accuracy": 0.0,
+        "track_12h_mean_dpe_km": 1298.098924898031,
+        "track_24h_mean_dpe_km": 1365.015453389161,
+        "track_48h_mean_dpe_km": 1677.4786958463171
+      },
+      "NIO_2023_MICHAUNG": {
+        "storm_name": "MICHAUNG",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 222.9556085226564,
+        "wind_mae_kt": 6.253579378128052,
+        "cat_accuracy": 0.375,
+        "track_12h_mean_dpe_km": 238.32176340268472,
+        "track_24h_mean_dpe_km": 208.4859599466268,
+        "track_48h_mean_dpe_km": 233.6583131208088
+      },
+      "NIO_2023_MIDHILI": {
+        "storm_name": "MIDHILI",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1191.1427329573814,
+        "wind_mae_kt": 23.410083770751953,
+        "cat_accuracy": 0.0,
+        "track_12h_mean_dpe_km": 1102.3342673476714,
+        "track_24h_mean_dpe_km": 1202.548386925585,
+        "track_48h_mean_dpe_km": 1497.1904608940595
+      },
+      "NIO_2023_MOCHA": {
+        "storm_name": "MOCHA",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 1472.1568567012669,
+        "wind_mae_kt": 22.953953552246094,
+        "cat_accuracy": 0.25,
+        "track_12h_mean_dpe_km": 1333.5032745590172,
+        "track_24h_mean_dpe_km": 1338.3794346917014,
+        "track_48h_mean_dpe_km": 1506.6210987064555
+      },
+      "NIO_2023_TEJ": {
+        "storm_name": "TEJ",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 1888.9360213068242,
+        "wind_mae_kt": 20.713757038116455,
+        "cat_accuracy": 0.25,
+        "track_12h_mean_dpe_km": 2138.0094002683973,
+        "track_24h_mean_dpe_km": 2288.632025152154,
+        "track_48h_mean_dpe_km": 2457.6870372333806
+      },
+      "NIO_2023_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 468.8448609684544,
+        "wind_mae_kt": 5.212415377298991,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 495.91665330693814,
+        "track_24h_mean_dpe_km": 659.8797284798112,
+        "track_48h_mean_dpe_km": 848.4187453479752
+      },
+      "NIO_2024_ASNA": {
+        "storm_name": "ASNA",
+        "num_sequences": 28,
+        "center_mean_dpe_km": 1288.2601329050544,
+        "wind_mae_kt": 3.5980282511029924,
+        "cat_accuracy": 0.2857142857142857,
+        "track_12h_mean_dpe_km": 1407.060434315153,
+        "track_24h_mean_dpe_km": 1182.1054451073926,
+        "track_48h_mean_dpe_km": 1419.5000281304979
+      },
+      "NIO_2024_DANA": {
+        "storm_name": "DANA",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 2023.4555050128995,
+        "wind_mae_kt": 29.316783905029297,
+        "cat_accuracy": 0.0,
+        "track_12h_mean_dpe_km": 1633.0590462148625,
+        "track_24h_mean_dpe_km": 1362.3870193652006,
+        "track_48h_mean_dpe_km": 1164.3309216725788
+      },
+      "NIO_2024_FENGAL": {
+        "storm_name": "FENGAL",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 334.5153855551656,
+        "wind_mae_kt": 4.081390476226806,
+        "cat_accuracy": 0.3,
+        "track_12h_mean_dpe_km": 327.9633370280111,
+        "track_24h_mean_dpe_km": 334.2826027044516,
+        "track_48h_mean_dpe_km": 417.47173764209083
+      },
+      "NIO_2024_LAT": {
+        "storm_name": "LAT",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 854.4360962727528,
+        "wind_mae_kt": 14.308717091878256,
+        "cat_accuracy": 0.3333333333333333,
+        "track_12h_mean_dpe_km": 749.4089906147841,
+        "track_24h_mean_dpe_km": 806.2794773828664,
+        "track_48h_mean_dpe_km": 878.7486595485084
+      },
+      "NIO_2024_NO": {
+        "storm_name": "NO",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 747.8219747726951,
+        "wind_mae_kt": 2.3543464660644533,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 825.4890436841073,
+        "track_24h_mean_dpe_km": 886.3617611064212,
+        "track_48h_mean_dpe_km": 663.3068258236248
+      },
+      "NIO_2024_REMAL": {
+        "storm_name": "REMAL",
+        "num_sequences": 13,
+        "center_mean_dpe_km": 689.5352255199525,
+        "wind_mae_kt": 10.850454477163462,
+        "cat_accuracy": 0.3076923076923077,
+        "track_12h_mean_dpe_km": 829.7461365570803,
+        "track_24h_mean_dpe_km": 1011.8765768589133,
+        "track_48h_mean_dpe_km": 1057.058528885405
+      },
+      "NIO_2024_UNNAMED_2_4_1": {
+        "storm_name": "UNNAMED_2_4_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 555.0912776641861,
+        "wind_mae_kt": 3.9916861852010093,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 767.1512205372632,
+        "track_24h_mean_dpe_km": 516.6495451962741,
+        "track_48h_mean_dpe_km": 756.2574968209288
+      },
+      "NIO_2024_UNNAMED_2_7_1": {
+        "storm_name": "UNNAMED_2_7_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 211.84057717118714,
+        "wind_mae_kt": 1.1812591552734375,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 241.1742648095368,
+        "track_24h_mean_dpe_km": 566.0983597595786,
+        "track_48h_mean_dpe_km": 218.0267619465939
+      }
+    },
+    "test_sample_count": 371,
+    "test_storm_count": 31
+  },
+  "m1b_imerg": {
+    "mode": "m1b_imerg",
+    "checkpoint_name": "m1b_imerg_only.pt",
+    "best_validation_epoch": 1,
+    "best_validation_loss": 3.4343187361955643,
+    "parameter_counts": {
+      "total_parameters": 82240,
+      "trainable_parameters": 82240,
+      "frozen_parameters": 0
+    },
+    "inference_latency_ms_per_seq": 0.7593059796849994,
+    "test_aggregate_metrics": {
+      "center": {
+        "mean_dpe_km": 1119.546817506179,
+        "median_dpe_km": 1046.832070976619,
+        "p90_dpe_km": 1854.5745040345034,
+        "latitude_mae_deg": 3.4860149072508286,
+        "longitude_mae_deg": 9.401358159725879,
+        "ci_95": [
+          837.2241967986131,
+          1335.4695981944685
+        ]
+      },
+      "track": {
+        "track_12h_dpe_km": 1098.3371824210667,
+        "track_24h_dpe_km": 1102.6332131771758,
+        "track_48h_dpe_km": 1094.66370583688,
+        "aggregate_dpe_km": 1098.5447004783741,
+        "valid_counts": {
+          "12h": 371,
+          "24h": 371,
+          "48h": 371
+        },
+        "track_12h_dpe_km_ci_95": [
+          772.9690496149143,
+          1356.5954023964428
+        ],
+        "track_24h_dpe_km_ci_95": [
+          831.4373349311244,
+          1330.5561232776115
+        ],
+        "track_48h_dpe_km_ci_95": [
+          855.5007710122019,
+          1324.428192767137
+        ],
+        "track_aggregate_dpe_km_ci_95": [
+          826.5780467690116,
+          1329.4029075041246
+        ]
+      },
+      "intensity": {
+        "accuracy": 0.2210242587601078,
+        "macro_f1": 0.06060606060606061,
+        "num_evaluated_samples": 371,
+        "confusion_matrix": [
+          [
+            82,
+            0,
+            3,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            88,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            64,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            40,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            68,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "cat_accuracy_ci_95": [
+          0.13759592573954926,
+          0.3583670948616601
+        ],
+        "cat_macro_f1_ci_95": [
+          0.04041702702786483,
+          0.09067941176470588
+        ]
+      },
+      "wind": {
+        "mae_kt": 18.031104933540774,
+        "rmse_kt": 25.230478996869,
+        "median_ae_kt": 10.326087951660156,
+        "p90_ae_kt": 49.005279541015625,
+        "bias_kt": -11.341288641135327,
+        "pearson_r": -0.03950150776200983,
+        "num_evaluated_samples": 371,
+        "ci_95": [
+          9.692648490196516,
+          26.57638355334756
+        ]
+      }
+    },
+    "storm_bootstrap_95ci": {
+      "center_mean_dpe_km": {
+        "ci_lower": 837.2241967986131,
+        "ci_upper": 1335.4695981944685
+      },
+      "wind_mae_kt": {
+        "ci_lower": 9.692648490196516,
+        "ci_upper": 26.57638355334756
+      },
+      "cat_accuracy": {
+        "ci_lower": 0.13759592573954926,
+        "ci_upper": 0.3583670948616601
+      },
+      "cat_macro_f1": {
+        "ci_lower": 0.04041702702786483,
+        "ci_upper": 0.09067941176470588
+      },
+      "track_12h_dpe_km": {
+        "ci_lower": 772.9690496149143,
+        "ci_upper": 1356.5954023964428
+      },
+      "track_24h_dpe_km": {
+        "ci_lower": 831.4373349311244,
+        "ci_upper": 1330.5561232776115
+      },
+      "track_48h_dpe_km": {
+        "ci_lower": 855.5007710122019,
+        "ci_upper": 1324.428192767137
+      },
+      "track_aggregate_dpe_km": {
+        "ci_lower": 826.5780467690116,
+        "ci_upper": 1329.4029075041246
+      }
+    },
+    "storm_level_metrics": {
+      "NIO_2021_GULAB": {
+        "storm_name": "GULAB",
+        "num_sequences": 9,
+        "center_mean_dpe_km": 793.6710672348131,
+        "wind_mae_kt": 4.8701826731363935,
+        "cat_accuracy": 0.2222222222222222,
+        "track_12h_mean_dpe_km": 665.6452764280001,
+        "track_24h_mean_dpe_km": 552.2356488530226,
+        "track_48h_mean_dpe_km": 312.1949124303727
+      },
+      "NIO_2021_JAWAD": {
+        "storm_name": "JAWAD",
+        "num_sequences": 7,
+        "center_mean_dpe_km": 492.7991841852676,
+        "wind_mae_kt": 5.856513432094029,
+        "cat_accuracy": 0.2857142857142857,
+        "track_12h_mean_dpe_km": 278.2295922586972,
+        "track_24h_mean_dpe_km": 344.872159669996,
+        "track_48h_mean_dpe_km": 514.3871075799756
+      },
+      "NIO_2021_SHAHEEN": {
+        "storm_name": "SHAHEEN",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 1876.594150197439,
+        "wind_mae_kt": 15.286983998616536,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 2180.6601761819525,
+        "track_24h_mean_dpe_km": 2141.9021673289567,
+        "track_48h_mean_dpe_km": 2237.430946103624
+      },
+      "NIO_2021_TAUKTAE": {
+        "storm_name": "TAUKTAE",
+        "num_sequences": 23,
+        "center_mean_dpe_km": 654.1686881986382,
+        "wind_mae_kt": 26.127749401590098,
+        "cat_accuracy": 0.08695652173913043,
+        "track_12h_mean_dpe_km": 880.4908299826197,
+        "track_24h_mean_dpe_km": 786.8398861972864,
+        "track_48h_mean_dpe_km": 782.7023914161247
+      },
+      "NIO_2021_UNNAMED_2_5_1": {
+        "storm_name": "UNNAMED_2_5_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 104.22951515085933,
+        "wind_mae_kt": 2.2351903915405273,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 301.3182519847794,
+        "track_24h_mean_dpe_km": 134.94717249125117,
+        "track_48h_mean_dpe_km": 305.1877875408387
+      },
+      "NIO_2021_YAAS": {
+        "storm_name": "YAAS",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 488.3661842675023,
+        "wind_mae_kt": 18.03848508199056,
+        "cat_accuracy": 0.13333333333333333,
+        "track_12h_mean_dpe_km": 578.0462954850341,
+        "track_24h_mean_dpe_km": 547.530327265816,
+        "track_48h_mean_dpe_km": 407.75060880474365
+      },
+      "NIO_2022_ASANI": {
+        "storm_name": "ASANI",
+        "num_sequences": 19,
+        "center_mean_dpe_km": 923.8916554894075,
+        "wind_mae_kt": 16.397503802650853,
+        "cat_accuracy": 0.05263157894736842,
+        "track_12h_mean_dpe_km": 620.9915495050836,
+        "track_24h_mean_dpe_km": 716.1146109998051,
+        "track_48h_mean_dpe_km": 633.4175698322
+      },
+      "NIO_2022_MANDOUS": {
+        "storm_name": "MANDOUS",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 1051.0055423293657,
+        "wind_mae_kt": 6.822831344604492,
+        "cat_accuracy": 0.0,
+        "track_12h_mean_dpe_km": 654.9932725091663,
+        "track_24h_mean_dpe_km": 740.2708761202275,
+        "track_48h_mean_dpe_km": 629.6204883781918
+      },
+      "NIO_2022_NO": {
+        "storm_name": "NO",
+        "num_sequences": 8,
+        "center_mean_dpe_km": 445.6872138821824,
+        "wind_mae_kt": 1.672612190246582,
+        "cat_accuracy": 0.375,
+        "track_12h_mean_dpe_km": 605.7840476344144,
+        "track_24h_mean_dpe_km": 491.4538856398042,
+        "track_48h_mean_dpe_km": 559.0286299511807
+      },
+      "NIO_2022_SITRANG": {
+        "storm_name": "SITRANG",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 959.0166872211308,
+        "wind_mae_kt": 7.551225662231445,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 746.0664695102307,
+        "track_24h_mean_dpe_km": 844.7589921215433,
+        "track_48h_mean_dpe_km": 1177.7783601663143
+      },
+      "NIO_2022_UNNAMED_01": {
+        "storm_name": "UNNAMED_01",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 1629.4957733370095,
+        "wind_mae_kt": 10.937910715738932,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 1427.9493604716838,
+        "track_24h_mean_dpe_km": 1694.9685122905018,
+        "track_48h_mean_dpe_km": 1784.5383277125547
+      },
+      "NIO_2022_UNNAMED_2_13_1": {
+        "storm_name": "UNNAMED_2_13_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 928.720588351066,
+        "wind_mae_kt": 11.285579681396484,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 645.3473104596951,
+        "track_24h_mean_dpe_km": 739.8883694283502,
+        "track_48h_mean_dpe_km": 583.5829825952391
+      },
+      "NIO_2022_UNNAMED_2_15_1": {
+        "storm_name": "UNNAMED_2_15_1",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 970.0352510570342,
+        "wind_mae_kt": 8.996115684509277,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 1346.2828429318454,
+        "track_24h_mean_dpe_km": 1268.6982200455639,
+        "track_48h_mean_dpe_km": 1465.3197641295867
+      },
+      "NIO_2022_UNNAMED_2_16_1": {
+        "storm_name": "UNNAMED_2_16_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 754.444283660784,
+        "wind_mae_kt": 10.451200103759765,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 560.9474505953747,
+        "track_24h_mean_dpe_km": 773.0006557473669,
+        "track_48h_mean_dpe_km": 968.8382653028614
+      },
+      "NIO_2022_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 941.1095363736802,
+        "wind_mae_kt": 10.8296875,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 617.2872238292828,
+        "track_24h_mean_dpe_km": 705.5675679383342,
+        "track_48h_mean_dpe_km": 754.5154368527798
+      },
+      "NIO_2022_UNNAMED_2_9_1": {
+        "storm_name": "UNNAMED_2_9_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 254.37343319805984,
+        "wind_mae_kt": 1.87469482421875,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 324.57871446245116,
+        "track_24h_mean_dpe_km": 457.57030087589396,
+        "track_48h_mean_dpe_km": 955.7209159214937
+      },
+      "NIO_2023_BIPARJOY": {
+        "storm_name": "BIPARJOY",
+        "num_sequences": 81,
+        "center_mean_dpe_km": 1554.7878578449493,
+        "wind_mae_kt": 38.197433848439914,
+        "cat_accuracy": 0.024691358024691357,
+        "track_12h_mean_dpe_km": 1573.5935552144053,
+        "track_24h_mean_dpe_km": 1451.923572812761,
+        "track_48h_mean_dpe_km": 1216.3995856921242
+      },
+      "NIO_2023_HAMOON": {
+        "storm_name": "HAMOON",
+        "num_sequences": 11,
+        "center_mean_dpe_km": 872.9362702625767,
+        "wind_mae_kt": 7.902397502552379,
+        "cat_accuracy": 0.45454545454545453,
+        "track_12h_mean_dpe_km": 804.2631282166661,
+        "track_24h_mean_dpe_km": 1096.3033704062652,
+        "track_48h_mean_dpe_km": 1515.2419423814601
+      },
+      "NIO_2023_MICHAUNG": {
+        "storm_name": "MICHAUNG",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 736.6113227030248,
+        "wind_mae_kt": 7.599514722824097,
+        "cat_accuracy": 0.25,
+        "track_12h_mean_dpe_km": 369.9421580133886,
+        "track_24h_mean_dpe_km": 512.7062706108994,
+        "track_48h_mean_dpe_km": 544.4941624276321
+      },
+      "NIO_2023_MIDHILI": {
+        "storm_name": "MIDHILI",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 467.91737193996244,
+        "wind_mae_kt": 6.512907028198242,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 535.0563272247234,
+        "track_24h_mean_dpe_km": 741.9682761642034,
+        "track_48h_mean_dpe_km": 1130.134924657878
+      },
+      "NIO_2023_MOCHA": {
+        "storm_name": "MOCHA",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 992.5055137684276,
+        "wind_mae_kt": 23.700414848327636,
+        "cat_accuracy": 0.1,
+        "track_12h_mean_dpe_km": 837.0360090898881,
+        "track_24h_mean_dpe_km": 1046.3458626444826,
+        "track_48h_mean_dpe_km": 1299.8216115098205
+      },
+      "NIO_2023_TEJ": {
+        "storm_name": "TEJ",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 2312.8299006920256,
+        "wind_mae_kt": 30.86615753173828,
+        "cat_accuracy": 0.0625,
+        "track_12h_mean_dpe_km": 2616.67887028473,
+        "track_24h_mean_dpe_km": 2562.0184669875825,
+        "track_48h_mean_dpe_km": 2602.2316147399542
+      },
+      "NIO_2023_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 928.0103437394423,
+        "wind_mae_kt": 10.530697504679361,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 676.0420217125892,
+        "track_24h_mean_dpe_km": 821.1859671830331,
+        "track_48h_mean_dpe_km": 1076.4002543732515
+      },
+      "NIO_2024_ASNA": {
+        "storm_name": "ASNA",
+        "num_sequences": 28,
+        "center_mean_dpe_km": 1562.652530763428,
+        "wind_mae_kt": 4.1322672707693915,
+        "cat_accuracy": 0.10714285714285714,
+        "track_12h_mean_dpe_km": 1657.9633752125503,
+        "track_24h_mean_dpe_km": 1603.9428233567935,
+        "track_48h_mean_dpe_km": 1625.7146862263178
+      },
+      "NIO_2024_DANA": {
+        "storm_name": "DANA",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1024.2788798273996,
+        "wind_mae_kt": 7.282458782196045,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 865.5041961854419,
+        "track_24h_mean_dpe_km": 879.9671223579439,
+        "track_48h_mean_dpe_km": 811.6703163346256
+      },
+      "NIO_2024_FENGAL": {
+        "storm_name": "FENGAL",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 846.3794429034479,
+        "wind_mae_kt": 8.076506614685059,
+        "cat_accuracy": 0.15,
+        "track_12h_mean_dpe_km": 531.4431852597367,
+        "track_24h_mean_dpe_km": 664.87198361169,
+        "track_48h_mean_dpe_km": 710.3138287289876
+      },
+      "NIO_2024_LAT": {
+        "storm_name": "LAT",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 524.7845965147952,
+        "wind_mae_kt": 9.746842702229818,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 689.8544404435629,
+        "track_24h_mean_dpe_km": 608.4190052858784,
+        "track_48h_mean_dpe_km": 782.4100703038099
+      },
+      "NIO_2024_NO": {
+        "storm_name": "NO",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 671.7306286897712,
+        "wind_mae_kt": 3.5636007308959963,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 771.156393336547,
+        "track_24h_mean_dpe_km": 645.1778162114787,
+        "track_48h_mean_dpe_km": 400.2519472257379
+      },
+      "NIO_2024_REMAL": {
+        "storm_name": "REMAL",
+        "num_sequences": 13,
+        "center_mean_dpe_km": 754.9564481884513,
+        "wind_mae_kt": 8.835906395545372,
+        "cat_accuracy": 0.3076923076923077,
+        "track_12h_mean_dpe_km": 853.4234844424444,
+        "track_24h_mean_dpe_km": 934.296652487091,
+        "track_48h_mean_dpe_km": 1033.5987312271836
+      },
+      "NIO_2024_UNNAMED_2_4_1": {
+        "storm_name": "UNNAMED_2_4_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 745.331521764982,
+        "wind_mae_kt": 4.172389030456543,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 825.4963743653183,
+        "track_24h_mean_dpe_km": 803.2362282129435,
+        "track_48h_mean_dpe_km": 1057.9091057241358
+      },
+      "NIO_2024_UNNAMED_2_7_1": {
+        "storm_name": "UNNAMED_2_7_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 578.6818052955758,
+        "wind_mae_kt": 8.46898078918457,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 613.5979249829543,
+        "track_24h_mean_dpe_km": 630.8903377863512,
+        "track_48h_mean_dpe_km": 454.04939236133714
+      }
+    },
+    "test_sample_count": 371,
+    "test_storm_count": 31
+  },
+  "m1c_fusion": {
+    "mode": "m1c_fusion",
+    "checkpoint_name": "m1c_gridsat_imerg.pt",
+    "best_validation_epoch": 1,
+    "best_validation_loss": 3.4047656282782555,
+    "parameter_counts": {
+      "total_parameters": 130608,
+      "trainable_parameters": 130608,
+      "frozen_parameters": 0
+    },
+    "inference_latency_ms_per_seq": 1.2608621962308242,
+    "test_aggregate_metrics": {
+      "center": {
+        "mean_dpe_km": 1147.080944267636,
+        "median_dpe_km": 1141.0898704949689,
+        "p90_dpe_km": 1702.2037995782969,
+        "latitude_mae_deg": 4.30350862616156,
+        "longitude_mae_deg": 9.149195853590644,
+        "ci_95": [
+          905.5071512886041,
+          1337.0173418981428
+        ]
+      },
+      "track": {
+        "track_12h_dpe_km": 1134.2475701906847,
+        "track_24h_dpe_km": 1131.2044887751836,
+        "track_48h_dpe_km": 1200.50478108753,
+        "aggregate_dpe_km": 1155.318946684466,
+        "valid_counts": {
+          "12h": 371,
+          "24h": 371,
+          "48h": 371
+        },
+        "track_12h_dpe_km_ci_95": [
+          921.7507042525832,
+          1313.8991370467404
+        ],
+        "track_24h_dpe_km_ci_95": [
+          965.4647000898609,
+          1296.3609372298008
+        ],
+        "track_48h_dpe_km_ci_95": [
+          1029.4962785107214,
+          1418.1581351781997
+        ],
+        "track_aggregate_dpe_km_ci_95": [
+          979.1313490133853,
+          1334.526854677741
+        ]
+      },
+      "intensity": {
+        "accuracy": 0.22911051212938005,
+        "macro_f1": 0.062134502923976605,
+        "num_evaluated_samples": 371,
+        "confusion_matrix": [
+          [
+            85,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            90,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            64,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            40,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            68,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "cat_accuracy_ci_95": [
+          0.14284058291013468,
+          0.3719324781324467
+        ],
+        "cat_macro_f1_ci_95": [
+          0.04166243797925124,
+          0.09225779795000834
+        ]
+      },
+      "wind": {
+        "mae_kt": 17.62924671944261,
+        "rmse_kt": 25.364986977480996,
+        "median_ae_kt": 9.169517517089844,
+        "p90_ae_kt": 50.387569427490234,
+        "bias_kt": -12.41326388644401,
+        "pearson_r": 0.09510609151476121,
+        "num_evaluated_samples": 371,
+        "ci_95": [
+          8.97983400998396,
+          26.57288403340072
+        ]
+      }
+    },
+    "storm_bootstrap_95ci": {
+      "center_mean_dpe_km": {
+        "ci_lower": 905.5071512886041,
+        "ci_upper": 1337.0173418981428
+      },
+      "wind_mae_kt": {
+        "ci_lower": 8.97983400998396,
+        "ci_upper": 26.57288403340072
+      },
+      "cat_accuracy": {
+        "ci_lower": 0.14284058291013468,
+        "ci_upper": 0.3719324781324467
+      },
+      "cat_macro_f1": {
+        "ci_lower": 0.04166243797925124,
+        "ci_upper": 0.09225779795000834
+      },
+      "track_12h_dpe_km": {
+        "ci_lower": 921.7507042525832,
+        "ci_upper": 1313.8991370467404
+      },
+      "track_24h_dpe_km": {
+        "ci_lower": 965.4647000898609,
+        "ci_upper": 1296.3609372298008
+      },
+      "track_48h_dpe_km": {
+        "ci_lower": 1029.4962785107214,
+        "ci_upper": 1418.1581351781997
+      },
+      "track_aggregate_dpe_km": {
+        "ci_lower": 979.1313490133853,
+        "ci_upper": 1334.526854677741
+      }
+    },
+    "storm_level_metrics": {
+      "NIO_2021_GULAB": {
+        "storm_name": "GULAB",
+        "num_sequences": 9,
+        "center_mean_dpe_km": 1168.45178313547,
+        "wind_mae_kt": 5.582162221272786,
+        "cat_accuracy": 0.2222222222222222,
+        "track_12h_mean_dpe_km": 1006.0179060199755,
+        "track_24h_mean_dpe_km": 921.8140142332122,
+        "track_48h_mean_dpe_km": 674.3413990882652
+      },
+      "NIO_2021_JAWAD": {
+        "storm_name": "JAWAD",
+        "num_sequences": 7,
+        "center_mean_dpe_km": 690.5129007596048,
+        "wind_mae_kt": 5.6062357766287665,
+        "cat_accuracy": 0.2857142857142857,
+        "track_12h_mean_dpe_km": 643.6889537778658,
+        "track_24h_mean_dpe_km": 739.9222167812194,
+        "track_48h_mean_dpe_km": 1036.842118940691
+      },
+      "NIO_2021_SHAHEEN": {
+        "storm_name": "SHAHEEN",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 2001.9234424369874,
+        "wind_mae_kt": 16.04805196126302,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 1998.8016047175713,
+        "track_24h_mean_dpe_km": 1915.7308650359641,
+        "track_48h_mean_dpe_km": 2150.72861927133
+      },
+      "NIO_2021_TAUKTAE": {
+        "storm_name": "TAUKTAE",
+        "num_sequences": 23,
+        "center_mean_dpe_km": 696.8672920994321,
+        "wind_mae_kt": 26.596048769743547,
+        "cat_accuracy": 0.08695652173913043,
+        "track_12h_mean_dpe_km": 629.7859456364685,
+        "track_24h_mean_dpe_km": 528.9510861191955,
+        "track_48h_mean_dpe_km": 907.3375546534917
+      },
+      "NIO_2021_UNNAMED_2_5_1": {
+        "storm_name": "UNNAMED_2_5_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 379.51479867612176,
+        "wind_mae_kt": 1.0814428329467773,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 447.52836535932187,
+        "track_24h_mean_dpe_km": 427.4731680714149,
+        "track_48h_mean_dpe_km": 458.5636588005931
+      },
+      "NIO_2021_YAAS": {
+        "storm_name": "YAAS",
+        "num_sequences": 15,
+        "center_mean_dpe_km": 875.207651060033,
+        "wind_mae_kt": 17.708478418986,
+        "cat_accuracy": 0.13333333333333333,
+        "track_12h_mean_dpe_km": 882.5849370465135,
+        "track_24h_mean_dpe_km": 925.6906711554968,
+        "track_48h_mean_dpe_km": 1080.7774122597177
+      },
+      "NIO_2022_ASANI": {
+        "storm_name": "ASANI",
+        "num_sequences": 19,
+        "center_mean_dpe_km": 955.6615657995129,
+        "wind_mae_kt": 16.18973139712685,
+        "cat_accuracy": 0.05263157894736842,
+        "track_12h_mean_dpe_km": 898.5412657923429,
+        "track_24h_mean_dpe_km": 928.6361073025381,
+        "track_48h_mean_dpe_km": 774.2513165977161
+      },
+      "NIO_2022_MANDOUS": {
+        "storm_name": "MANDOUS",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 813.6668156000673,
+        "wind_mae_kt": 5.658141326904297,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 820.8888016723031,
+        "track_24h_mean_dpe_km": 927.7187858062623,
+        "track_48h_mean_dpe_km": 619.8035275745774
+      },
+      "NIO_2022_NO": {
+        "storm_name": "NO",
+        "num_sequences": 8,
+        "center_mean_dpe_km": 630.1242625463858,
+        "wind_mae_kt": 2.2501449584960938,
+        "cat_accuracy": 0.375,
+        "track_12h_mean_dpe_km": 635.2177429168046,
+        "track_24h_mean_dpe_km": 600.2891861604128,
+        "track_48h_mean_dpe_km": 608.4594568380933
+      },
+      "NIO_2022_SITRANG": {
+        "storm_name": "SITRANG",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1254.4586901895318,
+        "wind_mae_kt": 7.442221641540527,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 1195.0933316927064,
+        "track_24h_mean_dpe_km": 1299.0427074361091,
+        "track_48h_mean_dpe_km": 1777.5932458090792
+      },
+      "NIO_2022_UNNAMED_01": {
+        "storm_name": "UNNAMED_01",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 1576.7193516844582,
+        "wind_mae_kt": 9.032797495524088,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 1728.0479836555742,
+        "track_24h_mean_dpe_km": 1921.7384019669955,
+        "track_48h_mean_dpe_km": 2027.8392531355464
+      },
+      "NIO_2022_UNNAMED_2_13_1": {
+        "storm_name": "UNNAMED_2_13_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 746.5318057363523,
+        "wind_mae_kt": 9.012367248535156,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 804.5364091331618,
+        "track_24h_mean_dpe_km": 901.8178729631735,
+        "track_48h_mean_dpe_km": 594.5705038631093
+      },
+      "NIO_2022_UNNAMED_2_15_1": {
+        "storm_name": "UNNAMED_2_15_1",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1153.7692210059963,
+        "wind_mae_kt": 6.230792999267578,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 1191.6446339305644,
+        "track_24h_mean_dpe_km": 1171.857047250041,
+        "track_48h_mean_dpe_km": 1467.2926775109277
+      },
+      "NIO_2022_UNNAMED_2_16_1": {
+        "storm_name": "UNNAMED_2_16_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 625.9438566543968,
+        "wind_mae_kt": 8.897817993164063,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 788.6801728240513,
+        "track_24h_mean_dpe_km": 1007.9121338376908,
+        "track_48h_mean_dpe_km": 868.7088559218943
+      },
+      "NIO_2022_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 5,
+        "center_mean_dpe_km": 689.3901451207569,
+        "wind_mae_kt": 8.795851135253907,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 714.681839904291,
+        "track_24h_mean_dpe_km": 854.9942624226336,
+        "track_48h_mean_dpe_km": 743.2329738490804
+      },
+      "NIO_2022_UNNAMED_2_9_1": {
+        "storm_name": "UNNAMED_2_9_1",
+        "num_sequences": 1,
+        "center_mean_dpe_km": 399.96001297597803,
+        "wind_mae_kt": 0.7124156951904297,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 311.1623996942293,
+        "track_24h_mean_dpe_km": 385.01745053447786,
+        "track_48h_mean_dpe_km": 615.0402919200222
+      },
+      "NIO_2023_BIPARJOY": {
+        "storm_name": "BIPARJOY",
+        "num_sequences": 81,
+        "center_mean_dpe_km": 1431.4477809018952,
+        "wind_mae_kt": 38.68162249341423,
+        "cat_accuracy": 0.024691358024691357,
+        "track_12h_mean_dpe_km": 1332.1001242479294,
+        "track_24h_mean_dpe_km": 1147.21738631643,
+        "track_48h_mean_dpe_km": 1099.943776084116
+      },
+      "NIO_2023_HAMOON": {
+        "storm_name": "HAMOON",
+        "num_sequences": 11,
+        "center_mean_dpe_km": 1036.0666885920439,
+        "wind_mae_kt": 6.65833178433505,
+        "cat_accuracy": 0.45454545454545453,
+        "track_12h_mean_dpe_km": 1143.592000549942,
+        "track_24h_mean_dpe_km": 1374.5075433844347,
+        "track_48h_mean_dpe_km": 1821.7573957319632
+      },
+      "NIO_2023_MICHAUNG": {
+        "storm_name": "MICHAUNG",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 585.7292192518958,
+        "wind_mae_kt": 5.6488730907440186,
+        "cat_accuracy": 0.25,
+        "track_12h_mean_dpe_km": 608.0986799522315,
+        "track_24h_mean_dpe_km": 724.1208156859573,
+        "track_48h_mean_dpe_km": 665.2707851258092
+      },
+      "NIO_2023_MIDHILI": {
+        "storm_name": "MIDHILI",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 825.4943302754816,
+        "wind_mae_kt": 6.551390647888184,
+        "cat_accuracy": 0.75,
+        "track_12h_mean_dpe_km": 934.906334012446,
+        "track_24h_mean_dpe_km": 1154.8147930508571,
+        "track_48h_mean_dpe_km": 1733.1872536480935
+      },
+      "NIO_2023_MOCHA": {
+        "storm_name": "MOCHA",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 1054.233109159996,
+        "wind_mae_kt": 23.583025169372558,
+        "cat_accuracy": 0.1,
+        "track_12h_mean_dpe_km": 1170.8869674186883,
+        "track_24h_mean_dpe_km": 1380.9041922710044,
+        "track_48h_mean_dpe_km": 1678.2486348644857
+      },
+      "NIO_2023_TEJ": {
+        "storm_name": "TEJ",
+        "num_sequences": 16,
+        "center_mean_dpe_km": 2239.051901149788,
+        "wind_mae_kt": 30.911020040512085,
+        "cat_accuracy": 0.0625,
+        "track_12h_mean_dpe_km": 2292.652050899499,
+        "track_24h_mean_dpe_km": 2257.5225563090644,
+        "track_48h_mean_dpe_km": 2450.41726164269
+      },
+      "NIO_2023_UNNAMED_2_2_1": {
+        "storm_name": "UNNAMED_2_2_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 735.7365126523845,
+        "wind_mae_kt": 8.306830088297525,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 769.8009024863059,
+        "track_24h_mean_dpe_km": 954.5257830546863,
+        "track_48h_mean_dpe_km": 900.2650501622848
+      },
+      "NIO_2024_ASNA": {
+        "storm_name": "ASNA",
+        "num_sequences": 28,
+        "center_mean_dpe_km": 1529.790162956624,
+        "wind_mae_kt": 3.3807064465114047,
+        "cat_accuracy": 0.10714285714285714,
+        "track_12h_mean_dpe_km": 1472.1910221252153,
+        "track_24h_mean_dpe_km": 1380.525800246398,
+        "track_48h_mean_dpe_km": 1434.5368904264528
+      },
+      "NIO_2024_DANA": {
+        "storm_name": "DANA",
+        "num_sequences": 4,
+        "center_mean_dpe_km": 1381.464826269565,
+        "wind_mae_kt": 7.578970909118652,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 1344.1287095648563,
+        "track_24h_mean_dpe_km": 1391.0007981770566,
+        "track_48h_mean_dpe_km": 1401.4113964305498
+      },
+      "NIO_2024_FENGAL": {
+        "storm_name": "FENGAL",
+        "num_sequences": 20,
+        "center_mean_dpe_km": 589.8307089666094,
+        "wind_mae_kt": 5.333555030822754,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 689.2520465853934,
+        "track_24h_mean_dpe_km": 863.2035438693649,
+        "track_48h_mean_dpe_km": 711.0397952900752
+      },
+      "NIO_2024_LAT": {
+        "storm_name": "LAT",
+        "num_sequences": 3,
+        "center_mean_dpe_km": 878.6374760271075,
+        "wind_mae_kt": 9.19598388671875,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 816.0587483303652,
+        "track_24h_mean_dpe_km": 771.2128420109096,
+        "track_48h_mean_dpe_km": 907.0039711777814
+      },
+      "NIO_2024_NO": {
+        "storm_name": "NO",
+        "num_sequences": 10,
+        "center_mean_dpe_km": 945.7239765457196,
+        "wind_mae_kt": 2.760307502746582,
+        "cat_accuracy": 0.2,
+        "track_12h_mean_dpe_km": 951.6576173442385,
+        "track_24h_mean_dpe_km": 917.7169955800779,
+        "track_48h_mean_dpe_km": 964.5388760616155
+      },
+      "NIO_2024_REMAL": {
+        "storm_name": "REMAL",
+        "num_sequences": 13,
+        "center_mean_dpe_km": 1251.900950482258,
+        "wind_mae_kt": 8.385722673856295,
+        "cat_accuracy": 0.3076923076923077,
+        "track_12h_mean_dpe_km": 1316.4949310567872,
+        "track_24h_mean_dpe_km": 1466.04214241446,
+        "track_48h_mean_dpe_km": 1725.6084010832865
+      },
+      "NIO_2024_UNNAMED_2_4_1": {
+        "storm_name": "UNNAMED_2_4_1",
+        "num_sequences": 6,
+        "center_mean_dpe_km": 945.5099378790833,
+        "wind_mae_kt": 3.8296543757120767,
+        "cat_accuracy": 0.5,
+        "track_12h_mean_dpe_km": 904.5641054563124,
+        "track_24h_mean_dpe_km": 892.9329910669695,
+        "track_48h_mean_dpe_km": 1083.7136613970708
+      },
+      "NIO_2024_UNNAMED_2_7_1": {
+        "storm_name": "UNNAMED_2_7_1",
+        "num_sequences": 2,
+        "center_mean_dpe_km": 656.4420795942958,
+        "wind_mae_kt": 5.3139448165893555,
+        "cat_accuracy": 1.0,
+        "track_12h_mean_dpe_km": 680.5674998879733,
+        "track_24h_mean_dpe_km": 740.2183606904239,
+        "track_48h_mean_dpe_km": 756.3966056348164
+      }
+    },
+    "test_sample_count": 371,
+    "test_storm_count": 31
+  }
+}

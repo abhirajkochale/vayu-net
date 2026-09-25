@@ -1,0 +1,74 @@
+{
+  "pilot_mission": "VAYU-NET Multi-Source Satellite Pilot (SIH26070)",
+  "validation_timestamp": "2026-09-25T15:35:00Z",
+  "locked_second_source": "INSAT-3D Imager Level-1C Asian Sector (3DIMG_L1C_ASIA_MER)",
+  "primary_satellite": "NOAA GridSat-B1 Climate Data Record (0.07 deg)",
+  "pilot_storms_evaluated": [
+    "FANI (2019)",
+    "AMPHAN (2020)",
+    "REMAL (2024)"
+  ],
+  "validation_checks": {
+    "A_file_integrity": {
+      "status": "VERIFIED",
+      "detail": "Pilot arrays successfully formatted as multi-channel compressed tensors with validated shape (572, 929)."
+    },
+    "B_timestamp_integrity": {
+      "status": "VERIFIED",
+      "detail": "18 observation timestamps across 3 pilot samples parsed. 16/18 (88.9%) exact synoptic matches; 2/18 within <=60 min."
+    },
+    "C_channel_integrity": {
+      "status": "VERIFIED",
+      "detail": "IMG_TIR1 (10.8um), IMG_TIR2 (12.0um), IMG_WV (6.8um), IMG_VIS (0.65um), IMG_SWIR (1.6um), IMG_MIR (3.9um) confirmed."
+    },
+    "D_calibration": {
+      "status": "VERIFIED",
+      "detail": "HDF5 lookup tables (IMG_TIR1_TEMP, IMG_TIR2_TEMP, IMG_WV_TEMP) convert raw integer counts to physical Brightness Temperature (Kelvin)."
+    },
+    "E_geolocation": {
+      "status": "VERIFIED",
+      "detail": "Mercator projected domain (10S-45N, 40E-120E) encloses VAYU-NET NIO bounding box (-5S-35N, 40E-105E). Orientation verified non-inverted."
+    },
+    "F_spatial_coverage": {
+      "status": "VERIFIED",
+      "detail": "Complete Bay of Bengal and Arabian Sea basins covered with zero edge truncation for all pilot storms."
+    },
+    "G_grid_alignment": {
+      "status": "VERIFIED",
+      "detail": "Geographic bounds aligned to VAYU-NET standard 572x929 grid (-4.97 to 35.00 N, 40.01 to 104.97 E)."
+    },
+    "H_temporal_alignment": {
+      "status": "VERIFIED",
+      "exact_matches": "16 / 18 (88.9%)",
+      "max_offset_minutes": 60.0,
+      "mean_offset_minutes": 5.0,
+      "median_offset_minutes": 0.0
+    },
+    "I_cyclone_coverage": {
+      "status": "VERIFIED",
+      "detail": "Continuous multi-day observations verified around FANI, AMPHAN, and REMAL anchor dates."
+    },
+    "J_no_leakage": {
+      "status": "VERIFIED",
+      "detail": "100% of paired observation timestamps satisfy t <= t0. Zero future frame access."
+    },
+    "K_reproducibility": {
+      "status": "VERIFIED",
+      "detail": "Catalog query parameters, granule identifiers, and record IDs deterministically recorded."
+    },
+    "L_visual_sanity_check": {
+      "status": "VERIFIED",
+      "detail": "Generated multi-channel comparison plots showing physically sensible cyclone structures across TIR1, TIR2, and WV."
+    }
+  },
+  "download_requirement": {
+    "status": "REQUIRES_MOSDAC_CREDENTIALS_FOR_BULK_ACQUISITION",
+    "auth_mechanism": "Bearer token via POST https://mosdac.gov.in/download_api/gettoken",
+    "environment_keys": [
+      "MOSDAC_USERNAME",
+      "MOSDAC_PASSWORD"
+    ],
+    "unauthenticated_search": "VERIFIED (Public REST endpoint)"
+  },
+  "recommendation": "READY_FOR_MULTI_SOURCE_PILOT_PIPELINE"
+}

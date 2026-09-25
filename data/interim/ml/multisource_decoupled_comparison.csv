@@ -1,0 +1,7 @@
+Experiment,Mode,Trainable_Params,Best_Val_Epoch,Val_Loss,Test_Loss,Center_Mean_DPE_km,Center_Median_DPE_km,Center_P90_DPE_km,Center_Lat_MAE_deg,Center_Lon_MAE_deg,Category_Acc,Category_Macro_F1,Wind_MAE_kt,Wind_RMSE_kt,Wind_Median_AE_kt,Wind_P90_AE_kt,Wind_Bias_kt,Wind_Pearson_r,Track_12h_DPE_km,Track_24h_DPE_km,Track_48h_DPE_km,Track_Aggregate_DPE_km
+Control Baseline,baseline_gridsat,100880,1,3.5542,2.9261,990.43,737.07,1988.82,3.102,7.976,0.2383,0.095,22.25,30.1,15.84,54.63,-20.69,0.3066,1045.13,1020.54,1066.89,1044.19
+Arch A: Decoupled Track,arch_a_decoupled_track,174288,1,3.5974,2.927,929.44,738.03,1932.34,2.439,7.778,0.2517,0.1098,22.69,30.03,16.43,53.92,-20.76,0.3271,966.47,969.83,1031.04,989.11
+Arch B: Decoupled Intensity,arch_b_decoupled_intensity,174432,1,3.4727,2.8303,997.9,723.2,2098.33,2.717,8.31,0.2349,0.0873,20.91,28.07,13.85,51.26,-17.41,0.2856,1040.64,1102.32,1129.35,1090.77
+Arch C: Decoupled Full,arch_c_decoupled_full,256160,6,4.0094,3.2723,863.07,641.59,1773.74,2.494,6.933,0.2685,0.1557,19.56,26.04,13.81,42.77,-15.13,0.3936,924.82,925.37,1041.71,963.97
+Arch Center: Decoupled Center,decoupled_center,174288,1,3.5976,2.9277,944.57,720.25,1891.93,2.44,7.994,0.2517,0.1098,22.69,30.03,16.43,53.92,-20.76,0.3271,977.49,1016.61,1029.39,1007.83
+Ablation I2: Intensity (TIR1+2),ablation_i2_decoupled_intensity_tir,174288,1,3.8096,3.1361,926.67,752.77,1916.23,2.437,7.758,0.2349,0.0871,21.37,28.93,15.0,52.42,-18.86,0.2982,954.54,1001.68,996.18,984.14

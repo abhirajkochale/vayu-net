@@ -1,0 +1,9 @@
+dataset_name,role,central_wavelength_um,spatial_resolution_km,nominal_shape,data_type,raw_range,calibration_dataset,physical_unit,calibrated_min,calibrated_max,fill_value,spectral_role
+IMG_TIR1,Primary Thermal Infrared Window,10.8,4.0,"(1300, 1900)",uint16,0 to 1023,IMG_TIR1_TEMP,Kelvin (K),180.0,330.0,-999.0,Core deep convection & cloud-top temperature matching GridSat 11um
+IMG_TIR2,Split-Window Thermal Infrared,12.0,4.0,"(1300, 1900)",uint16,0 to 1023,IMG_TIR2_TEMP,Kelvin (K),180.0,330.0,-999.0,"Low-level moisture, cirrus cloud filtering, SST split-window correction"
+IMG_WV,Upper-Tropospheric Water Vapor,6.8,8.0,"(650, 950)",uint16,0 to 1023,IMG_WV_TEMP,Kelvin (K),190.0,280.0,-999.0,"Upper-level dynamics, jet stream outflow, dry air intrusion tracking"
+IMG_MIR,Middle Infrared,3.9,4.0,"(1300, 1900)",uint16,0 to 1023,IMG_MIR_TEMP,Kelvin (K),200.0,340.0,-999.0,"Nighttime fog, low clouds, hot spot / fire detection"
+IMG_VIS,Visible Reflectance,0.65,1.0,"(5200, 7600)",uint16,0 to 1023,IMG_VIS_ALBEDO,Percent Albedo (%),0.0,100.0,-999.0,High-resolution daytime cloud texture and eyewall morphology
+IMG_SWIR,Shortwave Infrared,1.6,1.0,"(5200, 7600)",uint16,0 to 1023,IMG_SWIR_ALBEDO,Percent Albedo (%),0.0,100.0,-999.0,"Cloud phase discrimination (ice vs water clouds), snow detection"
+Latitude,Geographic Coordinate (Latitude),N/A,Grid Spaced,"(1300, 1900)",float32,-10.0 to +45.0,None,Degrees North,-10.0,45.0,-999.0,Mercator pixel geolocation
+Longitude,Geographic Coordinate (Longitude),N/A,Grid Spaced,"(1300, 1900)",float32,+40.0 to +120.0,None,Degrees East,40.0,120.0,-999.0,Mercator pixel geolocation

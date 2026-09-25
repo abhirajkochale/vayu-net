@@ -1,0 +1,50 @@
+experiment_name: "EXP-M2"
+description: "VAYU-NET Multimodal Multi-Task Controlled Ablation: Adaptive Modality Fusion"
+random_seed: 42
+
+dataset:
+  manifest_path: "data/manifests/gridsat_imerg_multimodal_dataset_manifest.csv"
+  tensor_cache_path: "data/interim/ml/exp_m1_tensor_cache.pt"
+  imerg_train_normalization: "data/interim/ml/imerg_train_normalization_stats.json"
+  sequence_length: 6
+  spatial_shape: [72, 116]
+
+training:
+  batch_size: 32
+  max_epochs: 20
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: "AdamW"
+  scheduler:
+    name: "ReduceLROnPlateau"
+    mode: "min"
+    factor: 0.5
+    patience: 2
+    min_lr: 0.00001
+  early_stopping:
+    patience: 5
+    monitor: "val_total_loss"
+
+architecture:
+  spatial_dim: 64
+  gru_dim: 64
+  latent_dim: 64
+  dropout: 0.1
+  unidirectional_gru: true
+
+loss_weights:
+  lambda_center: 1.0
+  lambda_wind: 1.0
+  lambda_class: 1.0
+  lambda_track: 1.0
+
+models:
+  m2a_gridsat:
+    mode: "m2a_gridsat"
+    checkpoint: "ml/experiments/exp_m2/checkpoints/m2a_gridsat_only.pt"
+  m2b_imerg:
+    mode: "m2b_imerg"
+    checkpoint: "ml/experiments/exp_m2/checkpoints/m2b_imerg_only.pt"
+  m2c_adaptive:
+    mode: "m2c_adaptive"
+    checkpoint: "ml/experiments/exp_m2/checkpoints/m2c_adaptive_fusion.pt"

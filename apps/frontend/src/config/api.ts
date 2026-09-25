@@ -93,4 +93,26 @@ export const vayuApi = {
       method: "POST",
       body: JSON.stringify(data),
     }),
+
+  runInference: (data: { event_id: string; t0_utc?: string }) =>
+    request<any>("/api/inference/run", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+
+  runCurrentInference: (data: { event_id: string; t0_utc?: string }) =>
+    request<any>("/api/inference/current", {
+      method: "POST",
+      body: JSON.stringify(data),
+    }),
+
+  getCurrentEvents: () => request<Array<any>>("/api/current/events"),
+
+  getEvents: () => request<Array<any>>("/api/events"),
+
+  getEventDetails: (eventId: string) =>
+    request<any>(`/api/events/${encodeURIComponent(eventId)}`),
+
+  getInferenceById: (inferenceId: string) =>
+    request<any>(`/api/inference/${encodeURIComponent(inferenceId)}`),
 };

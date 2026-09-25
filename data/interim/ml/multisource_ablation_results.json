@@ -1,0 +1,157 @@
+{
+  "metadata": {
+    "experiment": "VAYU-NET Multi-Source Satellite Fair Ablation",
+    "date": "2026-09-25 15:57:22Z",
+    "dataset_manifest": "data/manifests/vayu_net_multisource_sample_index.csv",
+    "dataset_size": {
+      "train": 175,
+      "validation": 252,
+      "test": 298,
+      "total": 725
+    },
+    "seed": 42
+  },
+  "scientific_comparison_table": {
+    "center_mean_dpe_km": {
+      "gridsat": 1201.9392465228095,
+      "insat": 1245.6489739476558,
+      "fusion": 1220.0614575583747,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 18.122,
+        "percentage_diff": 1.51
+      }
+    },
+    "center_median_dpe_km": {
+      "gridsat": 1205.554609321174,
+      "insat": 1411.4667924907194,
+      "fusion": 1313.3467922535679,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 107.792,
+        "percentage_diff": 8.94
+      }
+    },
+    "center_p90_dpe_km": {
+      "gridsat": 1628.0858870842235,
+      "insat": 1794.5083593284949,
+      "fusion": 1705.6416084990885,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 77.556,
+        "percentage_diff": 4.76
+      }
+    },
+    "classification_accuracy": {
+      "gridsat": 0.2214765100671141,
+      "insat": 0.2214765100671141,
+      "fusion": 0.2214765100671141,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 0.0,
+        "percentage_diff": 0.0
+      }
+    },
+    "classification_macro_f1": {
+      "gridsat": 0.06043956043956044,
+      "insat": 0.06043956043956044,
+      "fusion": 0.06043956043956044,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 0.0,
+        "percentage_diff": 0.0
+      }
+    },
+    "wind_mae_kt": {
+      "gridsat": 21.472299575805664,
+      "insat": 21.084760665893555,
+      "fusion": 25.0925350189209,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 3.62,
+        "percentage_diff": 16.86
+      }
+    },
+    "wind_rmse_kt": {
+      "gridsat": 29.94034194946289,
+      "insat": 29.08295440673828,
+      "fusion": 33.94772720336914,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 4.007,
+        "percentage_diff": 13.38
+      }
+    },
+    "track_12h_mean_dpe_km": {
+      "gridsat": 1215.1733160668077,
+      "insat": 1225.708767856877,
+      "fusion": 1174.0526257472097,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": -41.121,
+        "percentage_diff": -3.38
+      }
+    },
+    "track_24h_mean_dpe_km": {
+      "gridsat": 1228.854749989839,
+      "insat": 1202.9005519542636,
+      "fusion": 1166.6174940575233,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": -62.237,
+        "percentage_diff": -5.06
+      }
+    },
+    "track_48h_mean_dpe_km": {
+      "gridsat": 1208.029980919449,
+      "insat": 1266.2462705902965,
+      "fusion": 1213.7611296380626,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": 5.731,
+        "percentage_diff": 0.47
+      }
+    },
+    "track_aggregate_mean_dpe_km": {
+      "gridsat": 1217.3526823253653,
+      "insat": 1231.6185301338126,
+      "fusion": 1184.8104164809317,
+      "diff_fusion_minus_gridsat": {
+        "absolute_diff": -32.542,
+        "percentage_diff": -2.67
+      }
+    }
+  },
+  "baselines": {
+    "persistence_baseline": {
+      "wind": {
+        "wind_mae_kt": 1.9463087248322148,
+        "wind_rmse_kt": 3.4514854306301728,
+        "wind_median_ae_kt": 0.0,
+        "wind_p90_ae_kt": 5.0,
+        "wind_bias_kt": -1.5100671140939597,
+        "wind_pearson_r": 0.990851302806318
+      },
+      "classification": {
+        "accuracy": 0.8322147651006712,
+        "macro_f1": 0.824132019425849
+      },
+      "track": {
+        "track_12h_mean_dpe_km": 139.11080120185508,
+        "track_12h_median_dpe_km": 134.32097530684655,
+        "track_12h_p90_dpe_km": 215.5511931008062,
+        "track_24h_mean_dpe_km": 273.92289266273866,
+        "track_24h_median_dpe_km": 278.2590198205088,
+        "track_24h_p90_dpe_km": 404.0675785683723,
+        "track_48h_mean_dpe_km": 549.5761399494719,
+        "track_48h_median_dpe_km": 549.5061205884178,
+        "track_48h_p90_dpe_km": 793.5789360505834,
+        "track_aggregate_mean_dpe_km": 320.8699446046886
+      }
+    },
+    "constant_velocity_baseline": {
+      "track": {
+        "track_12h_mean_dpe_km": 72.04221225041853,
+        "track_12h_median_dpe_km": 58.83851642344082,
+        "track_12h_p90_dpe_km": 131.81996724019547,
+        "track_24h_mean_dpe_km": 150.8942615242002,
+        "track_24h_median_dpe_km": 122.44581797209719,
+        "track_24h_p90_dpe_km": 289.004536098587,
+        "track_48h_mean_dpe_km": 340.1447297971248,
+        "track_48h_median_dpe_km": 286.14395447602635,
+        "track_48h_p90_dpe_km": 643.8834026573669,
+        "track_aggregate_mean_dpe_km": 187.69373452391454
+      }
+    }
+  }
+}

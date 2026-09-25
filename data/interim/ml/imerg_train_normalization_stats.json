@@ -1,0 +1,46 @@
+{
+  "dataset": "NASA GPM IMERG Final Run V07B",
+  "split": "TRAIN_ONLY",
+  "num_train_sequences": 696,
+  "num_unique_train_granules": 1304,
+  "total_pixels": 10891008,
+  "valid_pixels": 10891008,
+  "nan_pixels": 0,
+  "nan_fraction": 0.0,
+  "spatial_grid": [
+    72,
+    116
+  ],
+  "domain_bounds": {
+    "lat_min": -5.0,
+    "lat_max": 35.0,
+    "lon_min": 40.0,
+    "lon_max": 105.0
+  },
+  "raw_units": "mm/hr",
+  "raw_stats": {
+    "mean": 0.18056856784089098,
+    "std": 1.0840842783352072,
+    "min": 0.0,
+    "max": 116.58123779296875,
+    "percentiles": {
+      "p10": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p90": 0.16769203543663025,
+      "p95": 0.7420332431793213,
+      "p99": 4.0248026847839355,
+      "p99_9": 13.425395965576172
+    }
+  },
+  "log1p_stats": {
+    "mean": 0.08193853584369959,
+    "std": 0.29910424746335657,
+    "min": 0.0,
+    "max": 4.7671294801594595
+  },
+  "baseline_transform": "standardize_raw",
+  "transform_rationale": "Baseline uses z-score standardization of physical mm/hr (x - mean) / std. NaNs (fill values) are imputed with train mean. log1p statistics are also preserved for non-linear precipitation scaling ablations.",
+  "elapsed_seconds": 111.22
+}

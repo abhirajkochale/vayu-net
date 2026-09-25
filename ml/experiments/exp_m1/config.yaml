@@ -1,0 +1,49 @@
+experiment:
+  name: EXP-M1
+  description: GridSat-B1 + NASA GPM IMERG Multimodal Multi-Task Baseline
+  sub_experiments:
+    m1a: GridSat-only
+    m1b: IMERG-only
+    m1c: GridSat + IMERG
+  date: "2026-09-25"
+  governance:
+    seed: 42
+    deterministic: true
+    no_future_leakage: true
+    no_storm_centered_cropping: true
+    no_synthetic_data: true
+
+dataset:
+  manifest_path: data/manifests/gridsat_imerg_multimodal_dataset_manifest.csv
+  sample_index_path: data/manifests/vayu_net_sample_index.csv
+  gridsat_norm_path: data/interim/ml/train_normalization_stats.json
+  imerg_norm_path: data/interim/ml/imerg_train_normalization_stats.json
+  imerg_raw_dir: data/raw/imerg
+  spatial_grid: [72, 116]
+  sequence_length: 6
+  domain_bounds:
+    lat_min: -5.0
+    lat_max: 35.0
+    lon_min: 40.0
+    lon_max: 105.0
+
+training:
+  epochs: 20
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  lr_scheduler:
+    type: ReduceLROnPlateau
+    mode: min
+    factor: 0.5
+    patience: 2
+    min_lr: 0.00001
+  early_stopping:
+    monitor: val_loss
+    mode: min
+    patience: 5
+  loss_weights:
+    lambda_center: 1.0
+    lambda_wind: 1.0
+    lambda_class: 1.0
+    lambda_track: 1.0

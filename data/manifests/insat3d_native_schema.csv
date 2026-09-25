@@ -1,0 +1,8 @@
+channel_or_group,dataset_name,shape,dtype,fill_value,calibration_lut_name,calibration_method,physical_units,physical_valid_range,metadata_attributes
+TIR1,IMG_TIR1,"(1382, 1386)",uint16,"0 or 65535",IMG_TIR1_TEMP,Direct 1024-element count-to-Kelvin LUT,Kelvin,"[180.0, 330.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=10.8um; Resolution=4km"
+TIR2,IMG_TIR2,"(1382, 1386)",uint16,"0 or 65535",IMG_TIR2_TEMP,Direct 1024-element count-to-Kelvin LUT,Kelvin,"[180.0, 330.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=12.0um; Resolution=4km"
+WV,IMG_WV,"(1382, 1386)",uint16,"0 or 65535",IMG_WV_TEMP,Direct 1024-element count-to-Kelvin LUT,Kelvin,"[190.0, 290.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=6.8um; Resolution=4km resampled"
+MIR,IMG_MIR,"(1382, 1386)",uint16,"0 or 65535",IMG_MIR_TEMP,Direct 1024-element count-to-Kelvin LUT,Kelvin,"[180.0, 340.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=3.9um; Resolution=4km"
+VIS,IMG_VIS,"(5528, 5544)",uint16,"0 or 65535",IMG_VIS_ALBEDO,Direct 1024-element count-to-Albedo LUT,Percentage (%),"[0.0, 100.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=0.65um; Resolution=1km"
+SWIR,IMG_SWIR,"(5528, 5544)",uint16,"0 or 65535",IMG_SWIR_TEMP,Direct 1024-element count-to-Kelvin LUT,Kelvin,"[180.0, 340.0]","Satellite_Name='INSAT-3D'; Sensor_Id='IMG'; Central_Wavelength=1.6um; Resolution=1km"
+Root_Metadata,/,None,HDF5 Attributes,None,None,Direct Read,None,None,"Projection_Type='MERCATOR'; Central_Longitude=82.0; Upper_Left='45.5N, 44.5E'; Lower_Right='10.0S, 105.5E'"

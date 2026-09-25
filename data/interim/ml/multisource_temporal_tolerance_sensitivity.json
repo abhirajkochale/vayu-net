@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "total_paired_samples_in_dataset": 725,
+    "total_frames_audited": 4350,
+    "lookback_window_hours": 15,
+    "frames_per_sequence": 6,
+    "thresholds_minutes": [
+      15,
+      30,
+      60
+    ],
+    "sample_index": "data\\manifests\\vayu_net_multisource_sample_index.csv",
+    "alignment_manifest": "data\\manifests\\multisource_timestamp_alignment.csv"
+  },
+  "frame_distribution": {
+    "exact_matches_0min": 4017,
+    "exact_matches_pct": 92.34,
+    "offset_30min": 62,
+    "offset_30min_pct": 1.43,
+    "offset_60min": 271,
+    "offset_60min_pct": 6.23
+  },
+  "threshold_evaluations": {
+    "delta_t_leq_15min": {
+      "threshold_minutes": 15,
+      "total_paired_samples": 438,
+      "complete_six_frame_paired_samples": 438,
+      "sample_retention_pct": 60.41,
+      "rejected_samples": 287,
+      "rejected_samples_pct": 39.59,
+      "total_observation_frames": 4017,
+      "rejected_frames": 333,
+      "rejected_frames_pct": 7.66,
+      "splits": {
+        "TRAIN": {
+          "samples": 105,
+          "original_paired_samples": 175,
+          "sample_retention_pct": 60.0,
+          "unique_storms": 24,
+          "original_unique_storms": 24,
+          "dropped_storms": []
+        },
+        "VALIDATION": {
+          "samples": 139,
+          "original_paired_samples": 252,
+          "sample_retention_pct": 55.16,
+          "unique_storms": 13,
+          "original_unique_storms": 14,
+          "dropped_storms": [
+            "NIO_2020_NISARGA"
+          ]
+        },
+        "TEST": {
+          "samples": 194,
+          "original_paired_samples": 298,
+          "sample_retention_pct": 65.1,
+          "unique_storms": 23,
+          "original_unique_storms": 24,
+          "dropped_storms": [
+            "NIO_2022_UNNAMED_2_13_1"
+          ]
+        }
+      }
+    },
+    "delta_t_leq_30min": {
+      "threshold_minutes": 30,
+      "total_paired_samples": 454,
+      "complete_six_frame_paired_samples": 454,
+      "sample_retention_pct": 62.62,
+      "rejected_samples": 271,
+      "rejected_samples_pct": 37.38,
+      "total_observation_frames": 4079,
+      "rejected_frames": 271,
+      "rejected_frames_pct": 6.23,
+      "splits": {
+        "TRAIN": {
+          "samples": 111,
+          "original_paired_samples": 175,
+          "sample_retention_pct": 63.43,
+          "unique_storms": 24,
+          "original_unique_storms": 24,
+          "dropped_storms": []
+        },
+        "VALIDATION": {
+          "samples": 143,
+          "original_paired_samples": 252,
+          "sample_retention_pct": 56.75,
+          "unique_storms": 13,
+          "original_unique_storms": 14,
+          "dropped_storms": [
+            "NIO_2020_NISARGA"
+          ]
+        },
+        "TEST": {
+          "samples": 200,
+          "original_paired_samples": 298,
+          "sample_retention_pct": 67.11,
+          "unique_storms": 23,
+          "original_unique_storms": 24,
+          "dropped_storms": [
+            "NIO_2022_UNNAMED_2_13_1"
+          ]
+        }
+      }
+    },
+    "delta_t_leq_60min": {
+      "threshold_minutes": 60,
+      "total_paired_samples": 725,
+      "complete_six_frame_paired_samples": 725,
+      "sample_retention_pct": 100.0,
+      "rejected_samples": 0,
+      "rejected_samples_pct": 0.0,
+      "total_observation_frames": 4350,
+      "rejected_frames": 0,
+      "rejected_frames_pct": 0.0,
+      "splits": {
+        "TRAIN": {
+          "samples": 175,
+          "original_paired_samples": 175,
+          "sample_retention_pct": 100.0,
+          "unique_storms": 24,
+          "original_unique_storms": 24,
+          "dropped_storms": []
+        },
+        "VALIDATION": {
+          "samples": 252,
+          "original_paired_samples": 252,
+          "sample_retention_pct": 100.0,
+          "unique_storms": 14,
+          "original_unique_storms": 14,
+          "dropped_storms": []
+        },
+        "TEST": {
+          "samples": 298,
+          "original_paired_samples": 298,
+          "sample_retention_pct": 100.0,
+          "unique_storms": 24,
+          "original_unique_storms": 24,
+          "dropped_storms": []
+        }
+      }
+    }
+  }
+}
