@@ -28,6 +28,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
+import base64, io
 
 # Ensure project root is in sys.path
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -392,6 +393,125 @@ def predict_cyclone(req: PredictRequest):
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+
+
+# ── Satellite Observation Image Endpoint ───────────────────────────────────────
+GRIDSAT_INTERIM_DIR = PROJECT_ROOT / "data" / "interim" / "gridsat"
+
+# NIO domain bounds stored in the NPZ files
+_SAT_LAT_MIN, _SAT_LAT_MAX = -5.0, 35.0
+_SAT_LON_MIN, _SAT_LON_MAX = 40.0, 105.0
+# Kelvin clamp range for display (reasonable cloud/ocean range)
+_IR_K_MIN, _IR_K_MAX = 190.0, 310.0
+
+
+def _find_gridsat_npz(dt) -> Optional[Path]:
+    """Locate the interim .npz for a given UTC datetime (same logic as SatelliteIngestionService)."""
+    year_str = str(dt.year)
+    fname = f"gridsat_{dt.year:04d}.{dt.month:02d}.{dt.day:02d}.{dt.hour:02d}.npz"
+    candidate = GRIDSAT_INTERIM_DIR / year_str / fname
+    if candidate.exists():
+        return candidate
+    candidate_root = GRIDSAT_INTERIM_DIR / fname
+    if candidate_root.exists():
+        return candidate_root
+    return None
+
+
+def _npz_to_png_b64(npz_path: Path) -> str:
+    """
+    Renders irwin_cdr Kelvin array from a GridSat .npz to a base64-encoded PNG.
+    Colormap: inverted grayscale — cold cloud tops (low K) → white, warm ocean → dark.
+    This matches conventional black-and-white IR satellite imagery.
+    """
+    try:
+        from PIL import Image
+    except ImportError:
+        raise HTTPException(
+            status_code=501,
+            detail="Pillow not installed on server; satellite imagery unavailable."
+        )
+
+    import numpy as np
+
+    with np.load(npz_path) as f:
+        arr = f["irwin_cdr"].astype(np.float32)
+
+    # Clamp to display range
+    arr_clamped = np.clip(arr, _IR_K_MIN, _IR_K_MAX)
+    # Normalize 0–1 then invert (cold=1.0=white, warm=0.0=dark)
+    norm = (_IR_K_MAX - arr_clamped) / (_IR_K_MAX - _IR_K_MIN)
+    # Scale to uint8
+    gray = (norm * 255).astype(np.uint8)
+
+    img = Image.fromarray(gray, mode="L")
+    buf = io.BytesIO()
+    img.save(buf, format="PNG", optimize=True)
+    return base64.b64encode(buf.getvalue()).decode("ascii")
+
+
+@app.get("/api/satellite/image")
+def get_satellite_image(t0_utc: str = Query(..., description="Observation timestamp in ISO-8601 UTC")):
+    """
+    Returns the GridSat-B1 11µm IR observation image for the exact canonical t0 timestamp.
+    Response: { status, t0_utc, image_b64, mime_type, domain, attribution }
+    Errors: 404 if no observation exists for that timestamp.
+    """
+    from datetime import datetime, timezone
+
+    # Parse timestamp
+    try:
+        clean = t0_utc.strip().replace("Z", "+00:00")
+        dt = datetime.fromisoformat(clean)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        else:
+            dt = dt.astimezone(timezone.utc)
+    except ValueError:
+        raise HTTPException(status_code=400, detail=f"Invalid ISO-8601 timestamp: {t0_utc!r}")
+
+    # Timestamp matching strategy:
+    # 1. Try exact hour match first (no silent substitution when file exists).
+    # 2. Fall back to nearest 3h boundary (GridSat cadence) if exact is absent.
+    dt_exact = dt.replace(minute=0, second=0, microsecond=0)
+    npz_path = _find_gridsat_npz(dt_exact)
+    dt_matched = dt_exact
+
+    if npz_path is None:
+        # Snap to nearest 3h boundary
+        snapped_hour = (dt.hour // 3) * 3
+        dt_snapped = dt.replace(minute=0, second=0, microsecond=0, hour=snapped_hour)
+        npz_path = _find_gridsat_npz(dt_snapped)
+        dt_matched = dt_snapped
+
+    if npz_path is None:
+        raise HTTPException(
+            status_code=404,
+            detail={
+                "code": "SATELLITE_UNAVAILABLE",
+                "message": f"No GridSat-B1 observation archived for t0={t0_utc}",
+                "t0_utc": t0_utc,
+            }
+        )
+
+    image_b64 = _npz_to_png_b64(npz_path)
+
+    return {
+        "status": "AVAILABLE",
+        "t0_utc": dt_matched.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "image_b64": image_b64,
+        "mime_type": "image/png",
+        "domain": {
+            "lat_min": _SAT_LAT_MIN,
+            "lat_max": _SAT_LAT_MAX,
+            "lon_min": _SAT_LON_MIN,
+            "lon_max": _SAT_LON_MAX,
+        },
+        "attribution": "NOAA NCEI GridSat-B1 · 11 µm IR (irwin_cdr) · IRWIN CDR",
+        "source_file": npz_path.name,  # filename only, not path
+    }
 
 
 if __name__ == "__main__":
