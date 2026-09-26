@@ -36,7 +36,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from ml.forecast.api_contracts import VayuForecastService, PredictionUnavailableError
-from apps.backend.services.inference_pipeline import get_inference_pipeline, InferencePipelineError
+from apps.backend.services.demo_service import get_demo_service, InferencePipelineError
 
 app = FastAPI(
     title="VAYU-NET Cyclone Intelligence API",
@@ -116,23 +116,38 @@ class CurrentInferenceRequest(BaseModel):
 def run_canonical_inference(req: InferenceRunRequest):
     """
     Executes the canonical end-to-end multi-task inference pipeline.
-    Runs Phase 3C center localization, Phase 6 intensity/wind, Phase 5B track forecasting,
-    empirical uncertainty, downstream verification, analog retrieval, Grad-CAM, and IMERG context.
+    In Historical Demo mode, delivers the pre-validated canonical AMPHAN rehearsal result without PyTorch.
+    In full-model local mode, executes the live neural network models.
     """
-    pipeline = get_inference_pipeline()
-    return pipeline.run_inference(event_id=req.event_id, t0_utc=req.t0_utc)
+    demo_service = get_demo_service()
+    try:
+        return demo_service.run_inference(event_id=req.event_id, t0_utc=req.t0_utc)
+    except InferencePipelineError as e:
+        raise HTTPException(status_code=e.status_code, detail=e.to_dict())
 
 
 @app.post("/api/inference/current")
 def run_current_inference(req: CurrentInferenceRequest):
     """
     Executes current / live cyclone inference workflow.
-    Evaluates strictly causal 6-frame satellite sequence and observed track history.
-    Verification is UNAVAILABLE (future ground truth is never accessed).
+    In the Free Public deployment, honestly reports capability limits rather than causing OOM restarts.
     """
+    ckpt_path = PROJECT_ROOT / "data" / "interim" / "ml" / "checkpoints" / "best_center_localization_cnn.pt"
+    if not ckpt_path.exists() or os.getenv("VAYU_PUBLIC_DEMO_MODE", "0") == "1":
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "code": "CURRENT_INFERENCE_UNAVAILABLE_ON_FREE_TIER",
+                "message": (
+                    "Real-time operational ML inference is unavailable on the Free Public tier (512 MB). "
+                    "Use 'Historical' mode to run the full validated AMPHAN rehearsal demo."
+                ),
+            },
+        )
+
     from apps.backend.services.current_event_service import CurrentEventError
     from apps.backend.services.satellite_ingestion_service import SatelliteIngestionError
-    from apps.backend.services.inference_pipeline import InferencePipelineError
+    from apps.backend.services.inference_pipeline import get_inference_pipeline
 
     pipeline = get_inference_pipeline()
     try:
@@ -150,29 +165,29 @@ def list_current_events():
     Discovers active cyclone events and evaluates operational readiness.
     Returns: list of {event_id, name, source, status, latest_observation, latest_center, history_fix_count, satellite_frame_count, readiness}.
     """
-    pipeline = get_inference_pipeline()
-    return pipeline.current_event_service.list_active_current_events()
+    demo_service = get_demo_service()
+    return demo_service.list_current_events()
 
 
 @app.get("/api/events")
 def list_canonical_events():
     """Returns catalog of all historical cyclone events with observation counts and life-cycle metadata."""
-    pipeline = get_inference_pipeline()
-    return pipeline.list_events()
+    demo_service = get_demo_service()
+    return demo_service.list_events()
 
 
 @app.get("/api/events/{event_id}")
 def get_canonical_event(event_id: str):
     """Returns detailed event information and available observation timestamps for a cyclone."""
-    pipeline = get_inference_pipeline()
-    return pipeline.get_event_details(event_id)
+    demo_service = get_demo_service()
+    return demo_service.get_event_details(event_id)
 
 
 @app.get("/api/inference/{inference_id}")
 def get_canonical_inference(inference_id: str):
     """Retrieves cached canonical inference result by unique inference execution ID."""
-    pipeline = get_inference_pipeline()
-    return pipeline.get_cached_inference(inference_id)
+    demo_service = get_demo_service()
+    return demo_service.get_cached_inference(inference_id)
 
 
 @app.get("/health", response_model=HealthResponse)
@@ -189,6 +204,7 @@ def health_check() -> HealthResponse:
         "data/interim/ml/uncertainty_parameters.json",
         "data/interim/ml/analog_retrieval_cache.json",
         "data/manifests/vayu_net_sample_index.csv",
+        "data/processed/canonical_amphan_demo_result.json",
     ]
 
     artifact_status = {}

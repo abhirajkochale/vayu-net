@@ -20,7 +20,6 @@ from typing import Dict, List, Optional, Any
 from ml.forecast.uncertainty import EmpiricalUncertainty
 from ml.forecast.verification import ForecastVerifier
 from ml.forecast.analog_retrieval import AnalogRetriever
-from ml.inference.model_service import get_model_service, ModelService
 
 logger = logging.getLogger("vayu.forecast.api_contracts")
 
@@ -56,10 +55,17 @@ class VayuForecastService:
         self.uncertainty_engine = EmpiricalUncertainty()
         self.verifier = ForecastVerifier()
         self.retriever = AnalogRetriever()
-        self.model_service = get_model_service()
+        self._model_service = None
         
         self.sample_index_df = pd.read_csv(SAMPLE_INDEX_PATH)
         self.storm_manifest_df = pd.read_csv(STORM_MANIFEST_PATH)
+
+    @property
+    def model_service(self):
+        if self._model_service is None:
+            from ml.inference.model_service import get_model_service
+            self._model_service = get_model_service()
+        return self._model_service
         
         # Build quick storm id mapping
         self.storm_id_map = {}

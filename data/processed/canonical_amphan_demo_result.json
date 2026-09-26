@@ -1,0 +1,708 @@
+{
+  "event": {
+    "event_id": "NIO_2020_AMPHAN",
+    "storm_name": "AMPHAN",
+    "year": 2020,
+    "split": "VALIDATION",
+    "basin": "North Indian Ocean (Bay of Bengal / Arabian Sea)",
+    "peak_category": "ESCS",
+    "max_wind_kt": 130.0
+  },
+  "observation": {
+    "sample_id": "NIO_2020_AMPHAN_20200518_0600Z",
+    "t0_utc": "2020-05-18T06:00:00+00:00",
+    "reference_center": {
+      "lat": 13.4,
+      "lon": 86.2
+    },
+    "reference_wind_kt": 120.0,
+    "reference_category": "SuCS",
+    "gridsat_frames": [
+      {
+        "step": "t_minus_15h",
+        "offset_hours": -15,
+        "timestamp_utc": "2020-05-17T15:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.17.15.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      },
+      {
+        "step": "t_minus_12h",
+        "offset_hours": -12,
+        "timestamp_utc": "2020-05-17T18:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.17.18.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      },
+      {
+        "step": "t_minus_9h",
+        "offset_hours": -9,
+        "timestamp_utc": "2020-05-17T21:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.17.21.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      },
+      {
+        "step": "t_minus_6h",
+        "offset_hours": -6,
+        "timestamp_utc": "2020-05-18T00:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.18.00.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      },
+      {
+        "step": "t_minus_3h",
+        "offset_hours": -3,
+        "timestamp_utc": "2020-05-18T03:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.18.03.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      },
+      {
+        "step": "t0",
+        "offset_hours": 0,
+        "timestamp_utc": "2020-05-18T06:00:00+00:00",
+        "file_path": "data/interim/gridsat/2020/gridsat_2020.05.18.06.npz",
+        "source": "NOAA NCEI GridSat-B1 IRWIN CDR",
+        "status": "VALIDATED"
+      }
+    ]
+  },
+  "center": {
+    "ai_lat": 11.8241,
+    "ai_lon": 85.1251,
+    "confidence": 0.95,
+    "discrete_peak_center": {
+      "latitude": 11.9014,
+      "longitude": 85.3879
+    },
+    "method": "Phase 3C Dedicated ResNet-18 (2D Soft-Argmax)"
+  },
+  "intensity": {
+    "category": "VSCS",
+    "category_index": 4,
+    "confidence": 0.5162,
+    "confidence_label": "model_probability",
+    "category_probabilities": {
+      "D": 0.0393,
+      "DD": 0.0461,
+      "CS": 0.0715,
+      "SCS": 0.1511,
+      "VSCS": 0.5162,
+      "ESCS": 0.0223,
+      "SuCS": 0.1535
+    }
+  },
+  "wind": {
+    "wind_kt": 68.9,
+    "confidence": 46.8,
+    "confidence_metric": "empirical_p80_kt",
+    "central_pressure_hpa": 993.8
+  },
+  "forecast": {
+    "plus_12h": {
+      "lat": 14.2461,
+      "lon": 85.7916
+    },
+    "plus_24h": {
+      "lat": 15.0583,
+      "lon": 85.4418
+    },
+    "plus_48h": {
+      "lat": 17.1872,
+      "lon": 84.5871
+    },
+    "anchor_type": "observed_center"
+  },
+  "uncertainty": {
+    "plus_12h_km": 97.5,
+    "plus_24h_km": 197.0,
+    "plus_48h_km": 449.6,
+    "percentile": "P80",
+    "label": "empirical",
+    "cone_geometries": {
+      "plus_12h": [
+        [
+          85.7916,
+          15.123
+        ],
+        [
+          85.9688,
+          15.1061
+        ],
+        [
+          86.1391,
+          15.056
+        ],
+        [
+          86.2959,
+          14.9747
+        ],
+        [
+          86.4331,
+          14.8653
+        ],
+        [
+          86.5455,
+          14.7321
+        ],
+        [
+          86.6287,
+          14.5802
+        ],
+        [
+          86.6796,
+          14.4155
+        ],
+        [
+          86.6963,
+          14.2444
+        ],
+        [
+          86.6783,
+          14.0734
+        ],
+        [
+          86.6262,
+          13.9091
+        ],
+        [
+          86.5423,
+          13.7577
+        ],
+        [
+          86.4296,
+          13.6252
+        ],
+        [
+          86.2927,
+          13.5164
+        ],
+        [
+          86.1366,
+          13.4357
+        ],
+        [
+          85.9675,
+          13.386
+        ],
+        [
+          85.7916,
+          13.3692
+        ],
+        [
+          85.6157,
+          13.386
+        ],
+        [
+          85.4466,
+          13.4357
+        ],
+        [
+          85.2905,
+          13.5164
+        ],
+        [
+          85.1536,
+          13.6252
+        ],
+        [
+          85.0409,
+          13.7577
+        ],
+        [
+          84.957,
+          13.9091
+        ],
+        [
+          84.9049,
+          14.0734
+        ],
+        [
+          84.8869,
+          14.2444
+        ],
+        [
+          84.9036,
+          14.4155
+        ],
+        [
+          84.9545,
+          14.5802
+        ],
+        [
+          85.0377,
+          14.7321
+        ],
+        [
+          85.1501,
+          14.8653
+        ],
+        [
+          85.2873,
+          14.9747
+        ],
+        [
+          85.4441,
+          15.056
+        ],
+        [
+          85.6144,
+          15.1061
+        ],
+        [
+          85.7916,
+          15.123
+        ]
+      ],
+      "plus_24h": [
+        [
+          85.4418,
+          16.8303
+        ],
+        [
+          85.8029,
+          16.796
+        ],
+        [
+          86.1497,
+          16.6943
+        ],
+        [
+          86.4686,
+          16.5293
+        ],
+        [
+          86.7472,
+          16.3075
+        ],
+        [
+          86.9748,
+          16.0376
+        ],
+        [
+          87.1426,
+          15.73
+        ],
+        [
+          87.2445,
+          15.3968
+        ],
+        [
+          87.2768,
+          15.0509
+        ],
+        [
+          87.2386,
+          14.7056
+        ],
+        [
+          87.1318,
+          14.374
+        ],
+        [
+          86.9607,
+          14.0689
+        ],
+        [
+          86.732,
+          13.8017
+        ],
+        [
+          86.4545,
+          13.5827
+        ],
+        [
+          86.1389,
+          13.4201
+        ],
+        [
+          85.797,
+          13.3201
+        ],
+        [
+          85.4418,
+          13.2863
+        ],
+        [
+          85.0866,
+          13.3201
+        ],
+        [
+          84.7447,
+          13.4201
+        ],
+        [
+          84.4291,
+          13.5827
+        ],
+        [
+          84.1516,
+          13.8017
+        ],
+        [
+          83.9229,
+          14.0689
+        ],
+        [
+          83.7518,
+          14.374
+        ],
+        [
+          83.645,
+          14.7056
+        ],
+        [
+          83.6068,
+          15.0509
+        ],
+        [
+          83.6391,
+          15.3968
+        ],
+        [
+          83.741,
+          15.73
+        ],
+        [
+          83.9088,
+          16.0376
+        ],
+        [
+          84.1364,
+          16.3075
+        ],
+        [
+          84.415,
+          16.5293
+        ],
+        [
+          84.7339,
+          16.6943
+        ],
+        [
+          85.0807,
+          16.796
+        ],
+        [
+          85.4418,
+          16.8303
+        ]
+      ],
+      "plus_48h": [
+        [
+          84.5871,
+          21.231
+        ],
+        [
+          85.4323,
+          21.1515
+        ],
+        [
+          86.2426,
+          20.9161
+        ],
+        [
+          86.9849,
+          20.5347
+        ],
+        [
+          87.6294,
+          20.023
+        ],
+        [
+          88.1512,
+          19.4016
+        ],
+        [
+          88.531,
+          18.6956
+        ],
+        [
+          88.7559,
+          17.9329
+        ],
+        [
+          88.8192,
+          17.1431
+        ],
+        [
+          88.7206,
+          16.3567
+        ],
+        [
+          88.4658,
+          15.6034
+        ],
+        [
+          88.0658,
+          14.9117
+        ],
+        [
+          87.5369,
+          14.3072
+        ],
+        [
+          86.8993,
+          13.8124
+        ],
+        [
+          86.1771,
+          13.4453
+        ],
+        [
+          85.3968,
+          13.2196
+        ],
+        [
+          84.5871,
+          13.1434
+        ],
+        [
+          83.7774,
+          13.2196
+        ],
+        [
+          82.9971,
+          13.4453
+        ],
+        [
+          82.2749,
+          13.8124
+        ],
+        [
+          81.6373,
+          14.3072
+        ],
+        [
+          81.1084,
+          14.9117
+        ],
+        [
+          80.7084,
+          15.6034
+        ],
+        [
+          80.4536,
+          16.3567
+        ],
+        [
+          80.355,
+          17.1431
+        ],
+        [
+          80.4183,
+          17.9329
+        ],
+        [
+          80.6432,
+          18.6956
+        ],
+        [
+          81.023,
+          19.4016
+        ],
+        [
+          81.5448,
+          20.023
+        ],
+        [
+          82.1893,
+          20.5347
+        ],
+        [
+          82.9316,
+          20.9161
+        ],
+        [
+          83.7419,
+          21.1515
+        ],
+        [
+          84.5871,
+          21.231
+        ]
+      ]
+    }
+  },
+  "verification": {
+    "status": "AVAILABLE",
+    "sample_id": "NIO_2020_AMPHAN_20200518_0600Z",
+    "horizons": {
+      "plus_12h": {
+        "status": "VERIFIED",
+        "predicted": {
+          "lat": 14.2461,
+          "lon": 85.7916
+        },
+        "actual": {
+          "lat": 14.9,
+          "lon": 86.5
+        },
+        "dpe_km": 105.35,
+        "directional_error": {
+          "delta_lat_deg": -0.6539,
+          "delta_lon_deg": -0.7084,
+          "error_north_km": -72.71,
+          "error_east_km": -76.24
+        }
+      },
+      "plus_24h": {
+        "status": "VERIFIED",
+        "predicted": {
+          "lat": 15.0583,
+          "lon": 85.4418
+        },
+        "actual": {
+          "lat": 16.5,
+          "lon": 86.9
+        },
+        "dpe_km": 223.71,
+        "directional_error": {
+          "delta_lat_deg": -1.4417,
+          "delta_lon_deg": -1.4582,
+          "error_north_km": -160.31,
+          "error_east_km": -156.03
+        }
+      },
+      "plus_48h": {
+        "status": "VERIFIED",
+        "predicted": {
+          "lat": 17.1872,
+          "lon": 84.5871
+        },
+        "actual": {
+          "lat": 20.6,
+          "lon": 88.0
+        },
+        "dpe_km": 522.37,
+        "directional_error": {
+          "delta_lat_deg": -3.4128,
+          "delta_lon_deg": -3.4129,
+          "error_north_km": -379.49,
+          "error_east_km": -359.05
+        }
+      }
+    },
+    "aggregate_dpe_km": 283.81,
+    "verified_horizons_count": 3,
+    "verification_source": "IMD Best Track Archive",
+    "evaluation_notice": "Verification is evaluated strictly downstream of model inference. Predicted trajectory is compared against actual observed future coordinates."
+  },
+  "analogs": [
+    {
+      "storm_id": "NIO_2013_PHAILIN",
+      "storm_name": "PHAILIN",
+      "year": 2013,
+      "distance": 2.5302,
+      "t0_utc": "2013-10-11T00:00:00+00:00",
+      "peak_category": "VSCS",
+      "features": {
+        "lat": 16.0,
+        "lon": 88.5,
+        "wind_kt": 110.0,
+        "pressure_hpa": 946.0,
+        "dx_12h": -1.5,
+        "dy_12h": 0.5,
+        "dwind_12h": 35.0
+      },
+      "split": "TRAIN"
+    },
+    {
+      "storm_id": "NIO_2007_UNNAMED_2_3_1",
+      "storm_name": "NIO_2007_UNNAMED_2_3_1",
+      "year": 2007,
+      "distance": 2.8488,
+      "t0_utc": "2007-06-04T12:00:00+00:00",
+      "peak_category": "VSCS",
+      "features": {
+        "lat": 20.0,
+        "lon": 64.0,
+        "wind_kt": 115.0,
+        "pressure_hpa": 934.0,
+        "dx_12h": -1.0,
+        "dy_12h": 1.5,
+        "dwind_12h": 38.0
+      },
+      "split": "TRAIN"
+    }
+  ],
+  "saliency": {
+    "status": "AVAILABLE",
+    "method": "Grad-CAM",
+    "target_head_explained": "intensity_classification",
+    "target_layer": "spatial_encoder.layer2",
+    "source_timestep": "t0",
+    "source_modality": "GridSat-B1 IRWIN (Infrared)",
+    "heatmap_url": "/static/explainability/heatmap_amphan_20200518T060000+0000.png",
+    "overlay_url": "/static/explainability/overlay_amphan_20200518T060000+0000.png",
+    "original_url": "/static/explainability/original_amphan_20200518T060000+0000.png",
+    "predicted_class": "VSCS",
+    "interpretation_note": "Saliency maps visualize activations of intermediate spatial convolutional features in the Phase 3C localization encoder during intensity classification. This is an interpretability diagnostic, NOT a causal meteorological explanation."
+  },
+  "secondary_observation": {
+    "source": "NASA GPM IMERG Final Run V07B",
+    "product_collection": "GPM_3IMERGHH_07",
+    "variable": "precipitationCal (mm/hr)",
+    "frames": [
+      {
+        "step": "t_minus_15h",
+        "offset_hours": -15,
+        "timestamp_utc": "2020-05-17T15:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200517-S150000-E152959.0900.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      },
+      {
+        "step": "t_minus_12h",
+        "offset_hours": -12,
+        "timestamp_utc": "2020-05-17T18:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200517-S180000-E182959.1080.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      },
+      {
+        "step": "t_minus_9h",
+        "offset_hours": -9,
+        "timestamp_utc": "2020-05-17T21:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200517-S210000-E212959.1260.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      },
+      {
+        "step": "t_minus_6h",
+        "offset_hours": -6,
+        "timestamp_utc": "2020-05-18T00:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200518-S000000-E002959.0000.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      },
+      {
+        "step": "t_minus_3h",
+        "offset_hours": -3,
+        "timestamp_utc": "2020-05-18T03:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200518-S030000-E032959.0180.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      },
+      {
+        "step": "t0",
+        "offset_hours": 0,
+        "timestamp_utc": "2020-05-18T06:00:00+00:00",
+        "granule_id": "3B-HHR.MS.MRG.3IMERG.20200518-S060000-E062959.0360.V07B.HDF5",
+        "local_status": "VALIDATED_HDF5"
+      }
+    ],
+    "timestamp_alignment": "EXACT_3H_SYNCHRONIZED",
+    "display_ready": true,
+    "role": "OBSERVATIONAL_CONTEXT_ONLY",
+    "predictive_fusion_role": "NONE (Controlled research demonstrated no fusion benefit; exposed strictly as secondary observation context)"
+  },
+  "metadata": {
+    "inference_id": "vayu_inf_amphan_rehearsal_demo",
+    "execution_timestamp_utc": "2026-09-26T00:08:18.668277+00:00",
+    "prediction_source": "VALIDATED_MODEL_REPLAY",
+    "model_versions": {
+      "center": "Phase 3C Dedicated ResNet-18",
+      "track": "Phase 5B Variant A Hybrid Residual",
+      "intensity_wind": "Phase 6 Multi-Task Conv-GRU"
+    },
+    "scientific_disclaimer": "VAYU-NET operational intelligence aid for North Indian Ocean tropical cyclone forecasting. Primary predictions are generated using validated GridSat-B1 satellite and ERA5 reanalysis backbones. IMERG precipitation is provided strictly as synchronized secondary observation context without predictive fusion. Trajectory verification is evaluated strictly downstream to eliminate future observation leakage. Phase 6 intensity predictions and Grad-CAM interpretability visualizations are diagnostic research aids and do not replace official IMD Advanced Dvorak Technique bulletins.",
+    "mode": "HISTORICAL_REPLAY_DEMO"
+  }
+}

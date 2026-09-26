@@ -23,6 +23,7 @@ ENV/
 .env
 .env.*
 !.env.example
+apps/frontend/.env.local
 
 # IDE & Editor files
 .vscode/
